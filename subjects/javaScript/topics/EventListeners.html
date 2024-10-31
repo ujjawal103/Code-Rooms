@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event-listeners Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Event Listeners</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+      <section class="sub">
+  <h2 onclick="toggleContent('domEvents')">DOM Events</h2>
+  <div id="domEvents" class="content" style="display: none;">
+    <h4 class="html-structure">Sample HTML Structure:</h4>
+    <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+      <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button&gt;Click Me!&lt;/button&gt;
+    &lt;button id="btn"&gt;Click Me!&lt;/button&gt;
+    &lt;button id="btn3"&gt;Click Me!&lt;/button&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </code>
+    </pre>
+
+    <h3>Overview of DOM Events</h3>
+    <p>DOM events are signals triggered by user actions or interactions on the webpage. Here, we explore common events such as <code>onclick</code> and <code>onmouseenter</code>.</p>
+    
+    <h3>Using the <code>onclick</code> Event</h3>
+    <p>The <code>onclick</code> event fires when an element is clicked. You can attach a function to run whenever the event occurs. Note that only one function can be assigned per <code>onclick</code> handler.</p>
+    <pre><code class="language-js">
+// Select the first button element
+let button = document.querySelector("button");
+
+// Define the onclick event to display an alert when clicked
+button.onclick = function () {
+    alert("Button was clicked");
+};
+    </code></pre>
+
+    <h3>Assigning Functions to Events</h3>
+    <p>Functions can be assigned directly to event handlers like <code>onclick</code>. Avoid calling the function directly (e.g., <code>button2.onclick = btn();</code>) as this will run the function immediately rather than on click.</p>
+    <pre><code class="language-js">
+// Select the button with id "btn"
+let button2 = document.querySelector("#btn");
+
+function btn() {
+    alert("Hello there!");
+}
+
+button2.onclick = btn; // Assigns the function without executing it immediately
+    </code></pre>
+
+    <h3>Using the <code>onmouseenter</code> Event</h3>
+    <p>The <code>onmouseenter</code> event fires when the mouse enters the area of an element, such as hovering over a button. This is useful for adding effects or animations.</p>
+    <pre><code class="language-js">
+// Select the button with id "btn3"
+let button3 = document.querySelector("#btn3");
+
+// Define the onmouseenter event to log a message on hover
+button3.onmouseenter = () => {
+    console.log("You entered the area of button 3");
+};
+    </code></pre>
+    
+  </div>
+      </section>
+
+      <section class="sub">
+  <h2 onclick="toggleContent('eventListeners')">Event Listeners</h2>
+  <div id="eventListeners" class="content" style="display: none;">
+    <h4 class="html-structure">Sample HTML Structure:</h4>
+    <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+      <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;button&gt;Click Me!&lt;/button&gt;
+    &lt;button id="btn"&gt;Click Me!&lt;/button&gt;
+    &lt;button id="btn3"&gt;Click Me!&lt;/button&gt;
+    
+    &lt;div style="height: 100px; background-color: aqua; width: 100px;"&gt;&lt;/div&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </code>
+    </pre>
+
+    <h3>Why Use Event Listeners?</h3>
+    <p>Direct event properties like <code>onclick</code> only support a single function per event. In contrast, event listeners allow multiple functions to respond to the same event on an element, offering flexibility and control over event handling.</p>
+
+    <h3>Using <code>addEventListener</code></h3>
+    <p>The <code>addEventListener</code> method attaches a specified event and a callback function to execute when that event occurs. Its syntax is: <code>Element.addEventListener(event, callback)</code>.</p>
+    <pre><code class="language-js">
+// Example with a single event listener on 'btn' button
+let button2 = document.querySelector("#btn");
+
+button2.addEventListener("click", () => {
+   console.log("button clicked");
+});
+
+button2.addEventListener("click", () => {
+  alert("button was clicked");
+});
+// Both functions execute upon clicking 'btn'.
+    </code></pre>
+
+    <h3>Executing Multiple Actions on a Single Event</h3>
+    <p>With <code>addEventListener</code>, multiple functions can respond to a single event, increasing interactivity. For instance:</p>
+    <pre><code class="language-js">
+// Two click events trigger both an alert and a console log
+button2.addEventListener("click", () => {
+   console.log("button clicked");
+});
+
+button2.addEventListener("click", () => {
+  alert("button was clicked");
+});
+    </code></pre>
+
+    <h3>Other Event Types</h3>
+    <p>Event listeners can handle various events, such as <code>dblclick</code> for double-click actions and <code>mouseenter</code> for hover effects.</p>
+    <pre><code class="language-js">
+// Double-click event on 'btn3'
+let button3 = document.querySelector("#btn3");
+button3.addEventListener("dblclick", () => {
+   alert("button was clicked 2 times");  // Executes on double-click.
+});
+    </code></pre>
+
+    <h3>Event Listeners Beyond Buttons</h3>
+    <p>Event listeners can be added to any HTML element, not just buttons. For example, hovering over a <code>div</code> can trigger a <code>mouseenter</code> or <code>mouseleave</code> event, allowing interactive effects like text changes.</p>
+    <pre><code class="language-js">
+// Adding event listeners to a 'div' element
+let box = document.querySelector("div");
+
+box.addEventListener("mouseenter", function(){
+   box.innerText = "In Box";  // Text changes on hover.
+});
+
+box.addEventListener("mouseleave", function(){
+   box.innerText = "";  // Text clears when mouse leaves.
+});
+    </code></pre>
+
+  </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('this-keyword')">'this' Keyword in Event Listeners</h2>
+    <div id="this-keyword" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id="btn"&gt;Generate Color&lt;/button&gt;
+    &lt;h2&gt;Use of 'this' in Event Listeners&lt;/h2&gt;
+    &lt;h3&gt;Let's demo it on elements&lt;/h3&gt;
+    &lt;p&gt;This is a sample paragraph&lt;/p&gt;
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Using 'this' in Event Listeners</h3>
+        <p>The <code>this</code> keyword in an event listener callback refers to the element that the event listener is attached to. This can be useful when applying the same event listener to multiple elements.</p>
+
+        <h4>Using 'this' with a Button</h4>
+        <pre><code class="language-js">
+// 'this' in event listener callback refers to the button element
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", function() {
+    console.log(this); // Logs the button element
+    console.dir(this); // Shows all properties of the button
+    this.style.backgroundColor = "pink"; // Changes button color to pink
+});
+        </code></pre>
+
+        <h4>Applying the Same Event Listener to Multiple Elements</h4>
+        <p>We can use <code>this</code> to handle multiple elements with a single function.</p>
+        <pre><code class="language-js">
+let h2 = document.querySelector("h2");
+let h3 = document.querySelector("h3");
+let para = document.querySelector("p");
+
+function changeBackground() {
+    console.log(this.innerText);
+    console.dir(this);
+    this.style.backgroundColor = "yellow"; // Changes background color to yellow
+}
+
+h2.addEventListener("click", changeBackground);
+h3.addEventListener("click", changeBackground);
+para.addEventListener("click", changeBackground);
+        </code></pre>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('event-argument-keyboard-events')">Keyboard Events</h2>
+    <div id="event-argument-keyboard-events" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;button id="btn"&gt;Click me!&lt;/button&gt;
+    &lt;input type="text" placeholder="type something..."&gt;  
+    &lt;input id="input2" type="text" placeholder="type something..."&gt;    
+    &lt;input id="input3" type="text" placeholder="Checking Code &amp; Key.."&gt;    
+    &lt;input id="input4" type="text" placeholder="tracking the movement of character"&gt;
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Event Argument</h3>
+        <p>When an event listener is triggered, an event argument is automatically generated and passed to the callback function, providing various details about the event.</p>
+
+        <h4>Button Click Event</h4>
+        <pre><code class="language-js">
+// Event argument in a button click
+let btn = document.querySelector("#btn");
+btn.addEventListener("click", function(event) {
+    console.log("button was clicked");
+    console.log(event);      // Logs the event object
+    console.dir(event);      // Shows event properties
+});
+        </code></pre>
+
+        <h3>Keyboard Events</h3>
+        <p>Keyboard events like <code>keydown</code> and <code>keyup</code> trigger when keys are pressed or released, respectively. These events are useful for interactive applications.</p>
+
+        <h4>Basic Keyboard Event Handling</h4>
+        <pre><code class="language-js">
+let input = document.querySelector("input");
+input.addEventListener("keydown", function() {
+    console.log("any key is pressed");
+});
+
+input.addEventListener("keyup", function() {
+    console.log("any key is released");
+});
+        </code></pre>
+
+        <h4>Using Event Argument in Keyboard Events</h4>
+        <pre><code class="language-js">
+let input2 = document.querySelector("#input2");
+input2.addEventListener("keydown", function(event) {
+    console.log(event);    // Logs event details including 'code' and 'key' properties
+});
+        </code></pre>
+
+        <h4>Accessing Key Code and Key Value</h4>
+        <p>The <code>event</code> argument in keyboard events provides properties like <code>code</code> and <code>key</code>:</p>
+        <pre><code class="language-js">
+let input3 = document.querySelector("#input3");
+input3.addEventListener("keydown", function(event) {
+    console.log(event.code); // Logs the key code (e.g., "KeyF")
+    console.log(event.key);  // Logs the actual key pressed (e.g., "f")
+});
+        </code></pre>
+
+        <h4>Tracking Arrow Key Movement</h4>
+        <pre><code class="language-js">
+let input4 = document.querySelector("#input4");
+input4.addEventListener("keydown", function(event) {
+    console.log(`code = ${event.code}`);
+    
+    if (event.code == "ArrowUp") {
+        console.log("character moves forward");
+    } else if (event.code == "ArrowDown") {
+        console.log("character moves backward");
+    } else if (event.code == "ArrowLeft") {
+        console.log("character moves left");
+    } else if (event.code == "ArrowRight") {
+        console.log("character moves right");
+    }
+});
+        </code></pre>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('form-submission')">Form Events</h2>
+    <div id="form-submission" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="username"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="action not work"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Form Submission</h3>
+        <p>Forms can be submitted programmatically, and specific actions (like page navigation) can be associated with their submission.</p>
+
+        <h4>Form Submission with Alert</h4>
+        <pre><code class="language-js">
+let form = document.querySelectorAll("form");
+
+// Basic form submission
+form[0].addEventListener("submit", function() {
+    alert("Your form is submitted");
+});
+        </code></pre>
+
+        <h3>Preventing Default Form Action</h3>
+        <p>To stop the form from executing its default action (such as navigating to a different page), you can use <code>event.preventDefault()</code>.</p>
+        
+        <pre><code class="language-js">
+form[1].addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the default action
+    alert("Your form is submitted");
+    console.log("Your form is submitted");
+});
+        </code></pre>
+
+        <h4>Explanation</h4>
+        <ul>
+            <li><code>event.preventDefault()</code> is used to halt the form's default action, keeping the user on the same page.</li>
+            <li>This method is particularly useful when validating forms or sending data asynchronously.</li>
+        </ul>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('extracting-form-data')">Extracting Form Data</h2>
+    <div id="extracting-form-data" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="action not work"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;hr&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="username" id="user"&gt;
+        &lt;input type="password" placeholder="Enter password" id="pass"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;hr&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="username"&gt;
+        &lt;input type="password" placeholder="Enter password"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Extracting Form Data on Submission</h3>
+        <p>To capture data entered by a user, we can use JavaScript to extract values from form fields when the form is submitted. This is often achieved with the <code>value</code> property of input elements.</p>
+
+        <h4>Basic Extraction Example</h4>
+        <pre><code class="language-js">
+let form = document.querySelectorAll("form");
+
+form[0].addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevents the form's default action
+    alert("Your form is submitted");
+
+    let input = document.querySelectorAll("input");
+    console.log(input[0].value); // Displays the input value
+});
+        </code></pre>
+
+        <h4>Extracting Username and Password Values</h4>
+        <p>This example shows how to capture multiple input values, such as a username and password, and store them in variables.</p>
+        <pre><code class="language-js">
+form[1].addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let user = document.querySelector("#user");
+    let pass = document.querySelector("#pass");
+
+    let username = user.value;
+    let password = pass.value;
+
+    console.log(`username = ${username}`);
+    console.log(`password = ${password}`);
+});
+        </code></pre>
+
+        <h4>Using <code>this.elements</code> to Access Form Elements</h4>
+        <p>You can access form elements without <code>querySelector</code> by using <code>this.elements</code>, which returns a collection of all elements within the form.</p>
+        <pre><code class="language-js">
+form[2].addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    let user = this.elements[0];
+    let pass = this.elements[1];
+
+    let username = user.value;
+    let password = pass.value;
+
+    console.log(`username = ${username}`);
+    console.log(`password = ${password}`);
+});
+        </code></pre>
+
+        <h4>Explanation</h4>
+        <ul>
+            <li><code>event.preventDefault()</code>: Stops the form from navigating to a new page.</li>
+            <li><code>input.value</code>: Accesses the user-entered value in an input field.</li>
+            <li><code>this.elements</code>: A convenient way to access form inputs directly without additional selectors.</li>
+        </ul>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('change-input-events')">Change and Input Events</h2>
+    <div id="change-input-events" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="username" id="user"&gt;
+        &lt;input type="password" placeholder="Enter password" id="pass"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+    &lt;hr&gt;
+
+    &lt;form action="/action"&gt;
+        &lt;input type="text" placeholder="username" id="user2"&gt;
+        &lt;input type="password" placeholder="Enter password" id="pass2"&gt;
+        &lt;button&gt;Register&lt;/button&gt;
+    &lt;/form&gt;
+
+    &lt;h1&gt;My text editor&lt;/h1&gt;
+    &lt;p&gt;&lt;/p&gt;
+    &lt;input type="text" placeholder="type something...." id="practice"&gt;
+    
+    &lt;h2&gt;My text editor&lt;/h2&gt;
+    &lt;input type="text" placeholder="type something...." id="newPractice"&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Understanding Change and Input Events</h3>
+        <p><strong>Change Event:</strong> Occurs when the value of an input, select, or textarea changes and the element loses focus.</p>
+        <p><strong>Input Event:</strong> Fires whenever the value of an input, select, or textarea is modified, even by a single character.</p>
+
+        <h4>Example: Change Event</h4>
+        <pre><code class="language-js">
+let user = document.querySelector("#user");
+let pass = document.querySelector("#pass");
+
+user.addEventListener("change", function() {
+    console.log("username changed");
+    console.log("new value =", this.value);
+});
+pass.addEventListener("change", function() {
+    console.log("password changed");
+    console.log("new value =", this.value);
+});
+        </code></pre>
+
+        <h4>Example: Input Event</h4>
+        <p>The input event will trigger whenever the user types each character.</p>
+        <pre><code class="language-js">
+let user2 = document.querySelector("#user2");
+let pass2 = document.querySelector("#pass2");
+
+user2.addEventListener("input", function() {
+    console.log("username changed");
+    console.log("new value =", this.value);
+});
+pass2.addEventListener("input", function() {
+    console.log("password changed");
+    console.log("new value =", this.value);
+});
+        </code></pre>
+
+        <h4>Dynamic Text Editor Example</h4>
+        <p>This example demonstrates real-time display of input within a paragraph or dynamically created paragraphs below an editor.</p>
+
+        <h5>Single Paragraph Update</h5>
+        <pre><code class="language-js">
+let practice = document.querySelector("#practice");
+let para = document.querySelector("p");
+
+practice.addEventListener("input", function() {
+    para.innerText = this.value;
+});
+        </code></pre>
+
+        <h5>Creating New Paragraphs Dynamically</h5>
+        <pre><code class="language-js">
+let practice2 = document.querySelector("#newPractice");
+let h2 = document.querySelector("h2");
+
+practice2.addEventListener("input", function() {
+    let newPara = document.createElement("p");
+    newPara.innerHTML = `${this.value} &lt;br&gt;`;
+    h2.append(newPara);
+});
+        </code></pre>
+
+        <h4>Explanation</h4>
+        <ul>
+            <li><strong>Change Event</strong>: Triggers when the user exits the input field after modifying the value.</li>
+            <li><strong>Input Event</strong>: Triggers on every character entered, deleted, or modified within an input field.</li>
+            <li><strong>Dynamic Text Editor</strong>: Examples to display input in real-time in a paragraph or add new paragraphs for each update.</li>
+        </ul>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('event-bubbling')">Event Bubbling</h2>
+    <div id="event-bubbling" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+  &lt;title&gt;Document&lt;/title&gt;
+  &lt;style&gt;
+    div {
+        background-color: pink;
+        height: 200px;
+        width: 400px;
+    }
+    ul {
+      background-color: blue;
+    }
+    li {
+      background-color: greenyellow;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;div&gt;
+     &lt;ul&gt;
+       &lt;li&gt;one&lt;/li&gt;
+       &lt;li&gt;two&lt;/li&gt;
+       &lt;li&gt;three&lt;/li&gt;
+     &lt;/ul&gt;
+ &lt;/div&gt;
+  &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Understanding Event Bubbling</h3>
+        <p>Event bubbling is a concept in which an event triggered on a child element propagates up to its parent elements. This means that when you click on a child element, the event first triggers the child’s event handler and then moves up to trigger the parent’s event handler.</p>
+
+        <h4>Example of Event Bubbling</h4>
+        <pre><code class="language-js">
+let div = document.querySelector("div");
+let ul = document.querySelector("ul");
+let li = document.querySelectorAll("li");
+
+// Event handlers for bubbling
+div.addEventListener("click", function() {
+    console.log("div was clicked");
+});
+
+ul.addEventListener("click", function() {
+    console.log("ul was clicked");
+});
+
+for (let i = 0; i < li.length; i++) {
+    li[i].addEventListener("click", function() {
+        console.log(`li ${i} was clicked`);
+    });
+}
+        </code></pre>
+
+        <h3>Stopping Event Propagation</h3>
+        <p>To prevent the event from bubbling up to parent elements, you can use the <code>stopPropagation()</code> method. This is useful when you want to handle an event on a child element without triggering the parent’s event handler.</p>
+
+        <h4>Example: Stopping Propagation</h4>
+        <pre><code class="language-js">
+// Stopping event bubbling
+ul.addEventListener("click", function(event) {
+    event.stopPropagation();
+    console.log("ul was clicked");
+});
+
+for (let i = 0; i < li.length; i++) {
+    li[i].addEventListener("click", function(event) {
+        event.stopPropagation();
+        console.log(`li ${i} was clicked`);
+    });
+}
+        </code></pre>
+
+        <h4>Explanation</h4>
+        <ul>
+            <li><strong>Event Bubbling:</strong> When a child element is clicked, its event triggers first, followed by the parent elements.</li>
+            <li><strong>Stopping Propagation:</strong> Use <code>event.stopPropagation()</code> to prevent an event from bubbling up to parent elements, allowing for more controlled event handling.</li>
+        </ul>
+    </div>
+      </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+/* Off-canvas styles */
+.off-canvas {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(135deg, #1f1f1d, #8e2964);
+    color: #fff;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    h2{
+        font-size: 4vh;
+        color: #11c2d2;
+    }
+}
+
+.off-canvas ul {
+    list-style-type: none;
+    padding: 0;
+   
+}
+
+.off-canvas ul li {
+    margin: 10px 0;
+    font-size: 3vh;
+}
+
+.off-canvas ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.off-canvas ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Toggle button styles */
+.menu-button, .close-button {
+    font-size: 1.5rem;
+    background-color: rgb(86, 5, 70);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10%;
+}
+
+/* .menu-button:hover, .close-button:hover {
+    background-color: rgb(86, 5, 70);
+} */
+
+.menu-button {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    z-index: 1001;
+    background-color: transparent;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Off-canvas active state */
+.off-canvas.open {
+    left: 0;
+}
+
+/* Adjust main content when sidebar is open */
+.main-content {
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.shift {
+    margin-left: 250px;
+}

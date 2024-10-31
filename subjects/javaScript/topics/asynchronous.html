@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asynchronous Nature</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Asynchronous Nature of JS</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+   
+        <section class="sub">
+    <h2 onclick="toggleContent('call-stack')">Call Stack </h2>
+    <div id="call-stack" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;hello Muskan&lt;/h1&gt;
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Understanding Call Stack</h3>
+        <p>The call stack is a mechanism for managing function calls in JavaScript. It follows a Last In, First Out (LIFO) structure, meaning the last function called is the first one to complete. Each function call is added to the stack, and when a function returns, it is removed from the stack.</p>
+
+        <h4>Example of Call Stack</h4>
+        <pre><code class="language-js">
+// Call Stack Example
+function hello() {
+    console.log("inside hello");
+}
+
+function demo() {
+    console.log("inside demo and calling hello()");
+    hello();
+}
+
+console.log("calling to demo");
+demo();
+console.log("bye!");
+        </code></pre>
+
+        <h4>Call Stack Execution Flow</h4>
+        <p>In the example above:</p>
+        <ol>
+            <li>The <code>demo</code> function is called, which adds it to the call stack.</li>
+            <li>Inside <code>demo</code>, the <code>hello</code> function is called, adding it to the stack.</li>
+            <li>Once <code>hello</code> finishes, it is removed from the stack, and control returns to <code>demo</code>.</li>
+            <li>After <code>demo</code> finishes, it is also removed, leaving the call stack empty.</li>
+        </ol>
+
+        <h4>Visual Representation of Call Stack</h4>
+        <pre><code class="language-js">
+// Call Stack Visualization
+// Stack after calling demo()
+//   demo()
+//     hello()
+// After execution completes:
+// Stack is empty
+        </code></pre>
+
+        <h3>Debugging with Call Stack</h3>
+        <p>The call stack is also visible in browser developer tools, which helps in debugging JavaScript code:</p>
+        <ol>
+            <li>Open the developer tools and navigate to the sources tab.</li>
+            <li>Add breakpoints by clicking on the line number in your JavaScript code.</li>
+            <li>Refresh the page, and the execution will pause at your breakpoints.</li>
+            <li>Use the "Step Into" button to navigate through your code, observing how functions are added and removed from the call stack.</li>
+        </ol>
+
+        <h3>JavaScript Execution Context</h3>
+        <p>JavaScript is single-threaded, meaning it can only execute one task at a time. However, asynchronous operations such as <code>setTimeout</code> allow JavaScript to handle other tasks while waiting:</p>
+
+        <pre><code class="language-js">
+// Example of Asynchronous Execution
+setTimeout(() => {
+    console.log("hello");
+}, 2000);
+
+setTimeout(() => {
+    console.log("hello2");
+}, 2000);
+
+console.log("hello jee");
+        </code></pre>
+
+        <h4>Execution Explanation</h4>
+        <p>In this example, the following occurs:</p>
+        <ol>
+            <li>The first <code>setTimeout</code> is scheduled to run after 2 seconds.</li>
+            <li>The second <code>setTimeout</code> is also scheduled for 2 seconds.</li>
+            <li>Finally, "hello jee" is logged immediately.</li>
+            <li>After 2 seconds, both "hello" and "hello2" are logged.</li>
+        </ol>
+
+        <p>This demonstrates how JavaScript can handle asynchronous operations using the browser's multi-threaded capabilities while remaining single-threaded for execution.</p>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('callback-hell')">Callback Hell </h2>
+    <div id="callback-hell" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;h1&gt;Hello jee kaise ho!&lt;/h1&gt;
+
+    &lt;h2&gt;nesting of callback to change color after 1 sec to each.&lt;/h2&gt;
+     
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Understanding Callback Hell</h3>
+        <p>Callback hell refers to the situation where multiple callback functions are nested within each other, making the code difficult to read and maintain. This often occurs when dealing with asynchronous operations in JavaScript.</p>
+
+        <h4>Example of Nested Callbacks</h4>
+        <pre><code class="language-js">
+// Callback Hell Example
+let h1 = document.querySelector("h1");
+
+function changeColor(color1, delay) {
+    setTimeout(() => {
+        h1.style.color = color1;
+    }, delay);
+}
+
+changeColor("red", 1000);
+changeColor("blue", 2000);
+changeColor("green", 3000);
+        </code></pre>
+
+        <p>In the example above, multiple calls to <code>changeColor</code> are made, but they are not dependent on each other, making it hard to manage delays.</p>
+
+        <h4>Nesting Callbacks to Create Dependencies</h4>
+        <pre><code class="language-js">
+// Nested Callbacks Example
+let h2 = document.querySelector("h2");
+
+function changeColor2(color2, delay, nextColorChange) {
+    setTimeout(() => {
+        h2.style.color = color2;
+        if (nextColorChange) {
+            nextColorChange(); // Calls the next callback if provided
+        }
+    }, delay);
+}
+
+changeColor2("red", 1000, () => {
+    changeColor2("blue", 1000, () => {
+        changeColor2("green", 1000);
+    });
+});
+        </code></pre>
+
+        <p>In this example, the second function <code>changeColor2</code> accepts a third parameter, which is a callback function. This allows each color change to wait for the previous one to finish before executing.</p>
+
+        <h3>The Problem with Callback Hell</h3>
+        <p>While nesting callbacks can create dependencies, it leads to code that is hard to read and understand, often referred to as "callback hell." To simplify this pattern and improve code readability, JavaScript introduced the concept of <strong>promises</strong>.</p>
+
+        <p>Promises allow you to handle asynchronous operations in a more manageable way, eliminating the need for deeply nested callbacks.</p>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('using-promises')">Using Promises</h2>
+    <div id="using-promises" class="content" style="display: none;">
+        
+        <h3>Understanding Promises</h3>
+        <p>A <strong>promise</strong> is an object that represents the eventual completion (or failure) of an asynchronous operation and its resulting value. Promises help to manage asynchronous code, making it easier to read and maintain.</p>
+
+        <h4>Basic Syntax</h4>
+        <pre><code class="language-js">
+// Basic Promise Syntax
+function saveToDatabase(data) {
+    return new Promise((resolve, reject) => {
+        // Asynchronous operation
+    });
+}
+        </code></pre>
+
+        <h4>Example of a Promise</h4>
+        <pre><code class="language-js">
+// Example of using a Promise
+function saveToDatabase(data) {
+    return new Promise((resolve, reject) => {
+        let internetSpeed = Math.floor(Math.random() * 10) + 1;
+
+        if (internetSpeed > 4) {
+            resolve("Yes! Data saved in database");
+        } else {
+            reject("Oops! Data can't be saved due to weak internet connection.");
+        }
+    });
+}
+
+console.log(saveToDatabase("save my data"));
+        </code></pre>
+
+        <h3>Promise States</h3>
+        <ul>
+            <li><strong>Pending:</strong> The initial state; the operation is ongoing.</li>
+            <li><strong>Fulfilled:</strong> The operation completed successfully.</li>
+            <li><strong>Rejected:</strong> The operation failed.</li>
+        </ul>
+
+        <h3>Handling Promises</h3>
+        <p>Promises come with built-in methods, two of which are used frequently:</p>
+        <ul>
+            <li><strong>then():</strong> Used to perform tasks when a promise is fulfilled.</li>
+            <li><strong>catch():</strong> Used to handle tasks when a promise is rejected.</li>
+        </ul>
+
+        <h4>Example of Using then() and catch()</h4>
+        <pre><code class="language-js">
+function saveToDatabase(data) {
+    return new Promise((resolve, reject) => {
+        let internetSpeed = Math.floor(Math.random() * 10) + 1;
+
+        if (internetSpeed > 4) {
+            resolve("Yes! Data saved in database");
+        } else {
+            reject("Weak internet connection!");
+        }
+    });
+}
+
+saveToDatabase("Data to save")
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+        </code></pre>
+
+        <h3>Promise Chaining</h3>
+        <p>Promise chaining allows you to execute multiple asynchronous operations in a sequence, improving readability and reducing nesting:</p>
+        <pre><code class="language-js">
+saveToDatabase("Data 1")
+    .then(() => {
+        console.log("Data 1 saved");
+        return saveToDatabase("Data 2");
+    })
+    .then(() => {
+        console.log("Data 2 saved");
+        return saveToDatabase("Data 3");
+    })
+    .then(() => {
+        console.log("Data 3 saved");
+    })
+    .catch((error) => {
+        console.log("Process rejected:", error);
+    });
+        </code></pre>
+
+        <h3>Using Promises for Color Changes</h3>
+        <p>Promises can also simplify the process of changing colors asynchronously:</p>
+        <pre><code class="language-js">
+let h3 = document.querySelector("h3");
+
+function changeColor(color, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            h3.style.color = color;
+            resolve("Color changed");
+        }, delay);
+    });
+}
+
+changeColor("red", 1000)
+    .then((result) => {
+        console.log(result);
+        return changeColor("blue", 1000);
+    })
+    .then((result) => {
+        console.log(result);
+        return changeColor("green", 1000);
+    })
+    .then((result) => {
+        console.log(result);
+    })
+    .catch((error) => {
+        console.log("Error:", error);
+    });
+        </code></pre>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('async-await')">Async & Await</h2>
+    <div id="async-await" class="content" style="display: none;">
+        
+        <h3>Understanding Async & Await</h3>
+        <p><strong>Async</strong> and <strong>await</strong> are syntactic sugar for working with promises. They simplify the process of writing asynchronous code, making it easier to read and maintain.</p>
+
+        <h4>Basic Syntax</h4>
+        <pre><code class="language-js">
+// Basic Async Function Syntax
+async function functionName() {
+    // code
+}
+        </code></pre>
+
+        <h4>Example of an Async Function</h4>
+        <pre><code class="language-js">
+// Example of an Async Function
+async function greet() {
+    return "Hello, World!";
+}
+
+console.log(greet()); // Returns a promise
+        </code></pre>
+
+        <h3>The Await Keyword</h3>
+        <p>The <strong>await</strong> keyword pauses the execution of an async function until the promise is settled (resolved or rejected). It can only be used inside async functions.</p>
+
+        <h4>Basic Syntax with Await</h4>
+        <pre><code class="language-js">
+async function functionName() {
+    const result = await somePromiseFunction();
+}
+        </code></pre>
+
+        <h4>Example with Await</h4>
+        <pre><code class="language-js">
+// Using Await with Promises
+function getNumber() {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(Math.floor(Math.random() * 10) + 1);
+        }, 1000);
+    });
+}
+
+async function demo() {
+    const num1 = await getNumber();
+    console.log(num1);
+    const num2 = await getNumber();
+    console.log(num2);
+}
+demo();
+        </code></pre>
+
+        <h3>Using Async & Await for Color Changes</h3>
+        <p>Async and await can be used to change colors asynchronously, improving code readability:</p>
+        <pre><code class="language-js">
+let h3 = document.querySelector("h3");
+
+function changeColor(color, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            h3.style.color = color;
+            resolve("Color changed to " + color);
+        }, delay);
+    });
+}
+
+async function demoColorChange() {
+    await changeColor("red", 1000);
+    await changeColor("blue", 1000);
+    await changeColor("green", 1000);
+    console.log("All colors changed");
+}
+demoColorChange();
+        </code></pre>
+
+        <h3>Error Handling with Async & Await</h3>
+        <p>Errors during the execution of async functions can be caught using <strong>try...catch</strong>:</p>
+        <pre><code class="language-js">
+async function demoColorChangeWithError() {
+    try {
+        await changeColor("red", 1000);
+        await changeColor("orange", 1000);
+        await changeColor("blue", 1000); // May throw an error
+    } catch (err) {
+        console.error("An error occurred:", err);
+    }
+}
+demoColorChangeWithError();
+        </code></pre>
+    </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

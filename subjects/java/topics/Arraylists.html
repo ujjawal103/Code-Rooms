@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Notes Gallery</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="generalCss.css">
+</head>
+<body>
+
+    <header>
+        <h1>ArrayLists</h1>
+        <p>Explore all Java notes in one place</p>
+    </header>
+
+    <div class="gallery-container" id="gallery"></div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-button" onclick="closeLightbox()">×</span>
+        <span class="prev-button" onclick="showPrev()">&#10094;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+        <span class="next-button" onclick="showNext()">&#10095;</span>
+    </div>
+
+    <div id="space"></div>
+    <footer>
+        <p>&copy; 2024 My Java Notes - Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        const images = [
+             "../images/Java left side/IMG_20241029_010326.jpg",    
+"../images/Java Right side/IMG_20241029_004110.jpg",   
+"../images/Java left side/IMG_20241029_010332.jpg",    
+"../images/Java Right side/IMG_20241029_004118.jpg",   
+"../images/Java left side/IMG_20241029_010343.jpg",    
+"../images/Java Right side/IMG_20241029_004134.jpg",   
+"../images/Java left side/IMG_20241029_010355.jpg",    
+"../images/Java Right side/IMG_20241029_004147.jpg",   
+"../images/Java left side/IMG_20241029_010403.jpg",    
+"../images/Java Right side/IMG_20241029_004158.jpg",   
+"../images/Java left side/IMG_20241029_010412.jpg",    
+"../images/Java Right side/IMG_20241029_004206.jpg",   
+"../images/Java left side/IMG_20241029_010425.jpg",    
+"../images/Java Right side/IMG_20241029_004221.jpg",   
+"../images/Java left side/IMG_20241029_010437.jpg",    
+"../images/Java Right side/IMG_20241029_004229.jpg",   
+"../images/Java left side/IMG_20241029_010451.jpg",    
+"../images/Java Right side/IMG_20241029_004237.jpg",   
+"../images/Java left side/IMG_20241029_010457.jpg",    
+"../images/Java Right side/IMG_20241029_004257.jpg",   
+"../images/Java left side/IMG_20241029_010504.jpg",    
+"../images/Java Right side/IMG_20241029_004309.jpg",   
+"../images/Java left side/IMG_20241029_010510.jpg",    
+"../images/Java Right side/IMG_20241029_004317.jpg",   
+"../images/Java left side/IMG_20241029_010516.jpg",    
+"../images/Java Right side/IMG_20241029_004327.jpg",   
+"../images/Java left side/IMG_20241029_010523.jpg",    
+"../images/Java Right side/IMG_20241029_004337.jpg",   
+"../images/Java left side/IMG_20241029_010529.jpg",    
+"../images/Java Right side/IMG_20241029_004344.jpg",   
+"../images/Java left side/IMG_20241029_010535.jpg",    
+"../images/Java Right side/IMG_20241029_004353.jpg",
+"../images/Java left side/IMG_20241029_010542.jpg",    
+"../images/Java Right side/IMG_20241029_004402.jpg",   
+"../images/Java left side/IMG_20241029_010606.jpg",    
+"../images/Java Right side/IMG_20241029_004410.jpg",   
+"../images/Java left side/IMG_20241029_010628.jpg",    
+"../images/Java Right side/IMG_20241029_004420.jpg",   
+"../images/Java left side/IMG_20241029_010633.jpg",    
+"../images/Java Right side/IMG_20241029_004428.jpg",   
+"../images/Java left side/IMG_20241029_010639.jpg",    
+"../images/Java Right side/IMG_20241029_004446.jpg",   
+"../images/Java left side/IMG_20241029_010644.jpg",    
+"../images/Java Right side/IMG_20241029_004453.jpg",   
+"../images/Java left side/IMG_20241029_010650.jpg",    
+"../images/Java Right side/IMG_20241029_004501.jpg",   
+"../images/Java left side/IMG_20241029_010658.jpg",    
+"../images/Java Right side/IMG_20241029_004511.jpg",   
+"../images/Java left side/IMG_20241029_010708.jpg",    
+"../images/Java Right side/IMG_20241029_004519.jpg",   
+"../images/Java left side/IMG_20241029_010716.jpg",    
+"../images/Java Right side/IMG_20241029_004527.jpg",   
+"../images/Java left side/IMG_20241029_010723.jpg",    
+"../images/Java Right side/IMG_20241029_004536.jpg",   
+"../images/Java left side/IMG_20241029_010734.jpg",    
+"../images/Java Right side/IMG_20241029_004543.jpg",   
+"../images/Java left side/IMG_20241029_010743.jpg",    
+"../images/Java Right side/IMG_20241029_004551.jpg",   
+"../images/Java left side/IMG_20241029_010750.jpg",    
+"../images/Java Right side/IMG_20241029_004558.jpg",   
+"../images/Java left side/IMG_20241029_010759.jpg",    
+"../images/Java Right side/IMG_20241029_004606.jpg",   
+"../images/Java left side/IMG_20241029_010809.jpg",    
+"../images/Java Right side/IMG_20241029_004618.jpg",   
+"../images/Java left side/IMG_20241029_010817.jpg",    
+"../images/Java Right side/IMG_20241029_004628.jpg",   
+"../images/Java left side/IMG_20241029_010826.jpg",    
+"../images/Java Right side/IMG_20241029_004635.jpg",   
+"../images/Java left side/IMG_20241029_010832.jpg",    
+"../images/Java Right side/IMG_20241029_004645.jpg",   
+"../images/Java left side/IMG_20241029_010849.jpg",    
+"../images/Java Right side/IMG_20241029_004654.jpg",   
+"../images/Java left side/IMG_20241029_010858.jpg",    
+"../images/Java Right side/IMG_20241029_004705.jpg",   
+"../images/Java left side/IMG_20241029_010903.jpg",    
+"../images/Java Right side/IMG_20241029_004713.jpg",   
+"../images/Java left side/IMG_20241029_010908.jpg",    
+"../images/Java Right side/IMG_20241029_004722.jpg",   
+"../images/Java left side/IMG_20241029_010915.jpg",    
+"../images/Java Right side/IMG_20241029_004732.jpg",   
+"../images/Java left side/IMG_20241029_010920.jpg",    
+"../images/Java Right side/IMG_20241029_004740.jpg",   
+"../images/Java left side/IMG_20241029_010929.jpg",    
+"../images/Java Right side/IMG_20241029_004750.jpg",   
+"../images/Java left side/IMG_20241029_010934.jpg",    
+"../images/Java Right side/IMG_20241029_004758.jpg", 
+      
+        ];
+
+        let currentIndex = 0;
+
+        const gallery = document.getElementById("gallery");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        // Dynamically create gallery items
+        images.forEach((image, index) => {
+            const imgDiv = document.createElement("div");
+            imgDiv.classList.add("gallery-item");
+            imgDiv.innerHTML = `<img src="${image}" alt="Java Note ${index + 1}" onclick="openLightbox(${index})" class="border">`;
+            gallery.appendChild(imgDiv);
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightbox.style.display = "flex";
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            lightboxImg.src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>

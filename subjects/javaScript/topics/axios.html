@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios - JavaScript</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Axios's in JavaScript</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+        <section class="sub">
+    <h2 onclick="toggleContent('axios-section')">Axios for API Requests</h2>
+    <div id="axios-section" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"&gt;&lt;/script&gt;
+    &lt;!-- A CDN to use the Axios library from GitHub --&gt;
+
+    &lt;h1&gt;Get Random Facts...&lt;/h1&gt;
+    &lt;button&gt;Show new fact&lt;/button&gt;
+    &lt;p id="output"&gt;&lt;/p&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Using Axios to Fetch Data</h3>
+        <p>Axios is a library that simplifies HTTP requests. Unlike the Fetch API, Axios returns data directly in a readable format, which is especially useful for APIs like <code>catfact.ninja</code>.</p>
+
+        <h4>JavaScript Code Example</h4>
+        <pre><code class="language-js">
+// JavaScript Code to Fetch Random Cat Facts using Axios
+let btn = document.querySelector("button");
+let para = document.querySelector("p");
+
+btn.addEventListener("click", async () => {
+    let fact = await getfacts();
+    let newPara = document.createElement("p");
+    newPara.innerHTML = `${fact} &lt;br&gt;`;
+    para.append(newPara);
+});
+
+let url = "https://catfact.ninja/fact";
+async function getfacts() {
+    try {
+        let response = await axios.get(url);
+        return response.data.fact;
+    } catch (err) {
+        return "No fact found - " + err;
+    }
+}
+        </code></pre>
+
+        <h4>Explanation of Code</h4>
+        <p>Here’s how the code works:</p>
+        <ol>
+            <li>The button click triggers the <code>getfacts</code> function to fetch a new fact from the API.</li>
+            <li>The fetched fact is added to a new paragraph element within the page.</li>
+            <li>Axios allows direct access to <code>data.fact</code> without needing to parse JSON.</li>
+        </ol>
+
+        <h3>Why Use Axios?</h3>
+        <ul>
+            <li>Axios returns data in JSON format by default, eliminating the need for manual parsing.</li>
+            <li>It offers a simplified syntax and additional features for handling requests compared to the Fetch API.</li>
+        </ul>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('dog-fetch-section')">Fetching Random Dog Images</h2>
+    <div id="dog-fetch-section" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"&gt;&lt;/script&gt;
+    &lt;!-- A CDN to use the Axios library from GitHub --&gt;
+
+    &lt;h1&gt;Get Random Dog Images...&lt;/h1&gt;
+    &lt;button&gt;Show Dog&lt;/button&gt;
+    &lt;img id="output" /&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Using Axios to Fetch Dog Images</h3>
+        <p>This example fetches a random dog image each time the button is clicked. Axios retrieves the image URL from the Dog CEO API, which is then set as the source of an image element.</p>
+
+        <h4>JavaScript Code Example</h4>
+        <pre><code class="language-js">
+// JavaScript Code to Fetch Random Dog Images
+let btn = document.querySelector("button");
+let output = document.querySelector("img");
+
+btn.addEventListener("click", async () => {
+    let link = await getDog();
+    output.setAttribute("src", link);
+});
+
+let url = "https://dog.ceo/api/breeds/image/random";
+async function getDog() {
+    try {
+        let response = await axios.get(url);
+        return response.data.message;
+    } catch (err) {
+        return "Error fetching image - " + err;
+    }
+}
+        </code></pre>
+
+        <h4>Explanation of Code</h4>
+        <p>Here’s how the code works:</p>
+        <ol>
+            <li>The button click triggers the <code>getDog</code> function to fetch a new dog image URL.</li>
+            <li>The fetched image URL is set as the <code>src</code> attribute of the <code>img</code> element, displaying the image.</li>
+            <li>Axios simplifies handling the JSON response, allowing direct access to the image link.</li>
+        </ol>
+
+        <h3>Benefits of Using Axios</h3>
+        <ul>
+            <li>Automatic JSON parsing, so data can be accessed directly without needing <code>.json()</code> parsing as with <code>fetch</code>.</li>
+            <li>Simplifies code, improving readability when handling API requests.</li>
+        </ul>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('axios-headers')">Using Axios with Headers</h2>
+    <div id="axios-headers" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Fetch Jokes with Headers&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Axios library to make HTTP requests --&gt;
+
+    &lt;h1&gt;Get a Random Joke&lt;/h1&gt;
+    &lt;button&gt;Show Joke&lt;/button&gt;
+    &lt;p id="joke-output"&gt;&lt;/p&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Using Headers with Axios to Fetch Jokes</h3>
+        <p>In this example, headers are passed to Axios to ensure we receive data in JSON format. Without the header, the API may respond with HTML content. The header helps specify the response format.</p>
+
+        <h4>JavaScript Code Example</h4>
+        <pre><code class="language-js">
+// JavaScript Code to Fetch a Joke with Axios Headers
+const url = "https://icanhazdadjoke.com/";
+const btn = document.querySelector("button");
+const output = document.getElementById("joke-output");
+
+btn.addEventListener("click", async () => {
+    let joke = await getJokes();
+    output.textContent = joke;
+});
+
+async function getJokes() {
+    try {
+        const config = { headers: { Accept: "application/json" } };
+        let res = await axios.get(url, config);
+        return res.data.joke;  // Accessing the joke text
+    } catch (error) {
+        console.log("Error fetching joke:", error);
+        return "No joke found!";
+    }
+}
+
+getJokes();
+        </code></pre>
+
+        <h4>Explanation of Code</h4>
+        <p>This code retrieves a random dad joke in JSON format:</p>
+        <ol>
+            <li>The button click triggers the <code>getJokes</code> function.</li>
+            <li>A headers configuration is created using Axios to specify <code>Accept: "application/json"</code>.</li>
+            <li>Axios sends the request with the header, and the response is in JSON format, allowing easy access to the <code>joke</code> property.</li>
+            <li>The joke text is displayed in a paragraph element upon retrieval.</li>
+        </ol>
+
+        <h3>Why Use Headers in Axios?</h3>
+        <ul>
+            <li>Headers help specify the response format or other information required by the API.</li>
+            <li>In this case, it ensures that the joke is returned in JSON, not HTML format, improving the readability of the response.</li>
+        </ul>
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('search-universities')">Searching Universities by Country</h2>
+    <div id="search-universities" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Search Universities&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+    &lt;script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"&gt;&lt;/script&gt;
+    &lt;!-- Axios library to make HTTP requests --&gt;
+
+    &lt;input type="text" id="country-input" placeholder="Entry country"&gt;
+    &lt;button&gt;Search&lt;/button&gt;
+    &lt;ul id="list"&gt;&lt;/ul&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Fetching Universities Using Axios</h3>
+        <p>This section demonstrates how to search for universities based on the country name provided by the user. The data is fetched from the <a href="http://universities.hipolabs.com">Hipolabs API</a>.</p>
+
+        <h4>JavaScript Code Example</h4>
+        <pre><code class="language-js">
+// JavaScript Code to Search for Universities
+const url = "http://universities.hipolabs.com/search?name=";
+const btn = document.querySelector("button");
+
+function show(colleges) {
+    let list = document.querySelector("#list");
+    list.innerText = "";
+    for (let college of colleges) {
+        let li = document.createElement("li");
+        li.innerText = college.name;
+        list.appendChild(li);
+    }
+}
+
+btn.addEventListener("click", async () => {
+    let country = document.querySelector("#country-input").value;
+    let colleges = await getColleges(country);
+    show(colleges);
+});
+
+async function getColleges(country) {
+    try {
+        let res = await axios.get(url + country);
+        return res.data;  // Return the array of colleges
+    } catch (err) {
+        console.log(err);
+        return [];
+    }
+}
+        </code></pre>
+
+        <h4>Explanation of Code</h4>
+        <p>This code snippet performs the following tasks:</p>
+        <ol>
+            <li>It creates an input field for users to enter the name of a country.</li>
+            <li>When the "Search" button is clicked, the <code>getColleges</code> function is called, which fetches data from the Hipolabs API based on the country name.</li>
+            <li>The retrieved data is passed to the <code>show</code> function, which populates an unordered list with the names of universities in the specified country.</li>
+        </ol>
+
+        <h3>Handling Errors</h3>
+        <p>If there is an error in fetching data (such as an invalid country name), an empty array is returned, and the error is logged to the console.</p>
+    </div>
+        </section>
+
+
+
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

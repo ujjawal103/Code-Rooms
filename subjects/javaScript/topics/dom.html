@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM-JavaScript Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>DOM Notes</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+        <section class="sub">
+            <h2 onclick="toggleContent('topic1')">Selecting Elements in JavaScript</h2>
+            <div id="topic1" class="content">
+                <h4 class="html-structure">Sample HTML Structure:</h4>
+<pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Lorem, ipsum dolor.&lt;/h1&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit...&lt;/p&gt;
+    
+    &lt;div id="box" style="width:200px;height:200px;background-color:aqua;"&gt;&lt;/div&gt;
+    &lt;div class="boxes" style="width:200px;height:200px;background-color:rgb(184,216,169);"&gt;mujhe change kro&lt;/div&gt;
+    &lt;div style="width:200px;height:200px;background-color:rgb(160,20,118);"&gt;&lt;/div&gt;
+
+    &lt;script src="app.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+
+           
+                <h4> Selecting Element By ID</h4>
+                <pre><code class="language-js">
+// note: if id not exist then it returns null
+let firstId = document.getElementById("box");
+firstId.innerText = "changed with js";
+console.dir(firstId);
+                </code></pre>
+
+                <h4>Selecting Element By Class</h4>
+                <pre><code class="language-js">
+let firstClass = document.getElementsByClassName("boxes");
+firstClass[0].innerHTML = "changed with js using class";
+console.dir(firstClass);
+                </code></pre>
+
+                <h4> Selecting Element By Tag Name</h4>
+                <pre><code class="language-js">
+let firstTag = document.getElementsByTagName("h1");
+firstTag[0].innerHTML = "changed with js using Tag";
+console.dir(firstTag);
+                </code></pre>
+
+                <h4>Selecting Elements by Query Selectors</h4>
+                <pre><code class="language-js">
+console.dir(document.querySelector("h1"));
+console.dir(document.querySelector("#box"));
+console.dir(document.querySelector(".boxes"));
+console.dir(document.querySelectorAll(".boxes"));
+                </code></pre>
+            </div>
+        </section>
+
+        <!-- Setting Objects Section -->
+        <section class="sub">
+            <h2 onclick="toggleContent('settingObjects')">Setting Objects</h2>
+            <div id="settingObjects" class="content" style="display: none;">
+
+                <pre style="background-color: white; padding: 10px; border-radius: 5px;"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;link rel="stylesheet" href="style.css"&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Lorem, ipsum dolor.&lt;/h1&gt;
+    &lt;p&gt;Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est perspiciatis maxime...&lt;/p&gt;
+
+    &lt;div id="box"&gt;aqua&lt;/div&gt;
+    &lt;div class="boxes" id="box1"&gt;green&lt;/div&gt;
+    &lt;div style="background-color: pink; width: 200px; height: 200px;"&gt;pink&lt;/div&gt;
+
+    &lt;ul style="font-size: larger;" class="items"&gt;
+      &lt;li&gt;&lt;a href="#"&gt;link 1&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;link 2&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;link 3&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#"&gt;link 4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;div class="newBoxes xyz abc" id="box1"&gt;New box&lt;/div&gt;
+
+    &lt;script src="03_styleManipulation.js"&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+                
+                <h3>Text Manipulation</h3>
+                <p>Properties and methods for manipulating text content within HTML elements:</p>
+                <ul>
+                    <li><strong>innerText:</strong> Displays only the visible text within a node.</li>
+                    <li><strong>textContent:</strong> Shows all text, including hidden content.</li>
+                    <li><strong>innerHTML:</strong> Displays the full HTML markup within the node.</li>
+                </ul>
+                <pre><code class="language-js">
+let para = document.querySelector("p");
+console.dir(para.innerHTML);    // Shows extra tags like bold tags
+console.dir(para.innerText);    // Shows only visible text on screen
+console.dir(para.textContent);  // Shows hidden text as well
+
+// Manipulation example
+para.innerText = "Hi, I'm changing with the help of innerText";
+para.innerHTML = "Hi, I'm changing with <b>HTML tags</b>";  // Recognizes HTML tags
+                </code></pre>
+
+                <h3>Attribute Manipulation</h3>
+                <p>Methods to access and modify attributes like <code>class</code>, <code>id</code>, and <code>style</code>:</p>
+                <ul>
+                    <li><strong>getAttribute(attr):</strong> Get the current value of an attribute.</li>
+                    <li><strong>setAttribute(attr, val):</strong> Set or update the value of an attribute.</li>
+                </ul>
+                <pre><code class="language-js">
+let box = document.querySelector("div");
+box.getAttribute("id");  // Get the 'id' attribute
+box.setAttribute("id", "newbox");  // Update 'id' to 'newbox'
+                </code></pre>
+
+                <h3>Style Manipulation</h3>
+                <p>Access and modify styles directly in JavaScript using camelCase naming conventions:</p>
+                <pre><code class="language-js">
+let aquaBox = document.querySelector("#box");
+aquaBox.style.fontSize = "xxx-large";  // Change font size
+aquaBox.style.color = "red";            // Change text color
+aquaBox.style.backgroundColor = "grey"; // Change background color
+                </code></pre>
+
+                <h3>Class Manipulation (classList)</h3>
+                <p>Using <code>classList</code> to add, remove, or toggle classes on elements:</p>
+                <ul>
+                    <li><strong>classList.add("className"):</strong> Adds a new class.</li>
+                    <li><strong>classList.remove("className"):</strong> Removes a class.</li>
+                    <li><strong>classList.toggle("className"):</strong> Toggles a class on or off.</li>
+                    <li><strong>classList.contains("className"):</strong> Checks if a class exists.</li>
+                </ul>
+                <pre><code class="language-js">
+let obj = document.querySelector(".xyz");
+obj.classList.add("NewClass");  // Adds a new class
+obj.classList.toggle("abc");    // Toggles the 'abc' class
+                </code></pre>
+            </div>
+        </section>
+
+        <!-- Navigation section -->
+        <section class="sub">
+    <h2 onclick="toggleContent('navigation')">Navigation</h2>
+    <div id="navigation" class="content" style="display: none;">
+
+        <!-- Sample HTML structure -->
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;"><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="heading" style="width: 300px; height: 200px;"&gt;
+        &lt;h1&gt;Lorem, ipsum dolor.&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+    &lt;div id="box" style="width: 200px; height: 200px; background-color: aqua;"&gt;&lt;/div&gt;
+    &lt;div class="boxes" style="width: 200px; height: 200px; background-color: rgb(184, 216, 169);"&gt;mujhe change kro&lt;/div&gt;
+    &lt;ul style="font-size: larger;" class="items"&gt;
+        &lt;h2 style="line-height: 100px;" id="one"&gt;&lt;a href="#"&gt;link 1&lt;/a&gt;&lt;/h2&gt;
+        &lt;li style="line-height: 100px;" id="two"&gt;&lt;a href="#"&gt;link 2&lt;/a&gt;&lt;/li&gt;
+        &lt;h3 style="line-height: 100px;" id="three"&gt;&lt;a href="#"&gt;link 3&lt;/a&gt;&lt;/h3&gt;
+        &lt;h4 style="line-height: 100px;" id="four"&gt;&lt;a href="#"&gt;link 4&lt;/a&gt;&lt;/h4&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+            <!-- js notes -->
+        </div>
+        <h3>Navigate within the DOM Tree</h3>
+        <p>Navigation in the DOM lets you move through elements based on their relationships. For example, finding an element's parent, child, or sibling without directly selecting them by ID or class.</p>
+
+        <h4>Parent Element</h4>
+        <pre><code class="language-js">
+// Selecting the parent element of an h1 tag
+let heading1 = document.querySelector("h1");
+let parent = heading1.parentElement; // Accessing the parent element of h1
+console.dir(parent);
+parent.style.backgroundColor = "#500763"; // Change background color of the parent
+        </code></pre>
+
+        <h4>Child Elements</h4>
+        <p>Child elements can be accessed as an HTML collection. Individual children are accessed by their index.</p>
+        <pre><code class="language-js">
+// Accessing child elements
+let unorderList = document.querySelector(".items"); // Selecting parent element
+let childrens = unorderList.children; // Getting children of the parent
+console.dir(childrens);
+        </code></pre>
+
+        <h4>Sibling Elements</h4>
+        <p>Move to previous or next sibling elements in the DOM:</p>
+        <pre><code class="language-js">
+let unorderList2 = document.querySelector(".items");
+let childrenAll = unorderList.children; 
+
+// Accessing sibling elements
+console.dir(childrenAll[1]); // Selecting specific child
+console.dir(childrenAll[1].previousElementSibling); // Access previous sibling
+console.dir(childrenAll[1].nextElementSibling); // Access next sibling
+console.dir(childrenAll[1].nextElementSibling.nextElementSibling); // Access next of next sibling
+        </code></pre>
+    </div>
+    </div>
+        </section>
+
+        <!-- adding elements -->
+         <section class="sub">
+    <h2 onclick="toggleContent('adding-elements')">Adding Elements</h2>
+    <div id="adding-elements" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="heading" style="width: 300px; height: 200px;"&gt;
+        &lt;h1&gt;Lorem, ipsum dolor.&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;p class="para"&gt;Lorem ipsum, dolor sit...&lt;/p&gt;
+    &lt;div id="box" style="width: 200px; height: 200px; background-color: aqua;"&gt;&lt;/div&gt;
+    &lt;ul class="items"&gt;...&lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Adding New Elements</h3>
+        <p>Using JavaScript, elements can be created and inserted into the HTML document dynamically.</p>
+
+        <h4>Creating Elements</h4>
+        <pre><code class="language-js">
+// Create a new paragraph
+let newPara = document.createElement("p");
+newPara.innerText = "Hello jee mai add hua hu js ki help se";
+console.dir(newPara);
+        </code></pre>
+
+        <h4>Inserting Elements</h4>
+        <p>Use methods like <code>appendChild</code>, <code>append</code>, <code>prepend</code>, and <code>insertAdjacentElement</code> to place elements at specific positions:</p>
+        
+        <pre><code class="language-js">
+let firstDiv = document.querySelector("#box");
+firstDiv.appendChild(newPara);  // Adds as the last child
+firstDiv.append("arey ! mujhe v to add kr lete"); // Adds inline text
+
+let secondDiv = document.querySelector(".boxes");
+secondDiv.prepend(" mai starting mai add hounga"); // Adds at the start
+
+// Insert buttons at various positions
+let para = document.querySelector(".para");
+para.insertAdjacentElement('beforebegin', btn);
+para.insertAdjacentElement('afterbegin', btn2);
+para.insertAdjacentElement('beforeend', btn3);
+para.insertAdjacentElement('afterend', btn4);
+        </code></pre>
+    </div>
+         </section>
+
+         <!-- remove elements -->
+        <section class="sub">
+    <h2 onclick="toggleContent('removing-elements')">Removing Elements</h2>
+    <div id="removing-elements" class="content" style="display: none;">
+
+        <div class="html-sample">
+            <h4 class="html-structure">Sample HTML Structure:</h4>
+            <pre style="background-color: whitesmoke; padding: 10px; border-radius: 5px;">
+<code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="heading" style="width: 300px; height: 200px;"&gt;
+        &lt;h1&gt;Lorem, ipsum dolor.&lt;/h1&gt;
+    &lt;/div&gt;
+    &lt;p class="para"&gt;Lorem ipsum, dolor sit...&lt;/p&gt;
+    &lt;div id="box" style="width: 200px; height: 200px; background-color: aqua;"&gt;&lt;/div&gt;
+    &lt;ul class="items"&gt;
+        &lt;h2 id="one"&gt;&lt;a href="#"&gt;link 1&lt;/a&gt;&lt;/h2&gt;
+        &lt;li id="two"&gt;&lt;a href="#"&gt;link 2&lt;/a&gt;&lt;/li&gt;
+        &lt;h3 id="three"&gt;&lt;a href="#"&gt;link 3&lt;/a&gt;&lt;/h3&gt;
+        &lt;h4 id="four"&gt;&lt;a href="#"&gt;link 4&lt;/a&gt;&lt;/h4&gt;
+    &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+        </div>
+
+        <h3>Removing Elements in JavaScript</h3>
+        <p>JavaScript provides methods like <code>removeChild()</code> and <code>remove()</code> to remove elements from the DOM.</p>
+
+        <h4>Adding Elements for Removal Demo</h4>
+        <p>In this example, we create new buttons and insert them around a paragraph element to demonstrate removal methods:</p>
+        
+        <pre><code class="language-js">
+// Creating buttons to insert around a paragraph
+let btn = document.createElement("button");
+btn.innerHTML = "NEW BUTTON 1";
+let btn2 = document.createElement("button");
+btn2.innerHTML = "NEW BUTTON 2";
+let btn3 = document.createElement("button");
+btn3.innerHTML = "NEW BUTTON 3";
+let btn4 = document.createElement("button");
+btn4.innerHTML = "NEW BUTTON 4";
+
+let para = document.querySelector(".para"); // Selects the <p> element
+para.insertAdjacentElement('beforebegin', btn); // Adds btn before paragraph
+para.insertAdjacentElement('afterbegin', btn2); // Adds btn2 as first child of para
+para.insertAdjacentElement('beforeend', btn3);  // Adds btn3 as last child of para
+para.insertAdjacentElement('afterend', btn4);   // Adds btn4 after paragraph
+        </code></pre>
+
+        <h4>1. <code>removeChild()</code> Method</h4>
+        <p>This method requires a parent element to remove a child element:</p>
+        
+        <pre><code class="language-js">
+// Using removeChild() to remove btn (parent-child relationship)
+let body = document.querySelector("body");
+body.removeChild(btn); // Removes the btn created earlier
+        </code></pre>
+
+        <h4>2. <code>remove()</code> Method</h4>
+        <p>The <code>remove()</code> method can directly remove elements without specifying a parent:</p>
+
+        <pre><code class="language-js">
+// Using remove() to directly remove elements
+btn2.remove(); // Removes btn2
+para.remove(); // Removes the entire paragraph
+        </code></pre>
+
+        <h4>Summary</h4>
+        <ul>
+            <li><code>removeChild()</code> – Removes a specified child from a parent element.</li>
+            <li><code>remove()</code> – Directly removes an element without specifying its parent.</li>
+        </ul>
+    </div>
+        </section>
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

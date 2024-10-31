@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Notes</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../offCanvas.css">
+</head>
+<body>
+    <header>
+        <h1>JavaScript Notes</h1>
+        <p>A collection of notes on JS programming concepts.</p>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+    <header class="fakeWala"></header>
+
+    <!-- Off-canvas sidebar for topics -->
+    <div id="offCanvas" class="off-canvas">
+        <button id="closeButton" class="close-button">×</button>
+        <h2>Topics</h2>
+        <ul>
+            <li><a href="#basics">Basics of JavaScript</a></li>
+            <li><a href="#dom-manipulation">DOM Manipulation</a></li>
+            <li><a href="#eventListeners">Event Listeners</a></li>
+            <li><a href="#asynchronous">Asynchronous JavaScript</a></li>
+            <li><a href="#api">APIs in JavaScript</a></li>
+            <li><a href="#axios">Axios</a></li>
+            <li><a href="#project">Projects</a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <a href="topics/basics.html">
+            <section id="basics" class="sub">
+                <h3>Basics of JavaScript</h3>
+                <p>Introduction to JavaScript syntax, data types, and basic constructs.</p>
+            </section>
+        </a>
+        
+        <a href="topics/dom.html">
+            <section id="dom-manipulation" class="sub">
+                <h3>DOM Manipulation</h3>
+                <p>Notes on selecting, modifying, and deleting DOM elements.</p>
+            </section>
+        </a>
+
+        <a href="topics/eventListeners.html">
+            <section id="eventListeners" class="sub">
+                <h3>Event Listeners</h3>
+                <p>Understanding event handling, adding and removing listeners, and event propagation.</p>
+            </section>
+        </a>
+        
+        <a href="topics/asynchronous.html">
+            <section id="asynchronous" class="sub">
+                <h3>Asynchronous JavaScript</h3>
+                <p>Notes on callbacks, promises, and async/await syntax.</p>
+            </section>
+        </a>
+
+        <a href="topics/api.html">
+            <section id="api" class="sub">
+                <h3>APIs in JavaScript</h3>
+                <p>Working with APIs to fetch data and interact with external services.</p>
+            </section>
+        </a>
+
+        <a href="topics/axios.html">
+            <section id="axios" class="sub">
+                <h3>Axios</h3>
+                <p>Using Axios for HTTP requests and handling responses efficiently.</p>
+            </section>
+        </a>
+
+        <a href="topics/project.html">
+            <section id="project" class="sub">
+                <h3>Project</h3>
+                <p>Here are a mini projects to practice your JavaScript skills:</p>
+            </section>
+        </a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>

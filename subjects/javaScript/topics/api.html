@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API's - handling</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>API's in JavaScript</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+      <section class="sub">
+    <h2 onclick="toggleContent('js-apis')">JavaScript APIs and Fetch Handling</h2>
+    <div id="js-apis" class="content" style="display: block;">
+        <h3>API Overview</h3>
+        <p><strong>API</strong> (Application Programming Interface) is a way for applications to interact with external data or services, often through URLs that return data in JSON format.</p>
+
+        <h4>JSON</h4>
+        <p><strong>JSON</strong> (JavaScript Object Notation) is a lightweight data-interchange format, similar to JavaScript objects but limited to valid JavaScript data types. Common in APIs, JSON data is typically not human-readable.</p>
+        
+        <h4>Example JSON Data</h4>
+        <pre><code class="language-js">
+let jsonData = `{"fact": "Cats can rotate their ears 180 degrees.", "length": 45}`;
+let parsedData = JSON.parse(jsonData);
+console.log(parsedData.fact); // Access JSON data like an object
+        </code></pre>
+
+        <h4>Convert Object to JSON</h4>
+        <p>To create your own JSON data, convert a JavaScript object into a JSON string using <code>JSON.stringify()</code>.</p>
+        <pre><code class="language-js">
+let student = { name: "Akhand", marks: 90 };
+let jsonData = JSON.stringify(student);
+console.log(jsonData);
+        </code></pre>
+
+        <h3>Testing API Requests</h3>
+        <ul>
+            <li><strong>Hoppscotch</strong>: A popular platform for testing APIs online.</li>
+            <li><strong>Postman</strong>: Another option but requires signup and installation.</li>
+        </ul>
+
+        <h3>HTTP Verbs</h3>
+        <p>HTTP verbs describe the type of operation requested:</p>
+        <ul>
+            <li><strong>GET</strong>: Retrieves data.</li>
+            <li><strong>POST</strong>: Submits new data.</li>
+            <li><strong>DELETE</strong>: Removes data.</li>
+        </ul>
+
+        <h3>HTTP Status Codes</h3>
+        <ul>
+            <li><strong>200</strong>: OK</li>
+            <li><strong>404</strong>: Not Found</li>
+            <li><strong>500</strong>: Internal Server Error</li>
+        </ul>
+
+        <h3>Fetching Data with Fetch</h3>
+        <p><code>fetch()</code> allows us to make API requests and returns a promise. For example, fetching a cat fact:</p>
+        <pre><code class="language-js">
+let url = "https://catfact.ninja/fact";
+fetch(url)
+    .then((response) => response.json())
+    .then((data) => console.log(data.fact))
+    .catch((error) => console.log("Error:", error));
+        </code></pre>
+
+        <h3>Async/Await Example</h3>
+        <p>Using <code>async</code> and <code>await</code> allows us to handle asynchronous code with a synchronous structure:</p>
+        <pre><code class="language-js">
+async function getCatFact() {
+    try {
+        let response = await fetch("https://catfact.ninja/fact");
+        let data = await response.json();
+        console.log(data.fact);
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+getCatFact();
+        </code></pre>
+    </div>
+      </section>
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

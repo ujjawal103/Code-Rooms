@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Notes Gallery</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="generalCss.css">
+</head>
+<body>
+
+    <header>
+        <h1>Loops & Pattern-Printing</h1>
+        <p>Explore all Java notes in one place</p>
+    </header>
+
+    <div class="gallery-container" id="gallery"></div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-button" onclick="closeLightbox()">×</span>
+        <span class="prev-button" onclick="showPrev()">&#10094;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+        <span class="next-button" onclick="showNext()">&#10095;</span>
+    </div>
+
+    <div id="space"></div>
+    <footer>
+        <p>&copy; 2024 My Java Notes - Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        const images = [
+             "../images/Java Right side/IMG_20241029_003605.jpg",   
+"../images/Java left side/IMG_20241029_005839.jpg",    
+"../images/Java Right side/IMG_20241029_003613.jpg",   
+"../images/Java left side/IMG_20241029_005854.jpg",    
+"../images/Java Right side/IMG_20241029_003622.jpg",   
+"../images/Java left side/IMG_20241029_005902.jpg",    
+"../images/Java Right side/IMG_20241029_003630.jpg",   
+"../images/Java left side/IMG_20241029_005914.jpg",    
+"../images/Java Right side/IMG_20241029_003638.jpg",   
+"../images/Java left side/IMG_20241029_005920.jpg",    
+"../images/Java Right side/IMG_20241029_003645.jpg",   
+"../images/Java left side/IMG_20241029_005929.jpg",    
+"../images/Java Right side/IMG_20241029_003657.jpg",   
+"../images/Java left side/IMG_20241029_005936.jpg",    
+"../images/Java Right side/IMG_20241029_003710.jpg",   
+"../images/Java left side/IMG_20241029_005943.jpg",    
+"../images/Java Right side/IMG_20241029_003720.jpg",   
+"../images/Java left side/IMG_20241029_010007.jpg",    
+"../images/Java Right side/IMG_20241029_003726.jpg",   
+"../images/Java left side/IMG_20241029_010016.jpg",    
+"../images/Java Right side/IMG_20241029_003733.jpg",   
+"../images/Java left side/IMG_20241029_010021.jpg",    
+"../images/Java Right side/IMG_20241029_003742.jpg",   
+"../images/Java left side/IMG_20241029_010028.jpg",    
+"../images/Java Right side/IMG_20241029_003750.jpg",   
+"../images/Java left side/IMG_20241029_010037.jpg",    
+"../images/Java Right side/IMG_20241029_003755.jpg",   
+"../images/Java left side/IMG_20241029_010043.jpg",    
+"../images/Java Right side/IMG_20241029_003803.jpg",   
+"../images/Java left side/IMG_20241029_010049.jpg",    
+"../images/Java Right side/IMG_20241029_003814.jpg",   
+"../images/Java left side/IMG_20241029_010056.jpg",    
+"../images/Java Right side/IMG_20241029_003828.jpg",   
+"../images/Java left side/IMG_20241029_010103.jpg",    
+"../images/Java Right side/IMG_20241029_003835.jpg",   
+"../images/Java left side/IMG_20241029_010112.jpg",    
+"../images/Java Right side/IMG_20241029_003847.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        const gallery = document.getElementById("gallery");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        // Dynamically create gallery items
+        images.forEach((image, index) => {
+            const imgDiv = document.createElement("div");
+            imgDiv.classList.add("gallery-item");
+            imgDiv.innerHTML = `<img src="${image}" alt="Java Note ${index + 1}" onclick="openLightbox(${index})" class="border">`;
+            gallery.appendChild(imgDiv);
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightbox.style.display = "flex";
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            lightboxImg.src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>

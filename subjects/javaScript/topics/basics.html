@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics-JavaScript Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Basics of JS programming</h1>
+        <p>A collection of useful JS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- JavaScript Topic Sections -->
+        
+        <!-- template literals & switch -->
+        <section class="sub">
+    <h2 onclick="toggleContent('js-basics')">Basics & operators</h2>
+    <div id="js-basics" class="content" style="display: none;">
+        <h3>Template Literals</h3>
+        <p>
+            Template literals allow for easy string interpolation and multi-line strings. They are enclosed by backticks (``).
+        </p>
+        <pre><code class="language-js">
+// Example of Template Literals
+let pencilPrice = 10;
+let erasorPrice = 5;
+let output = `The total price is: ${pencilPrice + erasorPrice} Rupees`;
+console.log(output); // Output: The total price is: 15 Rupees
+        </code></pre>
+
+        <h3>Comparison Operations</h3>
+        <p>
+            JavaScript provides various comparison operators to compare values. 
+        </p>
+        <pre><code class="language-js">
+// Comparison Operations
+let a = 10;
+let b = 20;
+console.log(a > b);  // false
+console.log(a < b);  // true
+console.log(a >= b); // false
+console.log(a <= b); // true
+
+console.log(a == b);  // false
+console.log(a != b);  // true
+
+// Understanding Unicode in Comparison
+let d = 5;
+let e = "4";
+console.log(d > e);   // true
+console.log(d < e);   // false
+console.log(d <= e);  // false
+console.log(d >= e);  // true
+console.log(d == e);   // true (type coercion)
+console.log(d != e);   // false (type coercion)
+console.log(d === e);  // false (strict equality)
+console.log(d !== e);  // true (strict inequality)
+        </code></pre>
+
+        <h3>Switch Case Statement</h3>
+        <p>
+            The switch statement evaluates an expression, matching the expression's value to a case clause.
+        </p>
+        <pre><code class="language-js">
+// Example of Switch Case
+let color = "red";
+
+switch (color) {
+    case "red":
+        console.log("Stop");
+        break;
+    case "yellow":
+        console.log("Ready");
+        break;  
+    case "green":
+        console.log("Go");
+        break;
+    default:
+        console.log("Invalid light");
+        break;       
+        </code></pre>
+
+        <h3>User Input with Prompt</h3>
+        <p>
+            Using the prompt function to get user input and display a greeting message.
+        </p>
+        <pre><code class="language-js">
+// Prompting User Input
+let namee = prompt("Enter your name!");
+let x = "Welcome " + namee + "!";
+alert(x);
+        </code></pre>
+    </div>
+        </section>
+
+        <!-- string methods -->
+        <section class="sub">
+    <h2 onclick="toggleContent('js-string-methods')">String Methods</h2>
+    <div id="js-string-methods" class="content" style="display: none;">
+        
+        <h3>trim()</h3>
+        <p>
+            The <code>trim()</code> method removes whitespace from both ends of a string.
+        </p>
+        <pre><code class="language-js">
+// Example of trim()
+let namee = "       ujjawal       ";
+console.log(namee);         // Output: "       ujjawal       "
+console.log(namee.trim()); // Output: "ujjawal"
+
+let password = prompt("Enter your password:");
+let realPass = password.trim();
+console.log(realPass); // Output: trimmed password
+        </code></pre>
+
+        <h3>indexOf()</h3>
+        <p>
+            The <code>indexOf()</code> method returns the index of the first occurrence of a specified value in a string. Returns -1 if the value is not found.
+        </p>
+        <pre><code class="language-js">
+// Example of indexOf()
+let supra = "hello ji kaise ho";
+console.log(supra.indexOf("j"));        // Output: 6
+console.log(supra.indexOf("kaise"));     // Output: 9
+console.log(supra.indexOf("e"));         // Output: 1
+console.log(supra.indexOf("z"));         // Output: -1
+        </code></pre>
+
+        <h3>Chaining Multiple Methods</h3>
+        <p>
+            You can chain multiple string methods together, applying them left to right.
+        </p>
+        <pre><code class="language-js">
+// Chaining Example
+let supraa = "    hello    ";
+let newSupra = supraa.trim().toUpperCase();
+console.log(newSupra); // Output: "HELLO"
+        </code></pre>
+
+        <h3>slice(inclusive_idx, exclusive_idx)</h3>
+        <p>
+            The <code>slice()</code> method extracts a section of a string and returns it as a new string. It takes two parameters: the starting index (inclusive) and the ending index (exclusive).
+        </p>
+        <pre><code class="language-js">
+// Example of slice()
+let supraa = "college";
+let newSupra = supraa.slice(4, supraa.length); // "ge"
+let supra2 = supraa.slice(-2);                 // "ge"
+let supra3 = supraa.slice(1, -1);             // "oll"
+console.log(newSupra);  // Output: "ge"
+console.log(supra2);    // Output: "ge"
+console.log(supra3);    // Output: "oll"
+        </code></pre>
+
+        <h3>replace("old_value", "new_value")  and <br> replaceAll("old_value", "new_value")</h3>
+        <p>
+            The <code>replace()</code> method replaces the first occurrence of a specified value in a string, while <code>replaceAll()</code> replaces all occurrences.
+        </p>
+        <pre><code class="language-js">
+// Example of replace() and replaceAll()
+let supraa = "i love coding";
+let newSupra = supraa.replace("love", "do");       // "i do coding"
+let supra2 = supraa.replace("o", "x");              // "i lxve coding" (first occurrence)
+let supra4 = supraa.replaceAll("o", "x");           // "i lxve cxding" (all occurrences)
+let supra3 = supraa.slice("jojo", "jejo");         // Not Available
+console.log(newSupra);  // Output: "i do coding"
+console.log(supra2);    // Output: "i lxve coding"
+console.log(supra4);    // Output: "i lxve cxding"
+console.log(supra3);    // Output: undefined
+console.log(typeof(supra3)); // Output: "undefined"
+        </code></pre>
+
+        <h3>repeat(No._of_times)</h3>
+        <p>
+            The <code>repeat()</code> method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+        </p>
+        <pre><code class="language-js">
+// Example of repeat()
+let str = "mango ";
+console.log(str.repeat(3)); // Output: "mango mango mango "
+        </code></pre>
+    </div>
+        </section>
+
+        <!-- array -->
+         <section class="sub">
+    <h2 onclick="toggleContent('js-array-methods')">Arrays & Array Methods</h2>
+    <div id="js-array-methods" class="content" style="display: none;">
+        
+        <h3>Accessing Array Elements</h3>
+        <pre><code class="language-js">
+// Accessing characters of the string at index 0 of arr
+let arr = ["ujjawal", 16, 33.33];
+console.log(arr[0][0]); // Output: 'u'
+console.log(arr[0][1]); // Output: 'j'
+console.log(arr[0][2]); // Output: 'j'
+console.log(arr[0][3]); // Output: 'a'
+console.log(arr[0][4]); // Output: 'w'
+console.log(arr[0][5]); // Output: 'a'
+console.log(arr[0][6]); // Output: 'l'
+console.log(arr[0][7]); // Output: undefined
+console.log(arr[1][0]); // Output: undefined (number doesn't have indexed characters)
+        </code></pre>
+
+        <h3>Modifying Arrays</h3>
+        <pre><code class="language-js">
+let fruits = ["banana", "apple", "papaya"];
+console.log(fruits); // Output: ["banana", "apple", "papaya"]
+console.log(fruits.length); // Output: 3
+
+fruits[0] = "mango";
+console.log(fruits); // Output: ["mango", "apple", "papaya"]
+
+fruits.push("tomato");
+console.log(fruits); // Output: ["mango", "apple", "papaya", "tomato"]
+
+fruits.push("potato", "mirchi");
+console.log(fruits); // Output: ["mango", "apple", "papaya", "tomato", "potato", "mirchi"]
+
+fruits.pop();
+console.log(fruits); // Output: ["mango", "apple", "papaya", "tomato"]
+
+fruits.unshift("jamun");
+console.log(fruits); // Output: ["jamun", "mango", "apple", "papaya", "tomato"]
+
+fruits.unshift("kheer", "guava");
+console.log(fruits); // Output: ["kheer", "guava", "jamun", "mango", "apple", "papaya", "tomato"]
+
+fruits.shift();
+console.log(fruits); // Output: ["guava", "jamun", "mango", "apple", "papaya", "tomato"]
+        </code></pre>
+
+        <h3>Finding Elements in Arrays</h3>
+        <pre><code class="language-js">
+// indexOf(value) - returns index of specified value
+console.log(fruits.indexOf("banana")); // Output: -1
+console.log(fruits.indexOf("mango"));  // Output: 1
+
+let marks = [98, 94, 45, 100, 50, 20];
+console.log("Index of subject in which student got full marks:", marks.indexOf(100)); // Output: 3
+
+// includes(value) - returns true/false based on presence of element
+console.log("Did any student get full marks?", marks.includes(100)); // Output: true
+        </code></pre>
+
+        <h3>Concatenating Arrays</h3>
+        <pre><code class="language-js">
+// Concatenating arrays (original array remains unchanged)
+let values = [23.34, 34.80];
+let newArr = fruits.concat(marks).concat(values);
+console.log("Concatenated arrays:", newArr);
+        </code></pre>
+
+        <h3>Reversing Arrays</h3>
+        <pre><code class="language-js">
+// Reversing arrays (original array also changes)
+let ulta = values.reverse();
+console.log("Reversed array:", ulta); // Output: [34.8, 23.34]
+        </code></pre>
+
+        <h3>Slice and Splice</h3>
+        <pre><code class="language-js">
+// slice(inclusive_idx, exclusive_idx) - returns a copy of array
+let colors = ["blue", "red", "green", "orange"];
+console.log(colors.slice(1, 4)); // Output: ["red", "green", "orange"]
+console.log(colors.slice(colors.length)); // Output: []
+console.log(colors.slice(7)); // Output: []
+console.log(colors.slice(-2)); // Output: ["orange"]
+
+// splice(start_idx, deleteCount, item1...itemN) - removes/replaces/adds elements in place
+let colors2 = ["blue", "red", "green", "orange", "yellow", "pink", "white"];
+colors2.splice(1, 3, "navy"); // Delete 3 elements from index 1 and replace with "navy"
+console.log(colors2); // Output: ["blue", "navy", "pink", "white"]
+        </code></pre>
+
+        <h3>Sorting Arrays</h3>
+        <pre><code class="language-js">
+// sort() - sorts elements of array in ascending order (for strings)
+let colors3 = ["blue", "red", "green", "orange", "yellow", "pink", "white"];
+console.log("Without sorting:", colors3);
+colors3.sort();
+console.log("After sorting:", colors3);
+        </code></pre>
+
+        <h3>Array References</h3>
+        <pre><code class="language-js">
+// Array references store memory addresses
+let arrr = ['a', 'b'];
+let arr2 = arrr;
+console.log(arrr === arr2); // Output: true (both point to the same array)
+
+// Changes in arr2 reflect in arrr due to reference
+arr2[0] = 'z';
+console.log(arrr); // Output: ['z', 'b']
+        </code></pre>
+
+        <h3>Constant Arrays</h3>
+        <pre><code class="language-js">
+// Constant array
+const constArr = [1, 2, 3, 4];
+// Can modify elements using methods, but cannot reassign
+constArr[0] = 10; // Allowed
+// constArr = [5, 6, 7]; // Not allowed
+        </code></pre>
+
+        <h3>Nested Arrays</h3>
+        <pre><code class="language-js">
+// Arrays of arrays (multi-dimensional arrays)
+let nums = [[1, 2], [3, 4], [5, 6]];
+console.log(nums); // Output: [[1, 2], [3, 4], [5, 6]]
+console.log(nums[0]); // Output: [1, 2]
+console.log(nums[0].length); // Output: 2
+console.log(nums[0][0]); // Output: 1
+        </code></pre>
+        
+    </div>
+         </section>
+
+         <!-- loops -->
+       <section class="sub">
+    <h2 onclick="toggleContent('js-loops')">Loops</h2>
+    <div id="js-loops" class="content" style="display: none;">
+
+        <h3>For Loop</h3>
+        <p>The <strong>for loop</strong> is a control flow statement for specifying iteration, allowing code to be executed repeatedly based on a boolean condition. It consists of three parts: initialization, condition, and update.</p>
+        <pre><code class="language-js">
+// Basic syntax of a for loop
+// for(initialization; condition; update) {
+//     // task
+// }
+for (let i = 1; i < 5; i++) {
+    console.log(i); // Output: 1, 2, 3, 4
+}
+
+console.log('Even numbers between 1 and 15:');
+for (let i = 2; i < 15; i = i + 2) {
+    console.log(i); // Output: 2, 4, 6, 8, 10, 12, 14
+}
+
+let colors3 = ["blue", "red", "green", "orange", "yellow", "pink", "white"];
+for (let i = 0; i < colors3.length; i++) {
+    console.log(i, colors3[i]); // Outputs the index and color
+}
+        </code></pre>
+
+        <h3>For-of Loop</h3>
+        <p>The <strong>for-of loop</strong> is a simpler way to iterate over iterable objects like arrays and strings. It directly gives you the value of each element, eliminating the need to use an index.</p>
+        <pre><code class="language-js">
+// For-of loop for strings and arrays
+let colors = ["blue", "red", "green", "orange", "yellow", "pink", "white"];
+for (let color of colors) {
+    console.log(color); // Outputs each color
+}
+
+let heroes = [["king", "khan", "supra"], ["ironman", "spiderman", "thor"]];
+for (let hero of heroes) {
+    for (let single of hero) { // Nested for-of loop
+        console.log(single); // Outputs each hero
+    }
+}
+        </code></pre>
+
+        <h3>For-in Loop</h3>
+        <p>The <strong>for-in loop</strong> iterates over the enumerable properties of an object. It is primarily used for objects, but it can also be used with arrays to access the indices.</p>
+        <pre><code class="language-js">
+// For-in loop for objects
+let person = {name: "Ujjawal", age: 16, city: "Delhi"};
+for (let key in person) {
+    console.log(key, person[key]); // Outputs key-value pairs
+}
+
+// For-in loop for arrays
+let fruits = ["banana", "apple", "papaya"];
+for (let index in fruits) {
+    console.log(index, fruits[index]); // Outputs index and fruit
+}
+        </code></pre>
+
+        <h3>While Loop</h3>
+        <p>The <strong>while loop</strong> executes a block of code as long as the specified condition evaluates to true. It is useful when the number of iterations is not known beforehand.</p>
+        <pre><code class="language-js">
+let i = 1;
+while (i < 5) {
+    console.log(i); // Output: 1, 2, 3, 4
+    i++;
+}
+
+console.log('Odd numbers between 1 and 15:');
+let j = 1;
+while (j < 15) {
+    console.log(j); // Output: 1, 3, 5, 7, 9, 11, 13
+    j += 2;
+}
+        </code></pre>
+
+        <h3>Do-While Loop</h3>
+        <p>The <strong>do-while loop</strong> is similar to the while loop, but it guarantees that the code block will execute at least once, even if the condition is false initially.</p>
+        <pre><code class="language-js">
+let k = 1;
+do {
+    console.log(k); // Output: 1, 2, 3, 4
+    k++;
+} while (k < 5);
+
+let l = 10;
+do {
+    console.log(l); // Output: 10
+    l++;
+} while (l < 10); // The loop will execute only once
+        </code></pre>
+
+    </div>
+       </section>
+
+       <!-- objects -->
+        <section class="sub">
+    <h2 onclick="toggleContent('js-objects')">Objects in JavaScript</h2>
+    <div id="js-objects" class="content" style="display: none;">
+
+        <h3>Object Literals</h3>
+        <p><strong>Object literals</strong> are collections of properties, defined as key-value pairs, used to store complex data. It's important to note that arrays are also objects in JavaScript.</p>
+        <pre><code class="language-js">
+let student = {
+    name: "Ujjawal",
+    age: 24,
+    marks: "pass"
+};
+
+console.log(student); // Output: {name: "Ujjawal", age: 24, marks: "pass"}
+// Note: Objects do not maintain order
+        </code></pre>
+
+        <h3>Defining Objects</h3>
+        <p>Objects are commonly defined using the <strong>const</strong> keyword. However, properties of an object can be modified.</p>
+        <pre><code class="language-js">
+const student3 = {
+    name: "Ujjawal",
+    age: 24,
+    marks: "pass"
+};
+console.log(student3);
+
+// Properties can be changed, but the object itself cannot be reassigned
+student3.age = 25; 
+console.log(student3); // Output: {name: "Ujjawal", age: 25, marks: "pass"}
+        </code></pre>
+
+        <h3>Accessing Object Properties</h3>
+        <p>Object properties can be accessed in multiple ways:</p>
+        <pre><code class="language-js">
+// Method 1: Bracket notation
+console.log(item["price"]); // Output: 99.99
+
+// Method 2: Dot notation
+console.log(item.discount); // Output: 50
+
+// Method 3: Using a variable
+let x = "price"; 
+console.log(item[x]); // Output: 99.99
+        </code></pre>
+
+        <h3>Special Key Handling</h3>
+        <p>JavaScript converts all keys to strings, even if they are numbers or keywords.</p>
+        <pre><code class="language-js">
+let random = {
+    1: 'a',
+    2: 'b',
+    null: "I'm not that null",
+    true: "I'm treated as a string",
+    undefined: "I'm also used as a string"
+};
+
+// Accessing values
+console.log(random[1]); // Output: 'a'
+console.log(random[null]); // Output: "I'm not that null"
+console.log(random[undefined]); // Output: "I'm also used as a string"
+console.log(random.true); // Output: "I'm treated as a string"
+        </code></pre>
+
+        <h3>Manipulating Object Properties</h3>
+        <p>You can add, update, and delete properties in objects:</p>
+        <pre><code class="language-js">
+let student2 = {
+    naam: "Ujjawal",
+    age: 12,
+    city: "Lucknow"
+};
+console.log(student2);
+
+// Update value
+student2.city = "Delhi"; 
+console.log(student2);
+
+// Add a new property
+student2.gender = "male"; 
+console.log(student2);
+
+// Delete a property
+delete student2.naam; 
+console.log(student2);
+        </code></pre>
+
+        <h3>Nested Objects</h3>
+        <p>Objects can contain other objects, allowing for complex data structures.</p>
+        <pre><code class="language-js">
+const classInfo = {
+    aman: {
+        grade: "A+",
+        city: "Delhi"
+    },
+    shradha: {
+        grade: "A",
+        city: "Pune"
+    },
+    ujjawal: {
+        grade: "O",
+        city: "Lucknow"
+    }
+};
+
+// Accessing outer and inner objects
+console.log(classInfo);
+console.log(classInfo.aman);
+console.log(classInfo.shradha.grade); // Output: "A"
+        </code></pre>
+
+        <h3>Array of Objects</h3>
+        <p>Arrays can also contain objects, allowing for a list of related data.</p>
+        <pre><code class="language-js">
+const classInfo2 = [
+    { naam: "Aman", grade: "A+", city: "Delhi" },
+    { naam: "Shradha", grade: "A", city: "Pune" },
+    { naam: "Ujjawal", grade: "O", city: "Lucknow" }
+];
+
+// Accessing objects in an array
+console.log(classInfo2);
+console.log(classInfo2[0].naam); // Output: "Aman"
+
+// Updating an object's property
+classInfo2[1].grade = "B"; 
+console.log(classInfo2[1].grade); // Output: "B"
+        </code></pre>
+
+        <h3>Math Object</h3>
+        <p>The <strong>Math object</strong> is built into JavaScript and includes many properties and methods for mathematical calculations.</p>
+        <pre><code class="language-js">
+console.log(Math.abs(12)); // Output: 12
+console.log(Math.abs(-12)); // Output: 12
+console.log(Math.pow(2, 3)); // Output: 8
+console.log(Math.floor(2.1)); // Output: 2
+console.log(Math.random()); // Output: Random number between 0 and 1
+console.log(Math.floor(Math.random() * 10)); // Random number between 0 and 9
+        </code></pre>
+
+    </div>
+        </section>
+
+        <!-- functions -->
+         <section class="sub">
+    <h2 onclick="toggleContent('js-functions')">Functions in JavaScript</h2>
+    <div id="js-functions" class="content" style="display: none;">
+
+        <h3>Defining and Calling Functions</h3>
+        <p>Functions are defined using the <code>function</code> keyword and can be called later.</p>
+        <pre><code class="language-js">
+function hello() {                 
+    console.log("Hello Jee!");
+}
+
+hello(); // Calling the function
+        </code></pre>
+
+        <h3>Simple Functions</h3>
+        <p>Here’s a simple function that prints a poem.</p>
+        <pre><code class="language-js">
+function printPoem() {
+    console.log('Twinkle Twinkle Little Star');
+}
+
+printPoem(); // Calling the function
+        </code></pre>
+
+        <h3>Functions with Randomness</h3>
+        <p>This function simulates rolling a dice.</p>
+        <pre><code class="language-js">
+function dice() {
+    console.log(Math.floor(Math.random() * 6) + 1);
+}
+dice(); // Calling the function
+        </code></pre>
+
+        <h3>Functions with Parameters</h3>
+        <p>Functions can accept parameters to perform operations on passed values.</p>
+        <pre><code class="language-js">
+function printName(name) {
+    console.log(name);
+}
+
+printName("Ujjawal");
+printName(1234); // Output: "Ujjawal" and 1234
+        </code></pre>
+
+        <h3>Multiple Parameters</h3>
+        <p>You can also define functions that accept multiple parameters.</p>
+        <pre><code class="language-js">
+function printName2(name, age) {
+    console.log(name, age);
+}
+
+printName2("Ujjawal", 24);
+printName2("Dhiru"); // Will only output name; age is undefined
+        </code></pre>
+
+        <h3>Returning Values from Functions</h3>
+        <p>Functions can return values using the <code>return</code> statement.</p>
+        <pre><code class="language-js">
+function sum(a, b) {
+    return a + b;
+}
+
+console.log(sum(2, 4)); // Output: 6
+console.log(sum(sum(2, 4), 6)); // Output: 12
+        </code></pre>
+
+        <h3>Average Calculation</h3>
+        <p>Here’s how you can calculate the average of three numbers.</p>
+        <pre><code class="language-js">
+function avg(a, b, c) {
+    return (a + b + c) / 3;
+}
+
+console.log(`Avg of three numbers is: ${avg(2, 4, 8)}`); // Output: 4.6667
+        </code></pre>
+
+        <h3>Printing All Functions</h3>
+        <p>You can also print the function definitions themselves.</p>
+        <pre><code class="language-js">
+console.log("----------------All Functions Till Now----------------");
+console.log(avg);
+console.log(sum);
+console.log(printName2);
+console.log(printName);
+console.log(dice);
+console.log(printPoem);
+console.log(hello);
+        </code></pre>
+
+        <h3>Printing Multiplication Table</h3>
+        <p>This function prints the multiplication table for a given number.</p>
+        <pre><code class="language-js">
+function printTable(n) {
+    for (let i = n; i <= n * 10; i += n) {
+        console.log(i);
+    }
+}
+
+printTable(4); // Output: 4, 8, 12, ..., 40
+        </code></pre>
+
+        <h3>Checking Age for Adulthood</h3>
+        <p>This function checks if a person is an adult based on age.</p>
+        <pre><code class="language-js">
+function isAdult(age) {
+    if (age >= 18) {
+        return "adult";
+    } else {
+        return "not adult";
+    }
+}
+
+console.log(isAdult(27)); // Output: "adult"
+        </code></pre>
+
+        <h3>Sum from 1 to N</h3>
+        <p>Calculates the sum of numbers from 1 to N.</p>
+        <pre><code class="language-js">
+function sum1ton(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    return sum;
+}
+
+console.log(sum1ton(10)); // Output: 55
+        </code></pre>
+
+        <h3>Concatenating Strings in an Array</h3>
+        <p>This function concatenates all strings from an array.</p>
+        <pre><code class="language-js">
+let str = ["hi", "hello", "kaise", "ho"];
+function concat(arr) {
+    let str = "";
+    for (let i = 0; i < arr.length; i++) {
+        str += arr[i];
+    }
+    return str;
+}
+
+let result = concat(str);
+console.log(result); // Output: "hihellokaiseho"
+        </code></pre>
+
+        <h3>Nested Functions</h3>
+        <p>Inner functions can access variables from their outer function.</p>
+        <pre><code class="language-js">
+function outerFunc() {
+    let x = 5;
+    let y = 6;
+
+    function innerFunc() {
+        console.log(x); // Accessing outer variable
+        console.log(z); // Accessing variable defined later
+    }
+
+    let z = 10; // Even if defined below, innerFunc can access it
+    console.log(y);
+
+    innerFunc(); // Calling inner function
+}
+
+outerFunc();
+        </code></pre>
+
+        <h3>Function Expressions</h3>
+        <p>Function expressions allow for nameless functions assigned to variables.</p>
+        <pre><code class="language-js">
+// Function Expression
+const sum2 = function(a, b) {
+    return a + b;
+};
+
+console.log(sum2(10, 20)); // Output: 30
+console.log(sum2); // Logs the function definition
+        </code></pre>
+
+        <h3>Higher Order Functions</h3>
+        <p>Higher order functions can take other functions as arguments or return functions.</p>
+        <pre><code class="language-js">
+function multipleGreet(func, count) {
+    for (let i = 1; i <= count; i++) {
+        func(); // Calling the passed function
+    }
+}
+
+let greet = function() {
+    console.log("Greet Baba");
+};
+
+// Correct way to call the higher-order function
+multipleGreet(greet, 10);
+
+// Anonymous function passed directly
+multipleGreet(function() {
+    console.log("Namaste");
+}, 20);
+        </code></pre>
+
+        <h3>Returning a Function</h3>
+        <p>This function returns another function based on user input.</p>
+        <pre><code class="language-js">
+function oddOrEvenFactory(request) {
+    if (request === "odd") {
+        return function(n) {
+            if (!(n % 2 === 0)) {
+                console.log("odd");
+            }
+        };
+    } else if (request === "even") {
+        return function(n) {
+            if (n % 2 === 0) {
+                console.log("even");
+            }
+        };
+    } else {
+        console.log("Wrong Request!");
+    }
+}
+
+let request = "odd";
+let func = oddOrEvenFactory(request);
+func(3); // Output: "odd"
+
+request = "even";
+func = oddOrEvenFactory(request);
+func(4); // Output: "even"
+        </code></pre>
+
+        <h3>Methods in Objects</h3>
+        <p>Methods are functions that belong to objects and can perform actions on the object's properties.</p>
+        <pre><code class="language-js">
+const Calculator = {
+    add: function(a, b) {
+        return a + b;
+    },
+    sub: function(a, b) {
+        return a - b;
+    },
+    mul: function(a, b) {
+        return a * b;
+    }
+};
+
+// Accessing methods
+console.log(Calculator.add(12, 10)); // Output: 22
+console.log(Calculator.sub(12, 10)); // Output: 2
+console.log(Calculator.mul(12, 10)); // Output: 120
+        </code></pre>
+
+        <h3>Shorthand Method Syntax</h3>
+        <p>You can define methods more succinctly using shorthand syntax.</p>
+        <pre><code class="language-js">
+const CalculatorNew = {
+    add(a, b) {
+        return a + b;
+    },
+    sub(a, b) {
+        return a - b; // No need for 'function' keyword
+    },
+    mul(a, b) {
+        return a * b;
+    }
+};
+
+console.log(CalculatorNew.add(14, 10)); // Output: 24
+console.log(CalculatorNew.sub(14, 10)); // Output: 4
+console.log(CalculatorNew.mul(14, 10)); // Output: 140
+        </code></pre>
+
+    </div>
+         </section>
+
+
+         <!-- this keyword -->
+          <section class="sub">
+            <h2 onclick="toggleContent('js-this')">This Keyword</h2>
+    <div id="js-this" class="content" style="display: none;">
+    <h3>This Keyword</h3>
+    <p>The <strong>this</strong> keyword refers to the object that is executing the current piece of code. It is commonly used to access the properties (attributes) of an object within its methods.</p>
+
+    <h3>Using this in Objects</h3>
+    <p>In the following example, <code>this</code> is used to reference the properties of the <code>student</code> object:</p>
+    <pre><code class="language-js">
+const student = {
+    name: "Ujjawal",
+    age: 23,
+    eng: 34,
+    math: 56,
+    phy: 97,
+
+    getAvg() {
+        console.log(this); // Refers to the student object
+        let avg = (this.eng + this.math + this.phy) / 3; // Accessing properties with this
+        console.log(`${this.name} got avg marks: ${avg}`);
+    }
+};
+
+student.getAvg(); // Calling the method
+    </code></pre>
+
+    <h3>This in Global Context</h3>
+    <p>When <code>this</code> is used outside of any object, it refers to the global object. In a browser, this is typically the <code>window</code> object:</p>
+    <pre><code class="language-js">
+function hello() {
+    console.log("Hello! Here we have the window object which contains everything:");
+    console.log(this); // Refers to the global window object
+}
+
+hello(); // Calling the function
+    </code></pre>
+          </section>
+
+          <!-- try catch -->
+           <section class="sub">
+    <h2 onclick="toggleContent('try-catch')">Try & Catch</h2>
+    <div id="try-catch" class="content" style="display: none;">
+
+        <h3>What is Try & Catch?</h3>
+        <p>The <code>try</code> statement allows you to define a block of code to be tested for errors while it is being executed.</p>
+        <p>The <code>catch</code> statement allows you to define a block of code to be executed if an error occurs in the <code>try</code> block.</p>
+
+        <h3>Why Use Try & Catch?</h3>
+        <p>In a JavaScript file, if an error occurs in the code, it can stop the execution of the program, potentially causing the site to crash. To handle errors and exceptions gracefully without interrupting the entire execution, we use <code>try</code> and <code>catch</code>.</p>
+        <p>This approach is particularly useful in API calls.</p>
+
+        <h3>Syntax</h3>
+        <pre><code class="language-js">
+try {
+    // code to test
+} catch {
+    // statement executed when an error is found
+}     
+        </code></pre>
+
+        <h3>Example 1: Basic Try & Catch</h3>
+        <pre><code class="language-js">
+console.log("hello");
+console.log("hello");
+try {
+    console.log(a); // a is not defined
+} catch {
+    console.log("Found an error! But your below code is executing fine.");
+}  
+console.log("hello");
+console.log("hello");
+try {
+    console.log("I am okay so catch is not executing (we are like if else)");
+} catch {
+    console.log("Found an error! But your below code is executing fine.");
+}  
+console.log("hello");
+        </code></pre>
+
+        <h3>Example 2: Catching Errors with Error Objects</h3>
+        <pre><code class="language-js">
+try {
+    console.log(b); // b is not defined
+} catch (err) {
+    console.log(err); // Output the actual error message
+}
+        </code></pre>
+
+    </div>
+           </section>
+
+           <!-- arrow functions -->
+            <section class="sub">
+    <h2 onclick="toggleContent('arrow-functions')">Arrow Functions</h2>
+    <div id="arrow-functions" class="content" style="display: none;">
+
+        <h3>What are Arrow Functions?</h3>
+        <p>Arrow functions are a compact way to write functions without the need for the <code>function</code> keyword. They are also nameless.</p>
+        <p>It is always advisable to assign these functions to a variable or use them as callbacks (a function passed as an argument) in higher-order functions.</p>
+
+        <h3>Syntax</h3>
+        <pre><code class="language-js">
+const func = (arg1, arg2...) => {
+    // function definition (actual task)
+};
+        </code></pre>
+
+        <h3>Example: Basic Arrow Function</h3>
+        <pre><code class="language-js">
+// Arrow function
+const sum = (a, b) => {
+    console.log(`sum is = ${a + b}`);
+};
+sum(2, 4);
+console.log(sum, "have you noticed I'm not with 'f' symbol, means I'm treating as a value of variable.");
+
+// Normal function
+const helloji = function() {
+    console.log("helloji");
+};
+helloji();
+console.log(helloji, "I have 'f' symbol because I'm a normal function.");
+
+// Arrow function
+const hello = () => {
+    console.log("hello");
+};
+hello();
+console.log(hello);
+        </code></pre>
+
+        <h3>Notes</h3>
+        <p>In an arrow function, if we have a single argument, then parentheses are optional. However, if we have two or more arguments or zero arguments, parentheses are necessary.</p>
+
+        <h3>Implicit Return</h3>
+        <p>If an arrow function only returns a value without doing any task, the <code>return</code> keyword can be omitted. This is called implicit return.</p>
+        <pre><code class="language-js">
+const mul = (a, b) => (a * b);
+console.log(mul(2, 3)); // Output: 6
+console.log(mul(2, 19)); // Output: 38
+        </code></pre>
+
+        <h3>This Keyword in Arrow Functions</h3>
+        <p>There is a significant difference in how <code>this</code> is scoped in arrow functions compared to normal functions:</p>
+        <p>Arrow functions inherit <code>this</code> from their parent scope, whereas normal functions have their own <code>this</code> based on the object that called them.</p>
+
+        <pre><code class="language-js">
+const student = {
+    name: "Ujjawal",
+    marks: 95,
+    prop: this, // global scope (this = window object)
+
+    getName: function() { // normal function
+        console.log(this); // here, this = student (scope of parent calling object)
+        return this.name;
+    },
+
+    getMarks: () => { // arrow function
+        console.log(this); // here, this = window (global scope)
+        return this.marks;
+    }
+};
+
+console.log(student);
+console.log(student.prop); // Output: window object
+
+console.log(student.getName()); // calling the normal function
+console.log(student.getMarks()); // calling the arrow function (undefined)
+        </code></pre>
+
+        <h3>Useful Case of This Keyword in Arrow Functions</h3>
+        <pre><code class="language-js">
+const student2 = {
+    name: "Akhand",
+    marks: 96,
+    prop: this,
+
+    getInfo1: function() {
+        setTimeout(() => {
+            console.log(this); // this = student (lexical scope of nested function)
+        }, 2000);
+    },
+
+    getInfo2: function() {
+        setTimeout(function() {
+            console.log(this); // this = window (global scope)
+        }, 2000);
+    }
+};
+
+console.log(student2.getInfo1()); // calling getInfo1
+console.log(student2.getInfo2()); // calling getInfo2
+        </code></pre>
+
+        <h3>Summary</h3>
+        <p>In summary:</p>
+        <ul>
+            <li><strong>Arrow Function:</strong> Inherits <code>this</code> from its parent scope.</li>
+            <li><strong>Normal Function:</strong> <code>this</code> is defined by the object that calls the function.</li>
+        </ul>
+
+    </div>
+            </section>
+
+            <!-- setTimeout & interval -->
+             <section class="sub">
+    <h2 onclick="toggleContent('set-timeout-interval')">setTimeout() and setInterval()</h2>
+    <div id="set-timeout-interval" class="content" style="display: none;">
+
+        <h3>setTimeout()</h3>
+        <p>The <code>setTimeout()</code> function is an in-built JavaScript function that delays the execution of a function.</p>
+
+        <h3>Syntax</h3>
+        <pre><code class="language-js">
+setTimeout(function, timeout);
+//          ^         ^
+//          |         |
+//          |         |
+//         callback   in milliseconds (1000 ms = 1 sec)
+        </code></pre>
+
+        <h3>Example</h3>
+        <pre><code class="language-js">
+console.log("hi there!");
+
+setTimeout(() => { 
+    console.log("supra's world"); // Callback function executed after 4 seconds
+}, 4000);
+
+console.log("Welcome to ");
+        </code></pre>
+
+        <h3>setInterval()</h3>
+        <p>The <code>setInterval()</code> function is also an in-built JavaScript function that repeatedly executes a function after a specified delay.</p>
+
+        <h3>Syntax</h3>
+        <pre><code class="language-js">
+setInterval(function, timeout);
+//          ^         ^
+//          |         |
+//          |         |
+//         callback   in milliseconds (1000 ms = 1 sec)
+        </code></pre>
+
+        <h3>Example</h3>
+        <pre><code class="language-js">
+// console.log("hi there!");
+
+setInterval(() => { 
+    console.log("I'm repeating"); // Callback function executed every 2 seconds
+}, 2000);
+
+console.log("Welcome ");
+        </code></pre>
+
+        <h3>Stopping setInterval()</h3>
+        <p>Each <code>setInterval()</code> function has a unique ID that can be stored in a variable. This ID can be used to stop the interval.</p>
+
+        <pre><code class="language-js">
+let id1 = setInterval(() => { 
+    console.log("I'm repeating--1"); 
+}, 2000);
+
+let id2 = setInterval(() => { 
+    console.log("I'm repeating---2"); 
+}, 3000);
+
+let id3 = setInterval(() => { 
+    console.log("I'm repeating---3"); 
+}, 4000);
+
+console.log(id1); // Output: id=1
+console.log(id2); // Output: id=2
+console.log(id3); // Output: id=3
+
+// To stop an interval
+clearInterval(id2); // Stops the id2 setInterval (will not execute again)
+        </code></pre>
+
+    </div>
+             </section>
+
+           <!-- Advanced Array methods   -->
+            <section class="sub">
+    <h2 onclick="toggleContent('advanced-array-methods')">Advanced Array Methods</h2>
+    <div id="advanced-array-methods" class="content" style="display: none;">
+
+        <h3>Array Methods</h3>
+        <p>The following array methods work as higher-order functions, taking callback functions as input:</p>
+        <ul>
+            <li>forEach</li>
+            <li>map</li>
+            <li>filter</li>
+            <li>some</li>
+            <li>every</li>
+            <li>reduce</li>
+        </ul>
+
+        <hr>
+
+        <h3>forEach</h3>
+        <p>The <code>forEach</code> method traverses all elements of the array and performs a task on each.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+Array.forEach(some function definition or name);
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+let arr = [1, 2, 3, 4, 5];
+
+let print = function (el) {
+    console.log(el);
+};
+
+console.log("Passing function name as argument!");
+arr.forEach(print);
+
+console.log("Passing function definition as argument!");
+arr.forEach(function (el) {
+    console.log(el);
+});
+
+console.log("Passing arrow function as argument!");
+arr.forEach((el) => {
+    console.log(el);
+});
+
+// Create an array of objects and access all marks using forEach.
+console.log("Example:"); 
+let students = [
+    { name: "ujjawal", marks: 97.4 },
+    { name: "supra", marks: 99 },
+    { name: "vikas", marks: 100 }
+];
+
+students.forEach((student) => {
+    console.log(student.marks);
+});
+        </code></pre>
+
+        <hr>
+
+        <h3>map</h3>
+        <p>The <code>map</code> method is similar to <code>forEach</code> but it creates a new array of results after performing an operation on each element.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+let newArr = arr.map(some function definition or name);
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+console.log("Returning a new array using map method!");
+let num = [1, 2, 3, 4];
+
+let double = num.map((el) => {
+    console.log(el);
+    return el * 2;
+});
+
+console.log("Returned array:", double);
+
+console.log("Calculating the SGPA for above students and storing them as an array!");
+let sgpa = students.map((student) => {
+    return student.marks / 10; // from above code.
+});
+
+console.log(sgpa);
+        </code></pre>
+
+        <hr>
+
+        <h3>filter</h3>
+        <p>The <code>filter</code> method returns a new array with elements that satisfy a given condition.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+let newArr = arr.filter(some function definition or name);
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+console.log("Using filter method");
+let nums = [2, 3, 5, 4, 6, 1, 7, 8, 3, 45, 65, 23, 12, 34];
+
+let evenFromNums = nums.filter((el) => (el % 2 == 0));
+let oddFromNums = nums.filter((el) => {
+    return el % 2 !== 0;
+});
+
+console.log(evenFromNums);
+console.log(oddFromNums);
+        </code></pre>
+
+        <hr>
+
+        <h3>every</h3>
+        <p>The <code>every</code> method returns <code>true</code> if all elements satisfy a specific condition; otherwise, it returns <code>false</code>.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+arr.every(some function definition or name);
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+console.log("Using every method");
+let result = [1, 2, 3, 4].every((el) => {
+    return el % 2 == 0;
+});
+
+console.log(result);
+
+let result2 = [2, 4].every((el) => {
+    return el % 2 == 0;
+});
+
+console.log(result2);
+        </code></pre>
+
+        <hr>
+
+        <h3>some</h3>
+        <p>The <code>some</code> method returns <code>true</code> if at least one element satisfies a specific condition; otherwise, it returns <code>false</code>.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+arr.some(some function definition or name);
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+console.log("Using some method");
+let result3 = [1, 2, 3, 4].some((el) => {
+    return el % 2 == 0;
+});
+
+console.log(result3);
+
+let result4 = [1, 3].some((el) => {
+    return el % 2 == 0;
+});
+
+console.log(result4);
+        </code></pre>
+
+        <hr>
+
+        <h3>reduce</h3>
+        <p>The <code>reduce</code> method reduces an array to a single value based on the provided function.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+arr.reduce(reducer function with 2 variables (accumulator, element));
+        </code></pre>
+
+        <h4>Example</h4>
+        <pre><code class="language-js">
+// Calculating sum of array elements.
+console.log("Using reduce method");
+let finalResult = [1, 2, 3, 4].reduce((res, el) => {
+    return res + el;
+});
+
+console.log(finalResult);
+
+// Calculating the maximum element of the array.
+console.log("Calculating maximum element of array using reduce method");
+let max = [1, 2, 3, 4, 6, 4, 54, 67, 43, 554, 55, 5, 354, 65, 78, 2333].reduce((res, el) => {
+    if (res <= el) {
+        return el;
+    } else {
+        return res;
+    }
+});
+
+console.log(max);
+        </code></pre>
+
+    </div>
+            </section>
+
+            <!-- spread -->
+            <section class="sub">
+    <h2 onclick="toggleContent('spread')">Spread</h2>
+    <div id="spread" class="content" style="display: none;">
+
+        <h3>Spread</h3>
+        <p>The spread operator expands an iterable (like arrays and strings) into multiple values.</p>
+
+        <h4>Syntax</h4>
+        <pre><code class="language-js">
+function func(...arr) {
+    // tasks
+}
+        </code></pre>
+
+        <h4>Why Spread?</h4>
+        <p>Example: Finding the minimum element of an array.</p>
+
+        <h4>Normally</h4>
+        <pre><code class="language-js">
+let arr = [1, 2, 5, 4, 6, 7, 89, 6, 45];
+let minimum = Math.min(arr[0], arr[1], arr[2], arr[3], arr[4], arr[5], arr[6], arr[7], arr[8]);
+console.log(minimum);
+        </code></pre>
+
+        <h4>Using Spread</h4>
+        <pre><code class="language-js">
+minimum = Math.min(...arr);
+console.log(minimum);
+
+maximum = Math.max(...arr);
+console.log(maximum);
+        </code></pre>
+
+        <hr>
+
+        <h4>Print All Iterated Values</h4>
+        <pre><code class="language-js">
+console.log(...arr); // prints all iterated values of an array
+console.log(..."ujjawal jaiswal"); // separated and printed
+        </code></pre>
+
+        <p>The spread operator is basically used to spread the elements.</p>
+
+        <hr>
+
+        <h3>Using Spread with Array Literals</h3>
+        <pre><code class="language-js">
+let brr = [1, 3, 4, 56, 6, 3, 5, 6, 6, 4, 645, 56, 6];
+console.log(brr);
+let copyOfBrr = [...brr]; // copying the array
+console.log(copyOfBrr);
+
+let brr2 = [... "ujjawal"]; // converted into a character array
+console.log(brr2);
+
+let odd = [1, 3, 5, 7, 9, 11, 13];
+let even = [2, 4, 6, 8, 10, 12, 14];
+let all = [...odd, ...even]; // combining odd and even arrays
+console.log(all);
+        </code></pre>
+
+        <hr>
+
+        <h3>Using Spread with Object Literals</h3>
+        <pre><code class="language-js">
+let data = {
+    email: "ujjawaljaiswal618@gmail.com",
+    password: "supra123"
+};
+
+console.log(data);
+
+let dataCopy = { ...data }; // copying data to another object
+console.log(dataCopy);
+
+let dataCopy2 = { ...data, id: 123, name: "ujjawal" }; // copying with additional elements
+console.log(dataCopy2);
+
+let obj1 = { ...brr }; // spreading an array into an object
+console.log(obj1);
+
+let obj2 = { ... "ujjawal" }; // spreading a string into an object
+console.log(obj2);
+        </code></pre>
+
+    </div>
+            </section>
+
+            <!-- rest -->
+            <section class="sub">
+    <h2 onclick="toggleContent('rest')">Rest</h2>
+    <div id="rest" class="content" style="display: none;">
+
+        <h3>Rest</h3>
+        <p>The rest operator allows a function to take an indefinite number of arguments and bundle them into an array.</p>
+
+        <h4>Opposite to Spread</h4>
+        <ul>
+            <li><strong>Spread:</strong> A single unit to multiple values (spreading elements).</li>
+            <li><strong>Rest:</strong> Multiple values combined into a single unit.</li>
+        </ul>
+
+        <h4>Syntax + Example</h4>
+        <pre><code class="language-js">
+function sum(...args) {
+    return args.reduce((add, el) => add + el);
+}
+        </code></pre>
+
+        <hr>
+
+        <h4>Example of Print Function</h4>
+        <pre><code class="language-js">
+function print(...arg) {
+    for (let i = 0; i < arg.length; i++) {
+        console.log("argument is:", arg[i]);
+    }
+}
+console.log(print); // function reference
+
+print(3);
+print(12, 2, 3, 4);
+print("hello", "ji", "kaise ho");
+print(1, 3, 4, 6, 4, 5, "ujjawal", "arr", 78.0); // can pass any number of arguments
+        </code></pre>
+
+        <hr>
+
+        <h4>Arguments Object</h4>
+        <p>There is an inbuilt "arguments collector" in JavaScript that collects all the passed arguments for that function.</p>
+        <pre><code class="language-js">
+function min(a, b, c, d) {
+    console.log(arguments);
+    console.log("length of argument attribute:", arguments.length);
+}
+min();
+min(1, 2, 3, 4); // Note: arguments is not an array, hence cannot use array methods
+min(1, 2, 3, 4, 5, 6, 7, 8, 9); // length of arguments is not dependent on the length of parameters
+        </code></pre>
+
+        <hr>
+
+        <h4>Use of Rest</h4>
+        <pre><code class="language-js">
+function addAll(...args) {
+    return args.reduce((add, el) => add + el);
+}
+console.log("Addition of All elements is:", addAll(1, 2));
+console.log("Addition of All elements is:", addAll(1, 2, 3, 4, 5, 6, 7));
+console.log("Addition of All elements is:", addAll(1, 2, 3, 4, 5, 6, 7, 55, 44, 3, 4, 56, 7));
+
+function max(...restArray) {          
+    return restArray.reduce((max, el) => {
+        if (max < el) {
+            return el;
+        } else {
+            return max;
+        }
+    });
+}
+console.log("Maximum of All elements is:", max(1, 2, 3, 4, 5));
+console.log("Maximum of All elements is:", max(1, 2, 3, 4, 5, 6, 6, 77, 3, 4, 7, 8, -1243, 34));
+        </code></pre>
+
+        <h4>Note</h4>
+        <p>If you want to provide some arguments in a function but do not want to count them into the rest array, write them before the arguments array.</p>
+        <pre><code class="language-js">
+function addAll(a, b, c, ...args) { // now a, b, c are not part of args array
+    return args.reduce((add, el) => add + el);
+}
+        </code></pre>
+
+    </div>
+            </section>
+
+            <!-- destructuring -->
+            <section class="sub">
+    <h2 onclick="toggleContent('destructuring')">Destructuring</h2>
+    <div id="destructuring" class="content" style="display: none;">
+
+        <h3>Destructuring</h3>
+        <p>Destructuring allows you to unpack values from arrays or properties from objects into distinct variables.</p>
+
+        <h4>Destructuring Arrays</h4>
+        <p>Storing values of an array into multiple variables.</p>
+
+        <pre><code class="language-js">
+let names = ["ujjawal", "shivam", "prince", "kunnu", "nikhil", "shubham", "vikas"]; 
+
+// Method 1
+let winner = names[0];
+let runnerUp = names[1];
+let secondRunnerUp = names[2];
+
+console.log(winner);
+console.log(runnerUp);
+console.log(secondRunnerUp);
+
+// Method 2 (Destructuring)
+let [winner1, runnerUp1, secondRunnerUp1] = names; // Assign from the start of the array.
+console.log(winner1);
+console.log(runnerUp1);
+console.log(secondRunnerUp1);        
+
+// Using destructuring with rest for storing all other names in a new array.
+let [winner2, runnerUp2, ...others] = names;
+console.log(winner2);
+console.log(runnerUp2);
+console.log(others);
+        </code></pre>
+
+        <hr>
+
+        <h4>Destructuring with Objects</h4>
+        <p>Storing all the values of an object in variables. The key becomes the variable name.</p>
+        <pre><code class="language-js">
+const student = {
+    name: "karan",
+    age: 16,
+    class: 12,
+    subjects: ["hindi", "english", "math", "science"],
+    username: "karan@2323",
+    password: "********"
+};
+
+// Destructuring
+let { username, password } = student; // It will search for username and password in the object as keys.
+console.log(username);
+console.log(password);
+
+// If we want to store in a different variable name other than the key name.
+let { name, username: new_variable, password: pass, ifNotExistInObject = "pune" } = student; // Storing values in new variables.
+console.log(name);
+console.log(new_variable);
+console.log(pass);
+console.log(ifNotExistInObject); // If not present in the object, we can also add a default value.
+        </code></pre>
+
+    </div>
+            </section>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
