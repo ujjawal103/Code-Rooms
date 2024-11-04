@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form's - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Form's in HTML</h1>
+        <p>HTML topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Html Topic Sections -->
+      <section class="sub">
+    <h2 onclick="toggleContent('html-forms')">HTML Forms</h2>
+    <div id="html-forms" class="content" style="display: none;">
+
+        <h3>Basic Form</h3>
+        <pre><code class="language-html">
+&lt;form&gt;  &lt;!-- Start of the form --&gt;
+    &lt;label for="email"&gt;Enter Email ID:&lt;/label&gt;  &lt;!-- Label for email input --&gt;
+    &lt;input type="email" id="email" placeholder="Enter Your Email."&gt;  &lt;!-- Email input field --&gt;
+    &lt;br&gt;&lt;br&gt;
+    
+    &lt;label for="password"&gt;Enter Password:&lt;/label&gt;  &lt;!-- Label for password input --&gt;
+    &lt;input type="password" id="password"&gt;  &lt;!-- Password input field --&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;input type="submit" value="SUBMIT HERE."&gt;  &lt;!-- Submit button --&gt;
+&lt;/form&gt;  &lt;!-- End of the form --&gt;
+
+&lt;h3&gt;Basic Form completed.&lt;/h3&gt;
+        </code></pre>
+
+        <h3>Advanced Form</h3>
+        <pre><code class="language-html">
+&lt;form&gt;  &lt;!-- Start of the advanced form --&gt;
+    &lt;label for="datePicker"&gt;Choose Date:&lt;/label&gt;  &lt;!-- Label for date input --&gt;
+    &lt;input type="date" id="datePicker"&gt;  &lt;!-- Date input field --&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;label for="selector1"&gt;Choose your Dishes:&lt;/label&gt;  &lt;!-- Label for dish selection --&gt;
+    &lt;select name="Dishes" id="selector1"&gt;  &lt;!-- Dropdown for dish selection --&gt;
+        &lt;option value="maggi"&gt;Maggi&lt;/option&gt;
+        &lt;option value="kurkure"&gt;Kurkure&lt;/option&gt;
+        &lt;option value="chips"&gt;Chips&lt;/option&gt;
+    &lt;/select&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;button&gt;I'm button&lt;/button&gt;  &lt;!-- Button element --&gt;
+    &lt;br&gt;&lt;br&gt;
+
+    &lt;textarea name="textarea1" id="textarea1" cols="30" rows="10" placeholder="Enter Text here..."&gt;&lt;/textarea&gt;  &lt;!-- Textarea for user input --&gt;
+    &lt;br&gt;
+
+    &lt;textarea name="textarea2" id="textarea2" cols="15" rows="5" placeholder="Enter Your Feedback..."&gt;&lt;/textarea&gt;  &lt;!-- Textarea for user feedback --&gt;
+&lt;/form&gt;  &lt;!-- End of the advanced form --&gt;
+        </code></pre>
+
+        <h3>Fieldset Example</h3>
+        <pre><code class="language-html">
+&lt;form action=""&gt;  &lt;!-- Form containing a fieldset --&gt;
+    &lt;fieldset&gt;  &lt;!-- Grouping elements --&gt;
+        &lt;legend&gt;HTML Form Dummy...&lt;/legend&gt;  &lt;!-- Title for the fieldset --&gt;
+
+        &lt;label for="datePicker"&gt;Choose Date:&lt;/label&gt;  &lt;!-- Label for date input --&gt;
+        &lt;input type="date" id="datePicker"&gt;  &lt;!-- Date input field --&gt;
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;label for="selector1"&gt;Choose your Dishes:&lt;/label&gt;  &lt;!-- Label for dish selection --&gt;
+        &lt;select name="Dishes" id="selector1"&gt;  &lt;!-- Dropdown for dish selection --&gt;
+            &lt;option value="maggi"&gt;Maggi&lt;/option&gt;
+            &lt;option value="kurkure"&gt;Kurkure&lt;/option&gt;
+            &lt;option value="chips"&gt;Chips&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;button&gt;I'm button&lt;/button&gt;  &lt;!-- Button element --&gt;
+        &lt;br&gt;&lt;br&gt;
+
+        &lt;textarea name="textarea1" id="textarea1" cols="30" rows="10" placeholder="Enter Text here..."&gt;&lt;/textarea&gt;  &lt;!-- Textarea for user input --&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;  &lt;!-- End of the form containing fieldset --&gt;
+        </code></pre>
+
+        <h3>Multiple Selection</h3>
+        <pre><code class="language-html">
+&lt;form action=""&gt;  &lt;!-- Form for multiple selection --&gt;
+    &lt;label for="cars"&gt;Choose your dream cars&lt;/label&gt;  &lt;!-- Label for car selection --&gt;
+    &lt;select name="cars" id="cars" multiple&gt;  &lt;!-- Dropdown for multiple selection --&gt;
+        &lt;option value="Toyota"&gt;Toyota&lt;/option&gt;
+        &lt;option value="Honda"&gt;Honda&lt;/option&gt;
+        &lt;option value="BMW"&gt;BMW&lt;/option&gt;
+    &lt;/select&gt;  &lt;!-- Multiple selection allows holding CTRL to select more than one option --&gt;
+&lt;/form&gt;  &lt;!-- End of the multiple selection form --&gt;
+        </code></pre>
+
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('html-advanced-inputs')">HTML Advanced Input Types</h2>
+    <div id="html-advanced-inputs" class="content" style="display: none;">
+
+        <h3>Basic Text and Button Inputs</h3>
+        <p>These are common form elements used for entering text and clicking buttons.</p>
+        <pre><code class="language-html">
+&lt;form&gt;
+    &lt;!-- Text Input for simple text fields --&gt;
+    &lt;label for="textfield"&gt;TextField:&lt;/label&gt;
+    &lt;input type="text" name="textfield" id="textfield"&gt;
+
+    &lt;!-- Button for clickable actions without form submission --&gt;
+    &lt;label for="button"&gt;Button:&lt;/label&gt;
+    &lt;input type="button" name="button" id="button" value="UnSubscribe"&gt;
+
+    &lt;!-- Submit Button to submit form data to a server --&gt;
+    &lt;input type="submit" name="button" id="button" value="UnSubscribe"&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Radio Buttons</h3>
+        <p>Radio buttons let users select only one option from a set. Each option should have the same <code>name</code> attribute.</p>
+        <pre><code class="language-html">
+&lt;!-- A single radio button (non-selectable alone) --&gt;
+&lt;label for="Radiobutton"&gt;Creating a Radio Button:&lt;/label&gt;
+&lt;input type="radio" name="radio" id="Radiobutton"&gt;
+
+&lt;!-- Grouped Radio Buttons for gender selection --&gt;
+&lt;label for="radio1"&gt;Male:&lt;/label&gt;
+&lt;input type="radio" name="radio" id="radio1"&gt;
+
+&lt;label for="radio2"&gt;Female:&lt;/label&gt;
+&lt;input type="radio" name="radio" id="radio2"&gt;
+
+&lt;label for="radio3"&gt;Transgender:&lt;/label&gt;
+&lt;input type="radio" name="radio" id="radio3"&gt;
+        </code></pre>
+
+        <h3>Checkboxes</h3>
+        <p>Checkboxes allow users to select multiple options independently. They can share the same name or have different names, depending on the desired behavior.</p>
+        <pre><code class="language-html">
+&lt;!-- Single Checkbox --&gt;
+&lt;label for="checkbox1"&gt;Checkbox Button:&lt;/label&gt;
+&lt;input type="checkbox" name="checkbox1" id="checkbox1"&gt;
+
+&lt;!-- Multiple Checkboxes for selecting languages --&gt;
+&lt;label for="checkbox1"&gt;English:&lt;/label&gt;
+&lt;input type="checkbox" name="checkbox" id="checkbox1"&gt;
+
+&lt;label for="checkbox2"&gt;Hindi:&lt;/label&gt;
+&lt;input type="checkbox" name="checkbox" id="checkbox2"&gt;
+        </code></pre>
+
+        <h3>File Upload, Image Button, and Password</h3>
+        <p>These elements provide specialized functions: file upload, image-based buttons, and password masking.</p>
+        <pre><code class="language-html">
+&lt;!-- File Upload for selecting files --&gt;
+&lt;label for="file"&gt;Upload File:&lt;/label&gt;
+&lt;input type="file" name="FileSelector" id="file"&gt;
+
+&lt;!-- Image Button for using images as clickable buttons --&gt;
+&lt;label for="photo"&gt;Image Button:&lt;/label&gt;
+&lt;input type="image" name="photo" id="photo1" src="06_akhand.jpeg" alt="akhand photo" width="20px" height="20px"&gt;
+
+&lt;!-- Password Input for sensitive information with hidden text --&gt;
+&lt;label for="password"&gt;Enter Password:&lt;/label&gt;
+&lt;input type="password" name="hiden" id="password"&gt;
+        </code></pre>
+
+        <h3>Date and Time Inputs</h3>
+        <p>These inputs help users select specific dates, times, or a combination of both.</p>
+        <pre><code class="language-html">
+&lt;!-- Date Input for picking a date --&gt;
+&lt;label for="calendra"&gt;Enter DOB:&lt;/label&gt;
+&lt;input type="date" name="calendra" id="calendra"&gt;
+
+&lt;!-- Date and Time Local for combined date and time input --&gt;
+&lt;label for="local"&gt;Enter Current Time & Date:&lt;/label&gt;
+&lt;input type="datetime-local" name="local" id="local"&gt;
+
+&lt;!-- Month Input for selecting a month and year --&gt;
+&lt;label for="month"&gt;Enter Your Birthday Month:&lt;/label&gt;
+&lt;input type="month" name="month" id="month"&gt;
+
+&lt;!-- Time Input for selecting only time --&gt;
+&lt;label for="time"&gt;Enter Current Time:&lt;/label&gt;
+&lt;input type="time" name="time" id="time"&gt;
+
+&lt;!-- Week Input for choosing a week within a year --&gt;
+&lt;label for="week"&gt;Enter Current Week:&lt;/label&gt;
+&lt;input type="week" name="week" id="week"&gt;
+        </code></pre>
+
+        <h3>Color and Hidden Inputs</h3>
+        <p>Color inputs provide a color picker, while hidden inputs store data without displaying it on the form.</p>
+        <pre><code class="language-html">
+&lt;!-- Color Picker for selecting colors --&gt;
+&lt;label for="color"&gt;Choose Color:&lt;/label&gt;
+&lt;input type="color" name="COLOR" id="color"&gt;
+
+&lt;!-- Hidden Input to store non-displayed values --&gt;
+&lt;label for="hide"&gt;I'm Hidden:&lt;/label&gt;
+&lt;input type="hidden" name="hide" id="hide" value="hii"&gt;
+        </code></pre>
+
+        <h3>Numeric Inputs</h3>
+        <p>Number and range inputs allow numerical input and adjustable sliders for values.</p>
+        <pre><code class="language-html">
+&lt;!-- Number Input for numeric data --&gt;
+&lt;label for="number"&gt;Enter Your Lucky Number:&lt;/label&gt;
+&lt;input type="number" name="number" id="number"&gt;
+
+&lt;!-- Range Slider for adjustable values like brightness --&gt;
+&lt;label for="range"&gt;Brightness:&lt;/label&gt;
+&lt;input type="range" name="range" id="range"&gt;
+        </code></pre>
+
+        <h3>Reset, Search, and URL Inputs</h3>
+        <p>These inputs include a reset button, a search bar, and an input for web addresses.</p>
+        <pre><code class="language-html">
+&lt;!-- Reset Button to clear form data --&gt;
+&lt;input type="reset" name="reset" id="reset"&gt;
+
+&lt;!-- Search Input for search queries with a placeholder --&gt;
+&lt;label for="search"&gt;Search For:&lt;/label&gt;
+&lt;input type="search" name="search" id="search" placeholder="cycle, moto..."&gt;
+
+&lt;!-- URL Input for entering web addresses --&gt;
+&lt;label for="url"&gt;Enter Link:&lt;/label&gt;
+&lt;input type="url" name="url" id="url"&gt;
+        </code></pre>
+
+        <h3>Email and Telephone Inputs</h3>
+        <p>Email and telephone inputs allow input specific to email addresses and phone numbers.</p>
+        <pre><code class="language-html">
+&lt;!-- Email Input for email addresses --&gt;
+&lt;label for="email"&gt;Enter Email:&lt;/label&gt;
+&lt;input type="email" name="email" id="email"&gt;
+
+&lt;!-- Telephone Input for phone numbers --&gt;
+&lt;label for="tel"&gt;Enter Phone Number:&lt;/label&gt;
+&lt;input type="tel" name="tel" id="tel"&gt;
+&lt;/form&gt;
+        </code></pre>
+
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('html-practices')">HTML Forms Practices: <br>Event Registration and Job Application</h2>
+    <div id="html-practices" class="content" style="display: none;">
+
+        <h3>Event Registration Form</h3>
+        <p>This form allows users to register for an event, collecting details like name, email, phone number, occupation, interests, and additional comments.</p>
+        <pre><code class="language-html">
+&lt;!-- Event Registration Form --&gt;
+&lt;form&gt;
+    &lt;h1&gt;Event Registration&lt;/h1&gt;
+    
+    &lt;!-- Name Field --&gt;
+    &lt;label for="naam"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" name="naam" id="naam"&gt;
+    
+    &lt;!-- Email Field --&gt;
+    &lt;label for="email"&gt;Email Id:&lt;/label&gt;
+    &lt;input type="email" name="email" id="email"&gt;
+    
+    &lt;!-- Phone Number with Pattern --&gt;
+    &lt;label for="tel"&gt;Phone No.:&lt;/label&gt;
+    &lt;small&gt;Format: 123-456-7890&lt;/small&gt;
+    &lt;input type="tel" name="telephone" id="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required&gt;
+    
+    &lt;!-- Occupation Selection --&gt;
+    &lt;label for="occupation"&gt;Occupation:&lt;/label&gt;
+    &lt;select name="occupation" id="occupation"&gt;
+        &lt;option value="student"&gt;Student&lt;/option&gt;
+        &lt;option value="professional"&gt;Professional&lt;/option&gt;
+        &lt;option value="other"&gt;Other&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;!-- Topics of Interest Checkboxes --&gt;
+    &lt;legend&gt;Topics Of Interest&lt;/legend&gt;
+    &lt;label for="html"&gt;HTML&lt;/label&gt;
+    &lt;input type="checkbox" name="checkbox" id="html"&gt;
+    &lt;label for="css"&gt;CSS&lt;/label&gt;
+    &lt;input type="checkbox" name="checkbox" id="css"&gt;
+    &lt;label for="js"&gt;JS&lt;/label&gt;
+    &lt;input type="checkbox" name="checkbox" id="js"&gt;
+    
+    &lt;!-- Comments Section --&gt;
+    &lt;label for="textarea1"&gt;Comments:&lt;/label&gt;
+    &lt;textarea name="textarea" id="textarea1" cols="30" rows="5"&gt;Write Your Reviews...&lt;/textarea&gt;
+    
+    &lt;!-- Register Button --&gt;
+    &lt;input type="submit" name="register" value="Register!"&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Job Application Form</h3>
+        <p>This form is designed for job applications, asking for contact details, skills, education, and availability preferences.</p>
+        <pre><code class="language-html">
+&lt;!-- Job Application Form --&gt;
+&lt;form&gt;
+    &lt;h1&gt;Job Application&lt;/h1&gt;
+    
+    &lt;!-- Name and Email Fields --&gt;
+    &lt;label for="naam"&gt;Name:&lt;/label&gt;
+    &lt;input type="text" name="naam" id="naam"&gt;
+    &lt;label for="email"&gt;Email Id:&lt;/label&gt;
+    &lt;input type="email" name="email" id="email"&gt;
+
+    &lt;!-- Phone Number with Pattern --&gt;
+    &lt;label for="tel"&gt;Phone No.:&lt;/label&gt;
+    &lt;small&gt;Format: 123-456-7890&lt;/small&gt;
+    &lt;input type="tel" name="telephone" id="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required&gt;
+    
+    &lt;!-- Resume File Upload --&gt;
+    &lt;label for="file"&gt;Resume:&lt;/label&gt;
+    &lt;input type="file" name="UPLOAD" id="file" required&gt;
+
+    &lt;!-- Experience Field with Range --&gt;
+    &lt;label for="experience"&gt;Experience (Years):&lt;/label&gt;
+    &lt;input type="number" name="Counter" id="counter" min="0" max="50"&gt;
+
+    &lt;!-- Skills Section --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Skills&lt;/legend&gt;
+        &lt;input type="checkbox" name="checkbox" id="html"&gt;
+        &lt;label for="html"&gt;HTML&lt;/label&gt;
+        &lt;input type="checkbox" name="checkbox" id="css"&gt;
+        &lt;label for="css"&gt;CSS&lt;/label&gt;
+        &lt;input type="checkbox" name="checkbox" id="js"&gt;
+        &lt;label for="js"&gt;JS&lt;/label&gt;
+    &lt;/fieldset&gt;
+
+    &lt;!-- Education Dropdown --&gt;
+    &lt;label for="education"&gt;Higher Education:&lt;/label&gt;
+    &lt;select name="qualification" id="education"&gt;
+        &lt;option value="High School"&gt;High School&lt;/option&gt;
+        &lt;option value="Enter"&gt;Enter&lt;/option&gt;
+        &lt;option value="Graduation"&gt;Graduation&lt;/option&gt;
+        &lt;option value="other"&gt;Other&lt;/option&gt;
+    &lt;/select&gt;
+
+    &lt;!-- Availability Options --&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;Availability&lt;/legend&gt;
+        &lt;label for="radio1"&gt;Full-Time&lt;/label&gt;
+        &lt;input type="radio" name="radio" id="radio1"&gt;
+        &lt;label for="radio2"&gt;Half-Time&lt;/label&gt;
+        &lt;input type="radio" name="radio" id="radio2"&gt;
+        &lt;label for="radio3"&gt;Part-Time&lt;/label&gt;
+        &lt;input type="radio" name="radio" id="radio3"&gt;
+    &lt;/fieldset&gt;
+
+    &lt;!-- Additional Comments --&gt;
+    &lt;label for="textarea1"&gt;Additional Comments:&lt;/label&gt;
+    &lt;textarea name="textarea" id="textarea1" cols="30" rows="5" placeholder="Write your Reviews..."&gt;&lt;/textarea&gt;
+
+    &lt;!-- Submit Application Button --&gt;
+    &lt;input type="submit" name="register" value="Submit Application!"&gt;
+&lt;/form&gt;
+        </code></pre>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+    
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

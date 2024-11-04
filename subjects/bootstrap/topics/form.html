@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap Forms</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+     
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-forms')">Bootstrap Forms</h2>
+    <div id="bootstrap-forms" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap provides a wide range of classes to style forms and form components easily. Using Bootstrap’s form controls, you can quickly style inputs, labels, checkboxes, switches, and select elements, enhancing both functionality and visual consistency.
+        </p>
+
+        <h3>Basic Form Structure</h3>
+        <p>
+            A basic form layout can be created using Bootstrap classes. Adding <code>form-control</code> to input elements ensures they take up the full width of their container, while <code>mb-3</code> or <code>mb-4</code> classes help manage spacing.
+        </p>
+
+        <h3>Examples of Form Components</h3>
+
+        <h4>Basic Text Input</h4>
+        <pre><code class="language-html">
+&lt;form&gt;
+    &lt;label for="email" class="form-label"&gt;Email&lt;/label&gt;
+    &lt;input type="email" class="form-control" id="email" placeholder="Enter your email"&gt;
+&lt;/form&gt;
+        </code></pre>
+        <p>
+            This form example includes a labeled email input field styled with <code>form-control</code> for a full-width appearance and consistent padding.
+        </p>
+
+        <h4>Password Input with Label</h4>
+        <pre><code class="language-html">
+&lt;form&gt;
+    &lt;label for="password" class="form-label"&gt;Password&lt;/label&gt;
+    &lt;input type="password" class="form-control" id="password" placeholder="Enter your password"&gt;
+&lt;/form&gt;
+        </code></pre>
+        <p>
+            Password inputs can also use the <code>form-control</code> class, creating a uniform look across different input types.
+        </p>
+
+        <h4>Different Input Sizes</h4>
+        <pre><code class="language-html">
+&lt;form&gt;
+    &lt;input type="text" class="form-control-lg" placeholder="Large Input"&gt;
+    &lt;input type="text" class="form-control-sm" placeholder="Small Input"&gt;
+&lt;/form&gt;
+        </code></pre>
+        <p>
+            Use <code>form-control-lg</code> for larger inputs and <code>form-control-sm</code> for smaller inputs, allowing customization based on the form's design requirements.
+        </p>
+
+        <h4>Dropdown Selection</h4>
+        <pre><code class="language-html">
+&lt;select class="form-select"&gt;
+    &lt;option selected&gt;Choose your city&lt;/option&gt;
+    &lt;option value="1"&gt;City 1&lt;/option&gt;
+    &lt;option value="2"&gt;City 2&lt;/option&gt;
+&lt;/select&gt;
+        </code></pre>
+        <p>
+            Dropdowns can be styled with <code>form-select</code>, providing a consistent look and feel for selection elements.
+        </p>
+
+        <h4>Checkboxes and Switches</h4>
+        <pre><code class="language-html">
+&lt;div class="form-check"&gt;
+    &lt;input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"&gt;
+    &lt;label class="form-check-label" for="flexCheckDefault"&gt;Default checkbox&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="form-check form-switch"&gt;
+    &lt;input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault"&gt;
+    &lt;label class="form-check-label" for="flexSwitchCheckDefault"&gt;Switch&lt;/label&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            Use <code>form-check</code> and <code>form-check-input</code> for standard checkboxes, and <code>form-check form-switch</code> for switch-style checkboxes.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            By leveraging Bootstrap's form controls, you can easily create accessible, responsive, and visually appealing forms. These controls simplify styling and layout adjustments, making form creation quicker and more consistent.
+        </p>
+
+    </div>
+        </section>
+
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-grid-forms')">Bootstrap Grid Form Layouts</h2>
+    <div id="bootstrap-grid-forms" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap's grid system enables responsive form layouts by dividing the page into a flexible grid of rows and columns. This approach is especially useful for organizing form fields side-by-side on larger screens and stacking them on smaller devices.
+        </p>
+
+        <h3>Example: Basic Form with Rows and Columns</h3>
+        
+        <p>This example illustrates a two-column layout where the "Email" and "Password" fields are aligned side-by-side on medium and larger screens:</p>
+        <pre><code class="language-html">
+&lt;form&gt;   
+    &lt;div class="row"&gt;
+        &lt;div class="mb-4 col-md-6"&gt;
+            &lt;label for="email" class="form-label"&gt;Email&lt;/label&gt; 
+            &lt;input type="email" class="form-control" id="email" placeholder="Enter your email"&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mb-4 col-md-6"&gt;
+            &lt;label for="password" class="form-label"&gt;Password&lt;/label&gt; 
+            &lt;input type="password" class="form-control" id="password" placeholder="Enter your password"&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Grid System Classes Explained</h3>
+        <ul>
+            <li><code>row</code>: Creates a horizontal group of columns, defining the layout structure.</li>
+            <li><code>col-md-6</code>: Specifies the width of each column on medium and larger screens, creating a two-column layout.</li>
+            <li><code>mb-4</code>: Adds bottom margin for spacing between form fields.</li>
+        </ul>
+
+        <h3>More Complex Layout with Switches and Checkboxes</h3>
+        <p>This example demonstrates adding checkboxes and switches within the grid layout:</p>
+        <pre><code class="language-html">
+&lt;form&gt;   
+    &lt;div class="row"&gt;
+        &lt;div class="mb-4 col-4"&gt;
+            &lt;div class="form-check form-switch"&gt;
+                &lt;input type="checkbox" class="form-check-input" id="flexSwitchCheckDefault"&gt;
+                &lt;label class="form-check-label" for="flexSwitchCheckDefault"&gt;Switch&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div class="mb-4 col-2"&gt;
+            &lt;div class="form-check form-check-inline"&gt;
+                &lt;input type="checkbox" class="form-check-input" id="inlineCheckbox2" value="option2"&gt;
+                &lt;label class="form-check-label" for="inlineCheckbox2"&gt;2&lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Responsive Adjustments</h3>
+        <p>
+            The grid system in Bootstrap is responsive by default, adjusting the form layout based on screen size. Use classes like <code>col-*</code>, <code>col-sm-*</code>, <code>col-md-*</code>, etc., to control the number of columns for various screen sizes.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            With the Bootstrap grid system, you can build responsive, multi-column layouts that adapt to various screen sizes, making forms more user-friendly and organized.
+        </p>
+
+    </div>
+        </section>
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

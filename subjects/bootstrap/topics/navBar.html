@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NavBar - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap NavBars</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-navbar')">Bootstrap Navigation Bar</h2>
+    <div id="bootstrap-navbar" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap provides a powerful and flexible navigation system. The navigation bar is a crucial component of web design, allowing users to navigate through different sections of a website seamlessly.
+        </p>
+
+        <h3>Basic Navbar Structure</h3>
+        <p>
+            A typical Bootstrap navigation bar consists of a brand name, navigation links, and optional dropdowns. Below is a basic structure of a fixed-top navbar using Bootstrap.
+        </p>
+        <pre><code class="language-html">
+&lt;nav class="navbar bg-body-tertiary fixed-top"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;Offcanvas navbar&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;!-- Offcanvas Menu --&gt;
+        &lt;div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"&gt;
+            &lt;div class="offcanvas-header"&gt;
+                &lt;h5 class="offcanvas-title" id="offcanvasNavbarLabel"&gt;Offcanvas&lt;/h5&gt;
+                &lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div class="offcanvas-body"&gt;
+                &lt;ul class="navbar-nav justify-content-end flex-grow-1 pe-3"&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link active" aria-current="page" href="#"&gt;Home&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item"&gt;
+                        &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li class="nav-item dropdown"&gt;
+                        &lt;a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                            Dropdown
+                        &lt;/a&gt;
+                        &lt;ul class="dropdown-menu"&gt;
+                            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+                &lt;!-- Search Form --&gt;
+                &lt;form class="d-flex mt-3" role="search"&gt;
+                    &lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+                    &lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+        </code></pre>
+        <p>
+            This code snippet demonstrates how to create a responsive navbar that collapses into an offcanvas menu on smaller screens. It includes a brand name, navigation links, and a dropdown menu.
+        </p>
+
+        <h3>Fixed Navbar</h3>
+        <p>
+            The <code>fixed-top</code> class ensures the navbar stays at the top of the page, even when scrolling down. This improves accessibility and keeps important links always visible.
+        </p>
+
+        <h3>Offcanvas Menu</h3>
+        <p>
+            The offcanvas menu provides a hidden navigation option that can be toggled with a button. This is particularly useful for mobile devices to save space while maintaining usability.
+        </p>
+
+        <h4>Offcanvas Structure Example</h4>
+        <pre><code class="language-html">
+&lt;div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel"&gt;
+    &lt;div class="offcanvas-header"&gt;
+        &lt;h5 class="offcanvas-title" id="offcanvasNavbarLabel"&gt;Offcanvas&lt;/h5&gt;
+        &lt;button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"&gt;&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div class="offcanvas-body"&gt;
+        &lt;ul class="navbar-nav justify-content-end flex-grow-1 pe-3"&gt;
+            &lt;li class="nav-item"&gt;
+                &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+            &lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Search Form</h3>
+        <p>
+            Including a search form within the navbar enhances user experience by allowing users to quickly find content on your website. The form uses Bootstrap's styling to fit seamlessly into the navbar.
+        </p>
+        <pre><code class="language-html">
+&lt;form class="d-flex mt-3" role="search"&gt;
+    &lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+    &lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <h3>Conclusion</h3>
+        <p>
+            Bootstrap's navigation bar is an essential component for creating responsive and user-friendly websites. It provides a versatile way to organize navigation links and can be customized to fit various design needs.
+        </p>
+    </div>
+        </section>
+
+
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-navbar-variations')">Bootstrap Navbar Variations</h2>
+    <div id="bootstrap-navbar-variations" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap provides various navbar styles to create responsive and user-friendly navigation systems. In this section, we will explore two main variations of the navbar: a standard expandable navbar and a scrollable navbar.
+        </p>
+
+        <h3>Standard Expandable Navbar</h3>
+        <p>
+            The standard expandable navbar is a responsive navigation system that collapses on smaller screens. Below is a basic implementation of this type of navbar.
+        </p>
+        <pre><code class="language-html">
+&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;Navbar&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarSupportedContent"&gt;
+            &lt;ul class="navbar-nav me-auto mb-2 mb-lg-0"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link active" aria-current="page" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item dropdown"&gt;
+                    &lt;a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                        Dropdown
+                    &lt;/a&gt;
+                    &lt;ul class="dropdown-menu"&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link disabled" aria-disabled="true"&gt;Disabled&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class="d-flex" role="search"&gt;
+                &lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+                &lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+        </code></pre>
+        <p>
+            This implementation includes a navbar brand, links, dropdown menus, and a search form. The navbar will collapse into a toggle button on smaller screens.
+        </p>
+
+        <h3>Scrollable Navbar</h3>
+        <p>
+            The scrollable navbar allows for navigation with a scrollable dropdown menu, which is useful when there are many items. Below is an example of a scrollable navbar.
+        </p>
+        <pre><code class="language-html">
+&lt;nav class="navbar navbar-expand-lg bg-body-tertiary"&gt;
+    &lt;div class="container-fluid"&gt;
+        &lt;a class="navbar-brand" href="#"&gt;Navbar scroll&lt;/a&gt;
+        &lt;button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation"&gt;
+            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+        &lt;div class="collapse navbar-collapse" id="navbarScroll"&gt;
+            &lt;ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;"&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link active" aria-current="page" href="#"&gt;Home&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link" href="#"&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item dropdown"&gt;
+                    &lt;a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+                        Link
+                    &lt;/a&gt;
+                    &lt;ul class="dropdown-menu"&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Another action&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;hr class="dropdown-divider"&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Something else here&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/li&gt;
+                &lt;li class="nav-item"&gt;
+                    &lt;a class="nav-link disabled" aria-disabled="true"&gt;Link&lt;/a&gt;
+                &lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;form class="d-flex" role="search"&gt;
+                &lt;input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"&gt;
+                &lt;button class="btn btn-outline-success" type="submit"&gt;Search&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/nav&gt;
+        </code></pre>
+        <p>
+            This example includes a scrollable dropdown menu, allowing users to view more options without cluttering the navbar.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Bootstrap's flexible navbar options cater to various design needs, ensuring that your website remains accessible and user-friendly. Both standard and scrollable navbars can be easily customized to fit your project's requirements.
+        </p>
+    </div>
+        </section>
+
+
+    
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

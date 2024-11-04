@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Basics of HTML</h1>
+        <p>HTML topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Html Topic Sections -->
+     <section class="sub">
+    <h2 onclick="toggleContent('html-basics')">HTML Basics</h2>
+    <div id="html-basics" class="content" style="display: none;">
+
+        <h3>Overview of HTML Basics</h3>
+        <p>
+            HTML (Hypertext Markup Language) is the foundational language used to create web pages. It provides a way to structure and present text, images, links, and other elements. Below, we cover essential HTML tags and their practical uses.
+        </p>
+
+        <h3>Basic Text Elements</h3>
+        <pre><code class="language-html">
+&lt;h1&gt;Main Heading&lt;/h1&gt;
+&lt;h2&gt;Subheading&lt;/h2&gt;
+&lt;h3&gt;Section Heading&lt;/h3&gt;
+&lt;h4&gt;Smaller Heading&lt;/h4&gt;
+&lt;h5&gt;Minor Heading&lt;/h5&gt;
+&lt;h6&gt;Smallest Heading&lt;/h6&gt;
+
+&lt;p&gt;This is a paragraph, used for blocks of text.&lt;/p&gt;
+
+&lt;h7&gt;This tag is not valid and behaves like a paragraph.&lt;/h7&gt;
+        </code></pre>
+        <p>
+            <strong>Note:</strong> Only &lt;h1&gt; to &lt;h6&gt; are valid heading tags. Headings provide a hierarchical structure, with &lt;h1&gt; being the most important.
+        </p>
+
+        <h3>Links and Anchors</h3>
+        <pre><code class="language-html">
+&lt;a href="https://www.google.com"&gt;Go to Google&lt;/a&gt;
+
+&lt;!-- Anchor (bookmark) link to jump within the same page --&gt;
+&lt;a href="#bookmark"&gt;Go to Second Ordered List&lt;/a&gt;
+        </code></pre>
+        <p>
+            Links use the &lt;a&gt; tag with the <code>href</code> attribute to navigate to a URL. Adding <code>#id</code> in <code>href</code> lets you jump to a specific section within the page, known as a bookmark.
+        </p>
+
+        <h3>Lists</h3>
+        <pre><code class="language-html">
+&lt;ul&gt;
+    &lt;li&gt;Mango&lt;/li&gt;
+    &lt;li&gt;Papaya&lt;/li&gt;
+    &lt;li&gt;Grapes&lt;/li&gt;
+    &lt;li&gt;Guava&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Unordered List: Useful for bullet points --&gt;
+
+&lt;ol&gt;
+    &lt;li&gt;Step 1&lt;/li&gt;
+    &lt;li&gt;Step 2&lt;/li&gt;
+    &lt;li&gt;Step 3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Ordered List: Useful for steps or ordered items --&gt;
+        </code></pre>
+        <p>
+            Unordered lists (&lt;ul&gt;) display items with bullets, while ordered lists (&lt;ol&gt;) show them with numbers. Use unordered lists when item order doesn’t matter, and ordered lists for steps or instructions.
+        </p>
+
+        <h3>Definition List</h3>
+        <pre><code class="language-html">
+&lt;dl&gt;
+    &lt;dt&gt;Coffee&lt;/dt&gt;
+    &lt;dd&gt;- Black hot drink&lt;/dd&gt;
+    &lt;dt&gt;Milk&lt;/dt&gt;
+    &lt;dd&gt;- White cold drink&lt;/dd&gt;
+&lt;/dl&gt;
+
+&lt;!-- Definition lists (&lt;dl&gt;) are useful for listing terms and definitions --&gt;
+        </code></pre>
+        <p>
+            Definition lists (&lt;dl&gt;) display terms (&lt;dt&gt;) with their definitions (&lt;dd&gt;), ideal for glossary-like content.
+        </p>
+
+        <h3>Tables</h3>
+        <pre><code class="language-html">
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Column 1&lt;/td&gt;
+        &lt;td&gt;Column 2&lt;/td&gt;
+        &lt;td&gt;Column 3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Row 1, Cell 1&lt;/td&gt;
+        &lt;td&gt;Row 1, Cell 2&lt;/td&gt;
+        &lt;td&gt;Row 1, Cell 3&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;!-- Tables are created with &lt;table&gt; tags, where rows (&lt;tr&gt;) contain cells (&lt;td&gt;) --&gt;
+        </code></pre>
+        <p>
+            Tables organize data into rows and columns. Use &lt;tr&gt; for rows and &lt;td&gt; for individual cells within a &lt;table&gt;.
+        </p>
+
+        <h3>Text Formatting</h3>
+        <pre><code class="language-html">
+&lt;strong&gt;Bold (Strong Emphasis)&lt;/strong&gt;
+&lt;b&gt;Bold&lt;/b&gt;
+&lt;i&gt;Italic&lt;/i&gt;
+&lt;em&gt;Emphasis (Italic)&lt;/em&gt;
+&lt;u&gt;Underlined Text&lt;/u&gt;
+&lt;s&gt;Strikethrough&lt;/s&gt;
+
+&lt;sup&gt;Superscript&lt;/sup&gt; and &lt;sub&gt;Subscript&lt;/sub&gt;
+        </code></pre>
+        <p>
+            For accessible text styling, use &lt;strong&gt; and &lt;em&gt; for bold and italic text, respectively. These tags also convey semantic meaning. &lt;sup&gt; and &lt;sub&gt; are useful for mathematical and chemical notations.
+        </p>
+
+        <h3>Image and Media Links</h3>
+        <pre><code class="language-html">
+&lt;img src="image.jpg" alt="Image description"&gt;
+
+&lt;a href="mailto:example@example.com"&gt;Email Us&lt;/a&gt;
+&lt;a href="tel:+123456789"&gt;Call Us&lt;/a&gt;
+        </code></pre>
+        <p>
+            Use &lt;img&gt; to embed images, with <code>src</code> for the file path and <code>alt</code> to describe the image for accessibility. &lt;a href="mailto:"&gt; links email addresses, and <code>tel:</code> links phone numbers.
+        </p>
+
+        <h3>Preserving Text Formatting</h3>
+        <pre><code class="language-html">
+&lt;pre&gt;
+    Preformatted text
+    maintains line breaks
+    and spaces.
+&lt;/pre&gt;
+
+&lt;code&gt;
+    &lt;!-- Code tag for inline code snippets --&gt;
+&lt;/code&gt;
+        </code></pre>
+        <p>
+            Use &lt;pre&gt; for text where whitespace and line breaks should be preserved, and &lt;code&gt; for inline code examples, especially useful for displaying code snippets.
+        </p>
+
+        <h3>Navigation Links</h3>
+        <pre><code class="language-html">
+&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;About Us&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Contact&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+        </code></pre>
+        <p>
+            The &lt;nav&gt; element is used to define navigation links, typically wrapped in an unordered list (&lt;ul&gt;) to group them.
+        </p>
+
+        <h3>Quotes</h3>
+        <pre><code class="language-html">
+&lt;q&gt;This is a short quote.&lt;/q&gt;
+        </code></pre>
+        <p>
+            The &lt;q&gt; tag is used for inline quotes. For longer quotations, consider using &lt;blockquote&gt;.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            This section provides a practical introduction to essential HTML elements for structuring and styling content on web pages.
+            Using these elements appropriately enhances readability, accessibility, and page layout.
+        </p>
+
+    </div>
+     </section>
+
+     <section class="sub">
+    <h2 onclick="toggleContent('html-head-tag')">The HTML Head Tag and Meta Elements</h2>
+    <div id="html-head-tag" class="content" style="display: none;">
+
+        <h3>Overview of the Head Tag</h3>
+        <p>The <code>&lt;head&gt;</code> tag contains metadata and settings that help optimize a web page for search engines, compatibility, and user experience.</p>
+
+        <h3>Document Type and Language</h3>
+        <p>Starting with the <code>&lt;!DOCTYPE html&gt;</code> declaration, followed by the <code>lang</code> attribute, sets the document type and language for accessibility and search optimization.</p>
+        <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+        </code></pre>
+
+        <h3>Meta Tags</h3>
+        <p>Meta tags in the <code>&lt;head&gt;</code> provide essential information for SEO, device responsiveness, and character encoding.</p>
+
+        <ul>
+            <li><strong>Character Encoding:</strong> <code>meta charset="UTF-8"</code> allows the use of multiple languages, such as Chinese or Arabic.</li>
+            <pre><code class="language-html">
+&lt;meta charset="UTF-8"&gt;
+            </code></pre>
+
+            <li><strong>Browser Compatibility:</strong> <code>meta http-equiv="X-UA-Compatible" content="ie=edge"</code> ensures the website renders consistently across different browser versions (typically uses the latest rendering mode).</li>
+            <pre><code class="language-html">
+&lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+            </code></pre>
+
+            <li><strong>Responsive Design:</strong> <code>meta name="viewport" content="width=device-width, initial-scale=1.0"</code> adjusts the page layout to fit various screen sizes and starts with an initial zoom of 100%.</li>
+            <pre><code class="language-html">
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            </code></pre>
+
+            <li><strong>Description:</strong> <code>meta name="description" content="Learned Html With Love Babbar"</code> helps search engines understand the content of the page for ranking.</li>
+            <pre><code class="language-html">
+&lt;meta name="description" content="Learned Html With Love Babbar"&gt;
+            </code></pre>
+        </ul>
+
+        <h3>Title and Favicon</h3>
+        <p>The <code>&lt;title&gt;</code> element defines the page title seen on the browser tab, while the <code>link</code> tag adds a favicon (icon next to the title).</p>
+        <pre><code class="language-html">
+&lt;title&gt;-Akhand&lt;/title&gt;
+&lt;link rel="shortcut icon" href="/project_1/06_akhand.jpeg" type="image/x-icon"&gt;
+        </code></pre>
+        <ul>
+            <li><strong>Title:</strong> Visible in the browser tab; helps with SEO.</li>
+            <li><strong>Favicon:</strong> A small icon associated with the website, enhancing brand recognition.</li>
+        </ul>
+        
+        <h3>Body Introduction</h3>
+        <p>This section introduces the <code>&lt;body&gt;</code> tag content that follows the head, beginning with a brief statement.</p>
+        <pre><code class="language-html">
+&lt;body&gt;
+    hiii in this lecture we have studied about head tag and their elements.
+&lt;/body&gt;
+        </code></pre>
+
+    </div>
+     </section>
+
+
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

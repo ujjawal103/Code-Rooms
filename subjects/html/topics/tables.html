@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table's - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Table's in HTML</h1>
+        <p>HTML topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Html Topic Sections -->
+        <section class="sub">
+    <h2 onclick="toggleContent('html-tables')">HTML Tables</h2>
+    <div id="html-tables" class="content" style="display: block;">
+
+        <h3>Overview of HTML Tables</h3>
+        <p>
+            HTML tables are used to organize and display data in a structured format, consisting of rows and columns. They are essential for presenting tabular data clearly and efficiently.
+        </p>
+
+        <h3>Creating a Basic Table</h3>
+        <pre><code class="language-html">
+&lt;table&gt; // Start of the table 
+    &lt;tr&gt; <!-- Start of the table row -->
+        &lt;th&gt;Header 1&lt;/th&gt; <!-- Table header cell -->
+        &lt;th&gt;Header 2&lt;/th&gt; <!-- Table header cell -->
+        &lt;th&gt;Header 3&lt;/th&gt; <!-- Table header cell -->
+    &lt;/tr&gt; <!-- End of the table row -->
+    &lt;tr&gt; <!-- Start of the second row -->
+        &lt;td&gt;Row 1, Cell 1&lt;/td&gt; <!-- Table data cell -->
+        &lt;td&gt;Row 1, Cell 2&lt;/td&gt; <!-- Table data cell -->
+        &lt;td&gt;Row 1, Cell 3&lt;/td&gt; <!-- Table data cell -->
+    &lt;/tr&gt; <!-- End of the second row -->
+    &lt;tr&gt; <!-- Start of the third row -->
+        &lt;td&gt;Row 2, Cell 1&lt;/td&gt; <!-- Table data cell -->
+        &lt;td&gt;Row 2, Cell 2&lt;/td&gt; <!-- Table data cell -->
+        &lt;td&gt;Row 2, Cell 3&lt;/td&gt; <!-- Table data cell -->
+    &lt;/tr&gt; <!-- End of the third row -->
+&lt;/table&gt; <!-- End of the table -->
+        </code></pre>
+        <p>
+            A table is created using the <code>&lt;table&gt;</code> tag. Inside, rows are defined with <code>&lt;tr&gt;</code> tags, header cells with <code>&lt;th&gt;</code>, and standard cells with <code>&lt;td&gt;</code>.
+        </p>
+
+        <h3>Table Attributes</h3>
+        <pre><code class="language-html">
+&lt;table border="1" cellpadding="5" cellspacing="0"&gt; <!-- Table with attributes for border, padding, and spacing -->
+    &lt;tr&gt; <!-- Start of the table row -->
+        &lt;th&gt;Header 1&lt;/th&gt; <!-- Table header cell -->
+        &lt;th&gt;Header 2&lt;/th&gt; <!-- Table header cell -->
+    &lt;/tr&gt; <!-- End of the table row -->
+    &lt;tr&gt; <!-- Start of the second row -->
+        &lt;td&gt;Data 1&lt;/td&gt; <!-- Table data cell -->
+        &lt;td&gt;Data 2&lt;/td&gt; <!-- Table data cell -->
+    &lt;/tr&gt; <!-- End of the second row -->
+&lt;/table&gt; <!-- End of the table -->
+        </code></pre>
+        <p>
+            You can enhance tables with attributes such as <code>border</code>, <code>cellpadding</code>, and <code>cellspacing</code> to control the appearance and spacing of table cells.
+        </p>
+
+        <h3>Colspan and Rowspan</h3>
+        <pre><code class="language-html">
+&lt;table&gt; <!-- Start of the table -->
+    &lt;tr&gt; <!-- Start of the table row -->
+        &lt;td colspan="2"&gt;This cell spans two columns&lt;/td&gt; <!-- Cell that spans two columns -->
+    &lt;/tr&gt; <!-- End of the table row -->
+    &lt;tr&gt; <!-- Start of the second row -->
+        &lt;td rowspan="2"&gt;This cell spans two rows&lt;/td&gt; <!-- Cell that spans two rows -->
+        &lt;td&gt;Cell 1&lt;/td&gt; <!-- Table data cell -->
+    &lt;/tr&gt; <!-- End of the second row -->
+    &lt;tr&gt; <!-- Start of the third row -->
+        &lt;td&gt;Cell 2&lt;/td&gt; <!-- Table data cell -->
+    &lt;/tr&gt; <!-- End of the third row -->
+&lt;/table&gt; <!-- End of the table -->
+        </code></pre>
+        <p>
+            The <code>colspan</code> attribute allows a cell to span multiple columns, while <code>rowspan</code> allows a cell to span multiple rows. This is useful for creating complex table layouts.
+        </p>
+
+        <h3>Table Head, Body, and Foot</h3>
+        <pre><code class="language-html">
+&lt;table&gt; <!-- Start of the table -->
+    &lt;thead&gt; <!-- Start of the table header -->
+        &lt;tr&gt; <!-- Start of the table row -->
+            &lt;th&gt;Header 1&lt;/th&gt; <!-- Table header cell -->
+            &lt;th&gt;Header 2&lt;/th&gt; <!-- Table header cell -->
+        &lt;/tr&gt; <!-- End of the table row -->
+    &lt;/thead&gt; <!-- End of the table header -->
+    &lt;tbody&gt; <!-- Start of the table body -->
+        &lt;tr&gt; <!-- Start of the table row -->
+            &lt;td&gt;Data 1&lt;/td&gt; <!-- Table data cell -->
+            &lt;td&gt;Data 2&lt;/td&gt; <!-- Table data cell -->
+        &lt;/tr&gt; <!-- End of the table row -->
+    &lt;/tbody&gt; <!-- End of the table body -->
+    &lt;tfoot&gt; <!-- Start of the table footer -->
+        &lt;tr&gt; <!-- Start of the table row -->
+            &lt;td&gt;Footer 1&lt;/td&gt; <!-- Table footer cell -->
+            &lt;td&gt;Footer 2&lt;/td&gt; <!-- Table footer cell -->
+        &lt;/tr&gt; <!-- End of the table row -->
+    &lt;/tfoot&gt; <!-- End of the table footer -->
+&lt;/table&gt; <!-- End of the table -->
+        </code></pre>
+        <p>
+            Use <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, and <code>&lt;tfoot&gt;</code> to define the header, body, and footer of the table. This enhances accessibility and styling for complex tables.
+        </p>
+
+        <h3>Styling Tables</h3>
+        <pre><code class="language-html">
+&lt;style&gt; <!-- CSS styling for the table -->
+    table {
+        width: 100%; /* Full width table */
+        border-collapse: collapse; /* Collapse borders for a cleaner look */
+    }
+    th, td {
+        border: 1px solid black; /* Black border for table cells */
+        padding: 8px; /* Padding for cell content */
+        text-align: left; /* Left align text within cells */
+    }
+&lt;/style&gt;
+        </code></pre>
+        <p>
+            CSS can be applied to style tables, controlling dimensions, borders, padding, and text alignment to create visually appealing presentations of data.
+        </p>
+
+        <h3>Accessibility Considerations</h3>
+        <pre><code class="language-html">
+&lt;table&gt; <!-- Start of the table -->
+    &lt;caption&gt;Monthly Sales Report&lt;/caption&gt; <!-- Caption for the table -->
+    &lt;tr&gt; <!-- Start of the table row -->
+        &lt;th&gt;Product&lt;/th&gt; <!-- Table header cell -->
+        &lt;th&gt;Sales&lt;/th&gt; <!-- Table header cell -->
+    &lt;/tr&gt; <!-- End of the table row -->
+&lt;/table&gt; <!-- End of the table -->
+        </code></pre>
+        <p>
+            Use the <code>&lt;caption&gt;</code> tag to provide a brief description of the table for screen readers, improving accessibility for users with disabilities.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            This section provides a comprehensive introduction to HTML tables, their structure, attributes, and styling options. Understanding how to create and manage tables enhances your ability to present data effectively on web pages.
+        </p>
+
+    </div>
+        </section>
+
+
+
+
+
+    
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

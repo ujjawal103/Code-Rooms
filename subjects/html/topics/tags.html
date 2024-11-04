@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Tags in HTML</h1>
+        <p>HTML topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- tags Topic Sections -->
+     <section class="sub">
+    <h2 onclick="toggleContent('html-semantic-structure-formatting')">Semantic Tags, Structure, and Formatting</h2>
+    <div id="html-semantic-structure-formatting" class="content" style="display: block;">
+
+        <h3>Semenatic Tags</h3>
+        <pre><code class="language-html">
+&lt;h1&gt; to &lt;h6&gt;
+&lt;p&gt;
+&lt;a&gt;
+&lt;ul&gt; & &lt;li&gt; 
+&lt;ol&gt; & &lt;li&gt; 
+&lt;dl&gt; &lt;dd&gt; 
+&lt;table&gt; &lt;tr&gt; &lt;td&gt; 
+&lt;img&gt; 
+&lt;form&gt; 
+&lt;input&gt;
+        </code></pre>
+
+        <h3>Structure</h3>
+        <pre><code class="language-html">
+&lt;html&gt;&lt;/html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;header&gt;&lt;/header&gt;
+&lt;main&gt;&lt;/main&gt;
+&lt;aside&gt;&lt;/aside&gt;
+&lt;article&gt;&lt;/article&gt;
+&lt;section&gt;&lt;/section&gt;
+&lt;nav&gt;&lt;/nav&gt;
+        </code></pre>
+
+        <h3>Formatting</h3>
+        <pre><code class="language-html">
+&lt;b&gt;bold&lt;/b&gt;
+&lt;i&gt;italic&lt;/i&gt;
+&lt;u&gt;underline&lt;/u&gt;
+&lt;s&gt;strike(line through)&lt;/s&gt;
+&lt;strong&gt;&lt;/strong&gt;
+&lt;em&gt;emphasize&lt;/em&gt;
+&lt;sup&gt;superscript&lt;/sup&gt;
+&lt;sub&gt;subscript&lt;/sub&gt;
+&lt;pre&gt;&lt;/pre&gt;
+&lt;br&gt;
+&lt;code&gt;&lt;/code&gt;
+        </code></pre>
+
+        <h3>Elements</h3>
+        <p>Examples of elements and their usage:</p>
+        <pre><code class="language-html">
+&lt;p&gt; hii this is me (tags with content called element) &lt;/p&gt;  &lt;!-- element --&gt;
+        </code></pre>
+
+        <h3>Emmet Shortcuts</h3>
+        <p>Examples of using Emmet for faster HTML writing:</p>
+        <pre><code class="language-html">
+&lt;p&gt;&lt;p&gt;&lt;p&gt;&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;  &lt;!-- &lt;p&gt;p&gt;p --&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;/li&gt;  &lt;!-- &lt;ul&gt;&lt;li&gt;*3 --&gt;
+    &lt;li&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div&gt;&lt;img src="" alt=""&gt;&lt;/div&gt;  &lt;!-- &lt;div&gt;&lt;img&gt; --&gt;
+&lt;article&gt;&lt;/article&gt;&lt;section&gt;&lt;/section&gt;  &lt;!-- &lt;article&gt;&lt;section&gt; --&gt;
+        </code></pre>
+
+        <h3>Block Element vs Inline Element</h3>
+        <p><strong>Block Elements:</strong> Tags that cover the whole width of the page, e.g., &lt;p&gt;, &lt;div&gt;.</p>
+        <p><strong>Inline Elements:</strong> Tags that only cover the width of the actual content. Without &lt;br&gt; tags, contents do not align in a new line, e.g., &lt;span&gt;.</p>
+
+        <h3>Block-level Elements in HTML</h3>
+        <ul>
+            <li>&lt;address&gt;</li>
+            <li>&lt;blockquote&gt;</li>
+            <li>&lt;article&gt;</li>
+            <li>&lt;canvas&gt;</li>
+            <li>&lt;aside&gt;</li>
+            <li>&lt;div&gt;</li>
+            <li>&lt;dd&gt;</li>
+            <li>&lt;dl&gt;</li>
+            <li>&lt;dt&gt;</li>
+            <li>&lt;fieldset&gt;</li>
+            <li>&lt;figcaption&gt;</li>
+            <li>&lt;figure&gt;</li>
+            <li>&lt;form&gt;</li>
+            <li>&lt;footer&gt;</li>
+            <li>&lt;h1&gt; - &lt;h6&gt;</li>
+            <li>&lt;header&gt;</li>
+            <li>&lt;hr&gt;</li>
+            <li>&lt;li&gt;</li>
+            <li>&lt;main&gt;</li>
+            <li>&lt;nav&gt;</li>
+            <li>&lt;noscript&gt;</li>
+            <li>&lt;ol&gt;</li>
+            <li>&lt;pre&gt;</li>
+            <li>&lt;section&gt;</li>
+            <li>&lt;table&gt;</li>
+            <li>&lt;tfoot&gt;</li>
+            <li>&lt;ul&gt;</li>
+            <li>&lt;video&gt;</li>
+        </ul>
+
+        <h3>Inline Elements in HTML</h3>
+        <ul>
+            <li>&lt;a&gt;</li>
+            <li>&lt;abbr&gt;</li>
+            <li>&lt;acronym&gt;</li>
+            <li>&lt;b&gt;</li>
+            <li>&lt;bdo&gt;</li>
+            <li>&lt;big&gt;</li>
+            <li>&lt;br&gt;</li>
+            <li>&lt;button&gt;</li>
+            <li>&lt;cite&gt;</li>
+            <li>&lt;code&gt;</li>
+            <li>&lt;dfn&gt;</li>
+            <li>&lt;em&gt;</li>
+            <li>&lt;i&gt;</li>
+            <li>&lt;img&gt;</li>
+            <li>&lt;input&gt;</li>
+            <li>&lt;kbd&gt;</li>
+            <li>&lt;label&gt;</li>
+            <li>&lt;map&gt;</li>
+            <li>&lt;object&gt;</li>
+            <li>&lt;output&gt;</li>
+            <li>&lt;q&gt;</li>
+            <li>&lt;samp&gt;</li>
+            <li>&lt;script&gt;</li>
+            <li>&lt;select&gt;</li>
+            <li>&lt;small&gt;</li>
+            <li>&lt;span&gt;</li>
+            <li>&lt;strong&gt;</li>
+            <li>&lt;sub&gt;</li>
+            <li>&lt;sup&gt;</li>
+            <li>&lt;textarea&gt;</li>
+            <li>&lt;time&gt;</li>
+            <li>&lt;tt&gt;</li>
+            <li>&lt;var&gt;</li>
+        </ul>
+
+        <h3>Navigation Links</h3>
+        <pre><code class="language-html">
+&lt;nav&gt; used for navigation bar &lt;/nav&gt;
+&lt;q&gt;hii&lt;/q&gt;  &lt;!-- double quotes --&gt;
+&lt;c&gt; &lt;!-- comment --&gt;
+        </code></pre>
+
+        <h3>Tables</h3>
+        <pre><code class="language-html">
+&lt;table&gt;table&lt;/table&gt;
+&lt;thead&gt;to give semantic for headings&lt;/thead&gt;
+&lt;th&gt;headings in tables in each column&lt;/th&gt;
+&lt;tbody&gt;all body&lt;/tbody&gt;
+&lt;tfoot&gt;summaries calculations&lt;/tfoot&gt;
+&lt;tr&gt;row&lt;/tr&gt;
+&lt;td&gt;table data (columns)&lt;/td&gt;
+        </code></pre>
+        <p>Use <code>rowspan</code> to increase the height of a cell and <code>colspan</code> to increase the width of a cell as attributes.</p>
+
+        <h3>Forms</h3>
+        <pre><code class="language-html">
+&lt;form action=""&gt; FORM TAG &lt;/form&gt;
+&lt;input type="text"&gt;  &lt;!-- taking inputs (text, radio button, check boxes) --&gt;
+&lt;label for=""&gt;&lt;/label&gt;  &lt;!-- details of which type of input can be given by user --&gt;
+&lt;select name="" id=""&gt;&lt;/select&gt;  &lt;!-- drop-down menu --&gt;
+&lt;option value=""&gt;&lt;/option&gt;
+&lt;button&gt;&lt;/button&gt;
+&lt;textarea name="" id=""&gt;&lt;/textarea&gt;
+&lt;fieldset&gt;&lt;/fieldset&gt;  &lt;!-- group of similar types data --&gt;
+&lt;legend&gt;&lt;/legend&gt;  &lt;!-- to give the heading to fieldset. --&gt;
+        </code></pre>
+
+        <h3>Input Types</h3>
+        <pre><code class="language-html">
+&lt;input type="text"&gt;
+&lt;input type="radio"&gt;
+&lt;input type="checkbox"&gt;
+&lt;input type="button"&gt;
+&lt;input type="submit"&gt;
+&lt;input type="email"&gt;
+&lt;input type="file"&gt;
+&lt;input type="hidden"&gt;
+&lt;input type="password"&gt;
+&lt;input type="search"&gt;
+&lt;input type="tel"&gt;
+&lt;input type="url"&gt;
+&lt;input type="number"&gt;
+&lt;input type="color"&gt;
+        </code></pre>
+
+        <h3>Details Tag</h3>
+        <pre><code class="language-html">
+&lt;details&gt;
+    &lt;summary&gt;Summary here&lt;/summary&gt; 
+    Details visible when the user clicks the summary
+&lt;/details&gt;
+        </code></pre>
+    </div>
+     </section>
+
+
+
+
+    
+
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mini Project</h1>
+        <p>HTML Project with code.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Html Topic Sections -->
+         <section class="sub">
+    <h2 onclick="toggleContent('html-minor-project')">HTML Minor Project: Personal Profile Page</h2>
+    <div id="html-minor-project" class="content" style="display: block;">
+
+        <h3>Project Overview</h3>
+        <p>This project creates a personal profile webpage with sections for contact information, education, work experience, skills, achievements, projects, and frequently asked questions. The layout and styles demonstrate basic HTML structure and tags like headings, paragraphs, links, images, lists, and sections.</p>
+
+        <h3>Code Structure</h3>
+        <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="main"&gt;
+        &lt;h2&gt;Akhand&lt;/h2&gt;
+        &lt;p&gt;Contact: &lt;a href="mailto:ujjawaljaiswal618@gmail.com"&gt;ujjawaljaiswal618@gmail.com&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;Call us: &lt;a href="tel:78004660xx"&gt;78004660xx&lt;/a&gt;&lt;/p&gt;
+        &lt;p&gt;Linked in: &lt;a href="www.linkedin.com"&gt;ujjawal_103_&lt;/a&gt;&lt;/p&gt;
+        
+        &lt;!-- Profile Picture Section --&gt;
+        &lt;section style="display: flex; align-items: center;"&gt;
+            &lt;div&gt;&lt;img src="add_yours.jpeg" alt="Avtar" width="80px" height="80px"&gt;&lt;/div&gt;
+            &lt;p&gt;Lorem ipsum...&lt;/p&gt;
+        &lt;/section&gt;
+
+        &lt;!-- Additional Sections: Education, Work Experience, Skills, Achievements --&gt;
+        &lt;h2&gt;Education&lt;/h2&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Lorem ipsum...&lt;/li&gt;
+            &lt;li&gt;Lorem ipsum...&lt;/li&gt;
+        &lt;/ul&gt;
+        
+        &lt;h2&gt;Work Experience&lt;/h2&gt;
+        &lt;h3&gt;Software Engineer...Meta&lt;/h3&gt;
+        &lt;p&gt;Nov 2021 - May 2034&lt;/p&gt;
+        
+        &lt;!-- More sections for skills, achievements, projects --&gt;
+
+        &lt;footer&gt;
+            &lt;h4&gt;&copy; 2023, Akhand. All rights reserved.&lt;/h4&gt;
+        &lt;/footer&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
+
+        <h3>Project Output</h3>
+        <p>The following screenshot shows the resulting web page after implementing this HTML structure:</p>
+        <img src="Screenshot 2024-11-01 203657.png" alt="Project Output" width="100%">
+
+    </div>
+</section>
+
+  
+
+   
+
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

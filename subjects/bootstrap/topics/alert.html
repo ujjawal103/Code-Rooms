@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alerts - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap Alerts</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+      
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-alerts')">Bootstrap Alerts</h2>
+    <div id="bootstrap-alerts" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Alerts in Bootstrap provide a flexible way to display important messages to users. They can be used for 
+            various purposes, such as showing success messages, warnings, or error notifications. This section covers 
+            the different types of alerts and their usage.
+        </p>
+
+        <h3>Basic Alerts</h3>
+        <pre><code class="language-html">
+&lt;div class="alert alert-success" role="alert"&gt;
+    A simple success alert—Congratulations!
+&lt;/div&gt;
+
+&lt;div class="alert alert-danger" role="alert"&gt;
+    Submission Failed - Please Try Again!
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            The examples above demonstrate basic success and danger alerts. Each alert has a contextual class that 
+            determines its style. Common classes include <code>alert-success</code> for success messages and 
+            <code>alert-danger</code> for error messages.
+        </p>
+
+        <h3>Dismissible Alerts</h3>
+        <p>
+            Alerts can be made dismissible, allowing users to close them easily. This can enhance user experience by 
+            reducing clutter.
+        </p>
+        <pre><code class="language-html">
+&lt;div class="alert alert-warning alert-dismissible fade show" role="alert"&gt;
+    &lt;strong&gt;Holy guacamole!&lt;/strong&gt; Here this closing functionality has a Javascript Feature.
+    &lt;button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"&gt;&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            The <code>alert-dismissible</code> class adds dismissible functionality. The <code>btn-close</code> button 
+            allows users to close the alert. The <code>fade</code> class provides a smooth transition when the alert is dismissed.
+        </p>
+
+        <h3>Alerts with Icons</h3>
+        <p>Alerts can also include icons to convey meaning visually, improving clarity.</p>
+        <pre><code class="language-html">
+&lt;div class="alert alert-success d-flex align-items-center" role="alert"&gt;
+    &lt;svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:"&gt;&lt;use xlink:href="#check-circle-fill"/&gt;&lt;/svg&gt;
+    &lt;div&gt;
+      An example success alert with an icon
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            The alert above shows an icon next to the alert message. The use of SVG icons enhances the visual 
+            representation of the alert's purpose.
+        </p>
+
+        <h3>Custom Alert Styles</h3>
+        <p>You can also customize alerts with additional styles and icons.</p>
+        <pre><code class="language-html">
+&lt;div class="alert alert-primary d-flex align-items-center" role="alert" style="width: 100%; height: 80px; object-fit: cover;"&gt;
+    &lt;svg xmlns="http://www.w3.org/2000/svg" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:" style="width: 5%; height:100%;"&gt;
+      &lt;path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/&gt;
+    &lt;/svg&gt;
+    &lt;div style="width: 95%; height: 100%;"&gt;
+      An example alert with an icon
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            The example above showcases a primary alert with a warning icon and custom dimensions. This level of 
+            customization allows for greater flexibility in design.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Bootstrap alerts provide a straightforward method for displaying messages and notifications. By 
+            utilizing contextual classes, dismissible functionality, and icons, alerts can enhance user interaction 
+            and provide clear communication.
+        </p>
+    </div>
+        </section>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

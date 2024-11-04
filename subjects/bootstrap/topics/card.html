@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap Card</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+
+        <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-cards')">Bootstrap Cards</h2>
+    <div id="bootstrap-cards" class="content" style="display: block;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap cards are flexible and extensible content containers that can be used to display a variety of content types, including images, text, and links. They are ideal for showcasing items like blog posts, products, and user profiles.
+        </p>
+
+        <h3>Basic Card Structure</h3>
+        <p>
+            The basic structure of a Bootstrap card consists of an image, a title, a text description, and a button. Here’s an example of a simple card implementation.
+        </p>
+        <pre><code class="language-html">
+&lt;div class="card" style="width: 18rem;"&gt;
+    &lt;img src="photo.jpeg" class="card-img-top" alt="..." style="height: 200px; width: 18rem;"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Card title&lt;/h5&gt;
+        &lt;p class="card-text"&gt;Some quick example text to build on the card title and make up the bulk of the card's content.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-primary"&gt;Go somewhere&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this example, we create a card that includes an image, a title, descriptive text, and a button for interaction. The width of the card can be adjusted using inline styles or custom CSS.
+        </p>
+
+        <h3>Customization Options</h3>
+        <p>
+            Bootstrap cards can be easily customized to match your design requirements. You can modify the card's appearance using CSS or by adding additional Bootstrap classes. Here are some common customization options:
+        </p>
+        <ul>
+            <li><strong>Card Color:</strong> Change the background color using Bootstrap's built-in color classes like <code>.bg-primary</code>, <code>.bg-secondary</code>, etc.</li>
+            <li><strong>Text Alignment:</strong> Use classes like <code>.text-center</code>, <code>.text-end</code>, etc., to adjust text alignment within the card.</li>
+            <li><strong>Additional Content:</strong> You can include more elements, such as lists, images, and footers, to enhance the card's content.</li>
+        </ul>
+
+        <h3>Example of a Customized Card</h3>
+        <p>
+            Below is an example of a card with custom styles and additional content.
+        </p>
+        <pre><code class="language-html">
+&lt;div class="card bg-primary text-white" style="width: 18rem;"&gt;
+    &lt;img src="photo.jpeg" class="card-img-top" alt="..." style="height: 200px; width: 18rem;"&gt;
+    &lt;div class="card-body"&gt;
+        &lt;h5 class="card-title"&gt;Customized Card&lt;/h5&gt;
+        &lt;p class="card-text"&gt;This card has a primary background and white text. You can easily customize it further.&lt;/p&gt;
+        &lt;a href="#" class="btn btn-light"&gt;Learn More&lt;/a&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this customized card, we added a primary background and changed the button color to light for better contrast against the dark background.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Bootstrap cards are versatile and easy to implement, making them an excellent choice for displaying various types of content. With simple HTML and Bootstrap classes, you can create attractive and functional card components to enhance your website's user interface.
+        </p>
+    </div>
+        </section>
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

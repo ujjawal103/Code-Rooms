@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media - HTML</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Media in HTML</h1>
+        <p>HTML topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Html Topic Sections -->
+         <section class="sub">
+    <h2 onclick="toggleContent('embedding-media')">Embedding Media and External Content</h2>
+    <div id="embedding-media" class="content" style="display: none;">
+
+        <h3>Images</h3>
+        <p>The <code>&lt;img&gt;</code> tag is used to embed images, with options for loading control using the <code>loading</code> attribute.</p>
+        <pre><code class="language-html">
+&lt;img src="/basics/06_akhand.jpeg" alt="Example Image" width="100px" loading="eager"&gt;
+&lt;img src="/basics/06_akhand.jpeg" alt="Example Image" width="100px" loading="lazy"&gt;
+        </code></pre>
+        <ul>
+            <li><strong>loading="eager"</strong>: Loads the image immediately.</li>
+            <li><strong>loading="lazy"</strong>: Defers image loading until it is in view.</li>
+        </ul>
+
+        <h3>Audio</h3>
+        <p>The <code>&lt;audio&gt;</code> tag embeds audio files. The <code>controls</code> attribute allows users to play or pause audio.</p>
+        <pre><code class="language-html">
+&lt;audio src="audio-file.mp3" controls&gt;&lt;/audio&gt;
+
+&lt;audio controls&gt;
+   &lt;source src="another-audio.mp3" type="audio/mp3"&gt;
+&lt;/audio&gt;
+        </code></pre>
+
+        <h3>Video</h3>
+        <p>The <code>&lt;video&gt;</code> tag is used to embed video files on a web page.</p>
+        <pre><code class="language-html">
+&lt;video src="/video/example.mp4" height="150px"&gt;&lt;/video&gt;
+&lt;video src="/video/example.mp4" height="250px" controls&gt;&lt;/video&gt;
+
+&lt;video controls height="250px"&gt;
+   &lt;source src="/video/example.mp4" type="video/mp4"&gt;
+&lt;/video&gt;
+        </code></pre>
+        <ul>
+            <li><strong>controls</strong>: Shows playback controls (play, pause, etc.).</li>
+        </ul>
+
+        <h3>Horizontal Rule</h3>
+        <p>The <code>&lt;hr&gt;</code> tag is used to create a horizontal line, typically for section separation.</p>
+        <pre><code class="language-html">
+&lt;hr&gt;
+        </code></pre>
+
+        <h3>Iframes</h3>
+        <p>The <code>&lt;iframe&gt;</code> tag embeds external web pages or content within a web page. Useful for embedding websites, videos, or documents.</p>
+        <pre><code class="language-html">
+&lt;iframe src="/project_1/index.html" frameborder="1" title="Portfolio" height="300px"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://www.youtube.com/embed/k7ELO356Npo?autoplay=1&mute=1" frameborder="1" title="YouTube Video" height="300px"&gt;&lt;/iframe&gt;
+
+&lt;iframe src="https://www.wikipedia.org/" frameborder="1" title="Wikipedia" height="300px"&gt;&lt;/iframe&gt;
+        </code></pre>
+        <ul>
+            <li><strong>src</strong>: URL of the embedded content.</li>
+            <li><strong>frameborder</strong>: Width of the iframe's border.</li>
+            <li><strong>autoplay & mute</strong> (YouTube): Controls playback options for embedded YouTube videos.</li>
+        </ul>
+
+    </div>
+</section>
+
+   
+
+
+
+       
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

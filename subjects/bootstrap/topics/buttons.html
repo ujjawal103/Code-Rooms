@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buttons - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Buttons in Bootstrap</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+      <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-buttons')">Bootstrap Buttons</h2>
+    <div id="bootstrap-buttons" class="content" style="display: none;">
+
+        <h3>Overview of Bootstrap Buttons</h3>
+        <p>
+            Bootstrap provides a variety of button styles that can be used to enhance the user interface. Buttons can be styled with 
+            different colors, sizes, and outlines, making them highly customizable.
+        </p>
+
+        <h3>Basic Button Examples</h3>
+        <pre><code class="language-html">
+&lt;button class="btn"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-primary"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-secondary"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-success"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-danger"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-warning"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-info"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-light"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-dark"&gt;Click Me!&lt;/button&gt;
+&lt;button class="btn btn-link"&gt;Click Me!&lt;/button&gt;
+        </code></pre>
+
+        <h3>Custom Button Styles</h3>
+        <pre><code class="language-html">
+&lt;button class="btn btn-info" style="background-color: rgb(14, 166, 136);"&gt;Click Me!&lt;/button&gt;
+&lt;span&gt;Similarly, we can make changes in all styling.&lt;/span&gt;
+        </code></pre>
+
+        <h3>Buttons as Links and Inputs</h3>
+        <pre><code class="language-html">
+&lt;a class="btn btn-primary" href="#" role="button"&gt;Link&lt;/a&gt;
+&lt;button class="btn btn-primary" type="submit"&gt;Button&lt;/button&gt;
+&lt;input class="btn btn-primary" type="button" value="Input"&gt;
+&lt;input class="btn btn-primary" type="submit" value="Submit"&gt;
+&lt;input class="btn btn-primary" type="reset" value="Reset"&gt;
+        </code></pre>
+
+        <h3>Outline Buttons</h3>
+        <pre><code class="language-html">
+&lt;button type="button" class="btn btn-outline-primary"&gt;Primary&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-secondary"&gt;Secondary&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-success"&gt;Success&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-danger"&gt;Danger&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-warning"&gt;Warning&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-info"&gt;Info&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-light"&gt;Light&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-dark"&gt;Dark&lt;/button&gt;
+        </code></pre>
+
+        <h3>Button Sizes</h3>
+        <pre><code class="language-html">
+&lt;button type="button" class="btn btn-primary btn-lg"&gt;Large button&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary btn-lg"&gt;Large&lt;/button&gt;
+        </code></pre>
+
+        <h3>Disabled Buttons</h3>
+        <pre><code class="language-html">
+&lt;button type="button" class="btn btn-primary" disabled&gt;Primary button&lt;/button&gt;
+&lt;button type="button" class="btn btn-secondary" disabled&gt;Button&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-primary" disabled&gt;Primary button&lt;/button&gt;
+&lt;button type="button" class="btn btn-outline-secondary" disabled&gt;Button&lt;/button&gt;
+&lt;span&gt;Disabled because pointer does not change.&lt;/span&gt;
+        </code></pre>
+
+        <h3>Grid Button Layout</h3>
+        <pre><code class="language-html">
+&lt;div class="d-grid gap-2"&gt;
+    &lt;button class="btn btn-primary" type="button"&gt;Button&lt;/button&gt;
+    &lt;button class="btn btn-primary" type="button"&gt;Block Button&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Conclusion</h3>
+        <p>
+            Using Bootstrap buttons enhances the visual appeal and usability of your web applications. With various styles, sizes, 
+            and functionalities, buttons can be easily customized to fit the overall design of your project.
+        </p>
+    </div>
+      </section>
+
+      <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-button-groups')">Bootstrap Button Groups</h2>
+    <div id="bootstrap-button-groups" class="content" style="display: none;">
+
+        <h3>Overview of Button Groups</h3>
+        <p>
+            Bootstrap allows grouping buttons together to create a cohesive interface. Button groups can be horizontal or vertical, 
+            and they can also include dropdowns for additional options.
+        </p>
+
+        <h3>Basic Button Group</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group" role="group" aria-label="Basic example"&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;Left&lt;/button&gt;
+    &lt;button type="button" class="btn btn-danger"&gt;Middle&lt;/button&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Outlined Button Group</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group" role="group" aria-label="Basic outlined example"&gt;
+    &lt;button type="button" class="btn btn-outline-primary"&gt;Left&lt;/button&gt;
+    &lt;button type="button" class="btn btn-outline-primary"&gt;Middle&lt;/button&gt;
+    &lt;button type="button" class="btn btn-outline-primary"&gt;Right&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Checkbox Toggle Button Group</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group" role="group" aria-label="Basic checkbox toggle button group"&gt;
+    &lt;input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off"&gt;
+    &lt;label class="btn btn-outline-primary" for="btncheck1"&gt;Checkbox 1&lt;/label&gt;
+
+    &lt;input type="checkbox" class="btn-check" id="btncheck2" autocomplete="off"&gt;
+    &lt;label class="btn btn-outline-primary" for="btncheck2"&gt;Checkbox 2&lt;/label&gt;
+
+    &lt;input type="checkbox" class="btn-check" id="btncheck3" autocomplete="off"&gt;
+    &lt;label class="btn btn-outline-primary" for="btncheck3"&gt;Checkbox 3&lt;/label&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Radio Toggle Button Group</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group" role="group" aria-label="Basic radio toggle button group"&gt;
+    &lt;input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked&gt;
+    &lt;label class="btn btn-outline-primary" for="btnradio1"&gt;Radio 1&lt;/label&gt;
+
+    &lt;input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off"&gt;
+    &lt;label class="btn btn-outline-primary" for="btnradio2"&gt;Radio 2&lt;/label&gt;
+
+    &lt;input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off"&gt;
+    &lt;label class="btn btn-outline-primary" for="btnradio3"&gt;Radio 3&lt;/label&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Button Group with Nested Dropdown</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group" role="group" aria-label="Button group with nested dropdown"&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;1&lt;/button&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;2&lt;/button&gt;
+
+    &lt;div class="btn-group" role="group"&gt;
+        &lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+            Dropdown
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Vertical Button Group</h3>
+        <pre><code class="language-html">
+&lt;div class="btn-group-vertical" role="group" aria-label="Vertical button group"&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;Button&lt;/button&gt;
+    &lt;button type="button" class="btn btn-primary"&gt;Button&lt;/button&gt;
+
+    &lt;div class="btn-group" role="group"&gt;
+        &lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+            Dropdown
+        &lt;/button&gt;
+        &lt;ul class="dropdown-menu"&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Dropdown Positioning</h3>
+        <p>Dropdowns can be positioned in various ways within button groups:</p>
+        <ul>
+            <li><strong>Dropstart:</strong> Opens to the left.</li>
+            <li><strong>Dropend:</strong> Opens to the right.</li>
+            <li><strong>Dropup:</strong> Opens above the button.</li>
+        </ul>
+        <pre><code class="language-html">
+&lt;div class="btn-group dropstart" role="group"&gt;
+    &lt;button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"&gt;
+        Dropdown
+    &lt;/button&gt;
+    &lt;ul class="dropdown-menu"&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a class="dropdown-item" href="#"&gt;Dropdown link&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/div&gt;
+        </code></pre>
+
+        <h3>Conclusion</h3>
+        <p>
+            Button groups in Bootstrap facilitate organized and interactive controls. Whether used for basic button interactions or 
+            more complex dropdown options, they improve user experience and interface design.
+        </p>
+    </div>
+      </section>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

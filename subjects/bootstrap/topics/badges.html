@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Badges - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap Badges</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+     <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-badges-notifications')">Bootstrap Badges and Notifications</h2>
+    <div id="bootstrap-badges-notifications" class="content" style="display: block;">
+
+        <h3>Overview</h3>
+        <p>
+            Badges are used to display a small count or status indicator. They can be used with various Bootstrap components, 
+            such as buttons and headings, to enhance the visibility of certain information. This section covers different 
+            uses of badges in Bootstrap.
+        </p>
+
+        <h3>Basic Badges</h3>
+        <pre><code class="language-html">
+&lt;h3&gt;Notifications &lt;span class="badge text-bg-secondary"&gt;9+&lt;/span&gt;&lt;/h3&gt;
+&lt;h3&gt;Example heading &lt;span class="badge text-bg-danger"&gt;New&lt;/span&gt;&lt;/h3&gt;
+        
+&lt;span class="badge text-bg-danger"&gt;101+&lt;/span&gt;
+        </code></pre>
+        <p>
+            The above examples showcase basic usage of badges with headings. Badges can be styled using Bootstrap's 
+            contextual classes such as <code>text-bg-secondary</code> and <code>text-bg-danger</code>.
+        </p>
+
+        <h3>Badges in Buttons</h3>
+        <pre><code class="language-html">
+&lt;button class="btn btn-primary"&gt;Followers
+    &lt;span class="badge bg-dark"&gt;100+ &lt;/span&gt;
+&lt;/button&gt;
+
+&lt;button class="btn btn-primary"&gt;Followers
+    &lt;span class="badge bg-dark rounded-pill"&gt;100+ &lt;/span&gt;
+&lt;/button&gt;
+        </code></pre>
+        <p>
+            Badges can also be added inside buttons to show counts or notifications. The <code>rounded-pill</code> class 
+            provides a pill-shaped badge for a different visual appearance.
+        </p>
+
+        <h3>Positioning Badges</h3>
+        <p>Bootstrap allows for absolute positioning of badges, enabling custom placements.</p>
+        <pre><code class="language-html">
+&lt;button type="button" class="btn btn-primary position-relative"&gt;
+    New Followers
+    &lt;span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"&gt;
+      99+
+      &lt;!-- &lt;span class="visually-hidden"&gt;unread messages&lt;/span&gt; --&gt;
+    &lt;/span&gt;
+&lt;/button&gt;
+        </code></pre>
+        <p>
+            In the example above, the badge is positioned relative to the button. The <code>position-absolute</code> class 
+            is used to position the badge at the top-right corner of the button. The <code>translate-middle</code> class 
+            adjusts its position to center it over the corner.
+        </p>
+
+        <h3>Badges with Icons</h3>
+        <pre><code class="language-html">
+&lt;button type="button" class="btn btn-primary position-relative"&gt;
+    Ujjawal Jaiswal
+    &lt;span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle"&gt;
+      &lt;span class="visually-hidden"&gt;New alerts&lt;/span&gt;
+    &lt;/span&gt;
+&lt;/button&gt;
+        </code></pre>
+        <p>
+            Badges can also include icons or other indicators. In this case, an icon could be represented using a circular 
+            badge alongside a text button, enhancing user engagement.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Badges in Bootstrap provide a simple yet effective way to convey additional information alongside components. 
+            By utilizing various classes, you can create visually appealing notifications that enhance user experience.
+        </p>
+    </div>
+     </section>
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

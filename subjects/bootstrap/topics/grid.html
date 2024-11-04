@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid-system - Bootstrap</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li,ol li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bootstrap grid-system</h1>
+        <p>Bootstrap topics with code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- Bootstrap Topic Sections -->
+
+       <section class="sub">
+    <h2 onclick="toggleContent('bootstrap-grid')">Bootstrap Basic Grid</h2>
+    <div id="bootstrap-grid" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap's grid system allows for responsive design using a series of containers, rows, and columns to layout and align content. It is built with flexbox and is fully responsive, making it easy to create complex layouts across different devices.
+        </p>
+
+        <h3>Basic Structure of the Grid</h3>
+        <p>
+            The grid system is based on a 12-column layout. You can specify how many columns each element should span, allowing for various layouts.
+        </p>
+        <pre><code class="language-html">
+&lt;div class="container"&gt;
+    &lt;div class="row"&gt;
+        &lt;div class="col bg-danger"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-success"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-primary"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-secondary"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-danger"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-success"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-primary"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-secondary"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-danger"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-success"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-primary"&gt;1 unit&lt;/div&gt;
+        &lt;div class="col bg-secondary"&gt;1 unit&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this example, we create a row with 12 equal columns. Each column can be styled with different Bootstrap background utility classes.
+        </p>
+
+        <h3>Responsive Columns</h3>
+        <p>
+            Bootstrap allows you to create responsive columns that adjust based on the screen size. You can specify different column sizes for various breakpoints. For example:
+        </p>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col-6 bg-secondary"&gt;one 50% 6-units&lt;/div&gt;
+    &lt;div class="col-6 bg-danger"&gt;two 50% 6-units&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            Here, we create two columns that each take up 50% of the width on larger screens. On smaller screens, they will stack vertically.
+        </p>
+
+        <h3>Column Sizing</h3>
+        <p>
+            Columns can be sized using the grid classes, allowing you to specify the width in units. For example:
+        </p>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col-2 bg-danger"&gt;2 units&lt;/div&gt;
+    &lt;div class="col-6 bg-success"&gt;6-units&lt;/div&gt;
+    &lt;div class="col-4 bg-primary"&gt;4-units&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this example, the first column takes 2 units, the second column takes 6 units, and the last one takes 4 units.
+        </p>
+
+        <h3>Equal Columns</h3>
+        <p>
+            To create equal-width columns, simply use the <code>.col</code> class without any specified size:
+        </p>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col bg-danger"&gt;Equal size&lt;/div&gt;
+    &lt;div class="col bg-success"&gt;of columns&lt;/div&gt;
+    &lt;div class="col bg-primary"&gt;in a row&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            Each column will take up an equal amount of space in the row, adjusting to fit the screen size.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Bootstrap's grid system is a powerful tool for creating responsive layouts. By utilizing containers, rows, and columns, you can easily design web pages that adapt to different screen sizes while maintaining a consistent structure.
+        </p>
+    </div>
+       </section>
+
+       <section class="sub">
+    <h2 onclick="toggleContent('grid-options')">Grid Options</h2>
+    <div id="grid-options" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap's grid system provides multiple options to customize the layout based on different screen sizes. You can use responsive classes to adjust column sizes at various breakpoints, ensuring your layout adapts to different devices.
+        </p>
+
+        <h3>Basic Grid Options</h3>
+        <p>
+            You can define grid columns using different responsive classes. For example, the classes <code>.col-sm-*</code>, <code>.col-md-*</code>, <code>.col-lg-*</code>, and <code>.col-xl-*</code> allow you to specify how many columns an element should occupy on different screen sizes.
+        </p>
+
+        <h3>Examples of Grid Options</h3>
+
+        <h4>Two Equal Columns on Extra Large Screens</h4>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col-xl-6 bg-secondary"&gt;one 50%&lt;/div&gt;
+    &lt;div class="col-xl-6 bg-danger"&gt;two 50%&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this example, on extra-large screens, we have two equal columns, each taking up 50% of the width.
+        </p>
+
+        <h4>Responsive Columns for Medium Screens</h4>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col-md-2 bg-danger"&gt;when hits medium size&lt;/div&gt;
+    &lt;div class="col-md-8 bg-success"&gt;of display it will take&lt;/div&gt;
+    &lt;div class="col-md-2 bg-primary"&gt;full width.&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            Here, when the screen size hits medium size, the first column takes 2 units, the second takes 8 units, and the last takes 2 units, effectively occupying the full width of the row.
+        </p>
+
+        <h4>Combining Grid Options for Better Responsiveness</h4>
+        <pre><code class="language-html">
+&lt;div class="row"&gt;
+    &lt;div class="col-md-6 col-xl-4 bg-danger"&gt;Lorem, ipsum dolor sit amet consectetur adipisicing elit.&lt;/div&gt;
+    &lt;div class="col-md-6 col-xl-4 bg-success"&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit.&lt;/div&gt;
+    &lt;div class="col-md-6 col-xl-4 bg-primary"&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit.&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            This example demonstrates how to use multiple grid options in a single row. The columns will take up 6 units on medium screens and 4 units on extra-large screens, allowing for a responsive design that adjusts seamlessly across different devices.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Utilizing Bootstrap's grid options allows you to create flexible and responsive layouts. By combining different column sizes at various breakpoints, you can ensure your web page looks great on any device.
+        </p>
+
+    </div>
+       </section>
+
+       <section class="sub">
+    <h2 onclick="toggleContent('grid-vertical-aligning')">Grid Vertical Alignment</h2>
+    <div id="grid-vertical-aligning" class="content" style="display: none;">
+
+        <h3>Overview</h3>
+        <p>
+            Bootstrap's grid system allows for vertical alignment of columns within a row. This feature is particularly useful for centering content or distributing space within the columns vertically, enhancing the overall layout and user experience.
+        </p>
+
+        <h3>Basic Vertical Alignment Options</h3>
+        <p>
+            You can align columns vertically using utility classes such as <code>.align-start</code>, <code>.align-center</code>, and <code>.align-end</code>. These classes can be applied to the row element to control the vertical alignment of its columns.
+        </p>
+
+        <h3>Examples of Grid Vertical Aligning</h3>
+
+        <h4>Aligning Columns to the Top</h4>
+        <pre><code class="language-html">
+&lt;div class="row align-items-start"&gt;
+    &lt;div class="col bg-secondary"&gt;Column 1: Top Aligned&lt;/div&gt;
+    &lt;div class="col bg-danger"&gt;Column 2: Top Aligned&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            In this example, both columns are aligned to the top of the row, ensuring they start from the same vertical position.
+        </p>
+
+        <h4>Centering Columns Vertically</h4>
+        <pre><code class="language-html">
+&lt;div class="row align-items-center"&gt;
+    &lt;div class="col bg-success"&gt;Column 1: Center Aligned&lt;/div&gt;
+    &lt;div class="col bg-primary"&gt;Column 2: Center Aligned&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            Here, the columns are centered vertically within the row, providing a balanced look regardless of their height.
+        </p>
+
+        <h4>Aligning Columns to the Bottom</h4>
+        <pre><code class="language-html">
+&lt;div class="row align-items-end"&gt;
+    &lt;div class="col bg-warning"&gt;Column 1: Bottom Aligned&lt;/div&gt;
+    &lt;div class="col bg-info"&gt;Column 2: Bottom Aligned&lt;/div&gt;
+&lt;/div&gt;
+        </code></pre>
+        <p>
+            This example demonstrates how to align columns to the bottom of the row, making it easier to create layouts with different content heights while maintaining alignment.
+        </p>
+
+        <h3>Conclusion</h3>
+        <p>
+            Utilizing vertical alignment options in Bootstrap's grid system enhances the layout flexibility and visual appeal of your design. By strategically aligning content, you can achieve a more organized and aesthetically pleasing webpage.
+        </p>
+
+    </div>
+       </section>
+
+
+
+
+    
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
