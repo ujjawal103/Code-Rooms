@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Query - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Media Query in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+<section class="sub">
+    <h2 onclick="toggleContent('mediaQueries')">CSS Media Queries</h2>
+    <div id="mediaQueries" class="content" style="display: block;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="box"&gt;This box changes color based on screen size&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Media Queries</h3>
+        <p>Media queries in CSS are used to apply styles based on the characteristics of the device or viewport, such as its width, height, or orientation. This allows developers to create responsive web designs that adapt to different screen sizes and resolutions.</p>
+
+        <!-- Syntax of Media Queries -->
+        <h3>Syntax of Media Queries</h3>
+        <p>The general syntax for a media query looks like this:</p>
+        <pre><code class="language-css">
+@media (condition) {
+    element {
+        /* Apply styles */
+    }
+}
+        </code></pre>
+        <p>For example, you can apply different styles when the viewport width is less than 500px:</p>
+        <pre><code class="language-css">
+@media (max-width: 500px) {
+    .box {
+        background-color: blue;
+    }
+}
+        </code></pre>
+
+        <!-- Media Queries Example -->
+        <h3>Example: Changing Background Color Based on Screen Width</h3>
+        <p>In this example, the background color of the box will change depending on the screen width:</p>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+@media (min-width: 300px) and (max-width: 500px) {
+    .box {
+        background-color: blue;
+    }
+}
+            </code>
+        </pre>
+        <p>Here, when the screen width is between 300px and 500px, the box background changes to blue. If the screen is larger than 500px, it defaults to the original color (aqua in the previous example).</p>
+
+        <!-- Explanation of Other Media Query Examples -->
+        <h3>Other Media Query Examples</h3>
+        <ul>
+            <li><code>@media (min-width: 500px)</code>: Applies styles when the viewport is at least 500px wide.</li>
+            <li><code>@media screen and (min-width: 500px)</code>: Targets screens that are at least 500px wide, specifically on screen devices (not for print, etc.).</li>
+            <li><code>@media (max-height: 600px)</code>: Applies styles when the viewport height is 600px or less.</li>
+        </ul>
+
+        <h3>Summary of Media Queries</h3>
+        <p>Media queries are essential for building responsive web designs. By targeting different screen sizes and devices, you can ensure that your website looks great and functions properly on all devices, from mobile phones to large desktop screens.</p>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

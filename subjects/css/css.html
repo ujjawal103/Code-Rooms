@@ -6,6 +6,12 @@
     <title>CSS Notes</title>
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="../offCanvas.css">
+    <style>
+        .off-canvas ul li {
+    margin: 10px 0;
+    font-size: 2.2vh;
+}
+    </style>
 </head>
 <body>
     <header>
@@ -13,9 +19,7 @@
         <p>A collection of notes on CSS concepts.</p>
         <button id="menuButton" class="menu-button">☰ Topics</button>
     </header>
-    <header class="fakeWala">
-       
-    </header>
+    <header class="fakeWala"></header>
 
     <!-- Off-canvas sidebar for topics -->
     <div id="offCanvas" class="off-canvas">
@@ -23,44 +27,136 @@
         <h2>Topics</h2>
         <ul>
             <li><a href="#basics">Basics of CSS</a></li>
-            <li><a href="#selectors">CSS Selectors</a></li>
+            <li><a href="#fontColors">Font & Colors</a></li>
+            <li><a href="#displayProperty">Display Property</a></li>
             <li><a href="#box-model">CSS Box Model</a></li>
+            <li><a href="#positionProperty">Position Property</a></li>
+            <li><a href="#sizeUnits">Size and Units</a></li>
+            <li><a href="#floatClear">Float and Clear</a></li>
             <li><a href="#flexbox">Flexbox</a></li>
+            <li><a href="#mediaQuery">Media Query</a></li>
+            <li><a href="#shadow">Shadow</a></li>
+            <li><a href="#variables">Variables in CSS</a></li>
+            <li><a href="#animations">Animations in CSS</a></li>
+            <li><a href="#transition">Transitions in CSS</a></li>
+            <li><a href="#transforms">Transforms in CSS</a></li>
             <li><a href="#grid">CSS Grid</a></li>
-            <li><a href="#projects">Projects</a></li>
+            <li><a href="#3D_transforms">3D Transforms in CSS</a></li>
         </ul>
     </div>
 
     <main class="main-content">
-        <section id="basics"class="sub">
-            <h3>Basics of CSS</h3>
-            <p>Introduction to CSS syntax, selectors, and how to apply styles to HTML.</p>
-        </section>
-        
-        <section id="selectors"class="sub">
-            <h3>CSS Selectors</h3>
-            <p>Overview of various selectors, including class, ID, and attribute selectors.</p>
-        </section>
-        
-        <section id="box-model"class="sub">
-            <h3>CSS Box Model</h3>
-            <p>Understanding the box model, including margin, border, padding, and content.</p>
-        </section>
-        
-        <section id="flexbox"class="sub">
-            <h3>Flexbox</h3>
-            <p>Notes on using Flexbox for responsive layout and alignment of elements.</p>
-        </section>
-        
-        <section id="grid"class="sub">
-            <h3>CSS Grid</h3>
-            <p>Overview of CSS Grid layout, including grid containers, items, and positioning.</p>
-        </section>
+        <a href="topics/basics.html">
+            <section id="basics" class="sub">
+                <h3>Basics of CSS</h3>
+                <p>Introduction to CSS syntax, selectors, and how to apply styles to HTML.</p>
+            </section>
+        </a>
 
-        <section id="projects"class="sub">
-            <h3>Projects</h3>
-            <p>Here are some projects to practice your CSS skills:</p>
-        </section>
+        <a href="topics/font_colors.html">
+            <section id="fontColors" class="sub">
+                <h3>Font & Colors</h3>
+                <p>Learn about font styling, colors, and text properties in CSS.</p>
+            </section>
+        </a>
+
+        <a href="topics/displayProperty.html">
+            <section id="displayProperty" class="sub">
+                <h3>Display Property</h3>
+                <p>Understanding the display property, including block, inline, and inline-block values.</p>
+            </section>
+        </a> 
+        
+        <a href="topics/boxModels.html">
+            <section id="box-model" class="sub">
+                <h3>CSS Box Model</h3>
+                <p>Understanding the box model, including margin, border, padding, and content.</p>
+            </section>
+        </a>
+
+        <a href="topics/positionProperty.html">
+            <section id="positionProperty" class="sub">
+                <h3>Position Property</h3>
+                <p>Learn about position values like static, relative, absolute, fixed, and sticky.</p>
+            </section>
+        </a> 
+
+        <a href="topics/sizeUnits.html">
+            <section id="sizeUnits" class="sub">
+                <h3>Size And Units</h3>
+                <p>Learn about different size units such as px, em, rem, %, vh, and vw.</p>
+            </section>
+        </a> 
+
+        <a href="topics/floatClear.html">
+            <section id="floatClear" class="sub">
+                <h3>Float And Clear</h3>
+                <p>Learn how to use float for layouts and clear for clearing floated elements.</p>
+            </section>
+        </a> 
+        
+        <a href="topics/flexBox.html">
+            <section id="flexbox" class="sub">
+                <h3>Flexbox</h3>
+                <p>Notes on using Flexbox for responsive layout and alignment of elements.</p>
+            </section>
+        </a>
+
+        <a href="topics/mediaQuery.html">
+            <section id="mediaQuery" class="sub">
+                <h3>Media Query - Responsiveness</h3>
+                <p>Learn how to make websites responsive using media queries for different screen sizes.</p>
+            </section>
+        </a> 
+
+        <a href="topics/shadow.html">
+            <section id="shadow" class="sub">
+                <h3>Shadow</h3>
+                <p>Learn about box-shadow and text-shadow properties to create shadow effects.</p>
+            </section>
+        </a> 
+        
+        <a href="topics/variables.html">
+            <section id="variables" class="sub">
+                <h3>Variables in CSS</h3>
+                <p>Learn how to use CSS variables to manage styles more efficiently.</p>
+            </section>
+        </a> 
+
+        <a href="topics/animations.html">
+            <section id="animations" class="sub">
+                <h3>Animations in CSS</h3>
+                <p>Learn how to create animations using CSS keyframes and animation properties.</p>
+            </section>
+        </a> 
+
+        <a href="topics/transition.html">
+            <section id="transition" class="sub">
+                <h3>Transitions in CSS</h3>
+                <p>Learn how to use CSS transitions to smoothly animate changes in element properties.</p>
+            </section>
+        </a> 
+
+        <a href="topics/transforms.html">
+            <section id="transforms" class="sub">
+                <h3>Transforms in CSS</h3>
+                <p>Learn about 2D and 3D transformations such as translate, rotate, scale, and skew.</p>
+            </section>
+        </a> 
+        
+        <a href="topics/grid.html">
+            <section id="grid" class="sub">
+                <h3>CSS Grid</h3>
+                <p>Overview of CSS Grid layout, including grid containers, items, and positioning.</p>
+            </section>
+        </a>
+
+        <a href="topics/3D_transform.html">
+            <section id="3D_transforms" class="sub">
+                <h3>3D Transforms in CSS</h3>
+                <p>Learn how to apply 3D transformations like perspective and rotate3d to elements.</p>
+            </section>
+        </a> 
     </main>
 
     <footer>

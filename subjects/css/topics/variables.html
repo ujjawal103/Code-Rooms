@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Variables in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssVariables')">CSS Variables</h2>
+    <div id="cssVariables" class="content" style="display: block;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container {
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: var(--custom-width);
+        }
+        .box {
+            --primary-color: brown;
+            --custom-width: 330px;
+            background-color: aquamarine;
+            width: var(--custom-width);
+            height: 330px;
+            border: 1px solid var(--primary-color);
+            margin: 5px;
+            box-shadow: 10px 15px brown, 15px 20px green;
+        }
+        .box img {
+            width: 40px;
+            height: 40px;
+        }
+        .outerBox {
+            width: var(--custom-width);
+            height: var(--custom-width);
+            background-color: var(--primary-color);
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="akhand.jpeg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="outerBox"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Variables</h3>
+        <p>CSS Variables, also known as Custom Properties, allow you to store reusable values in CSS. These variables can be used throughout the CSS file and can be updated globally, making your styles more maintainable and easier to manage.</p>
+
+        <h3>How to Declare a CSS Variable</h3>
+        <p>To declare a CSS variable, use the following syntax:</p>
+        <pre><code class="language-css">
+--variable-name: value;
+        </code></pre>
+        <p>For example:</p>
+        <pre><code class="language-css">
+--primary-color: brown;
+--custom-width: 330px;
+        </code></pre>
+        <p>In the above example, two variables are declared: <code>--primary-color</code> and <code>--custom-width</code>, with values of <code>brown</code> and <code>330px</code>, respectively.</p>
+
+        <h3>How to Use a CSS Variable</h3>
+        <p>To use a variable, apply the <code>var()</code> function with the variable name:</p>
+        <pre><code class="language-css">
+property: var(--variable-name);
+        </code></pre>
+        <p>For example:</p>
+        <pre><code class="language-css">
+width: var(--custom-width);
+border: 1px solid var(--primary-color);
+        </code></pre>
+        <p>The <code>var(--custom-width)</code> will fetch the value of <code>330px</code>, and <code>var(--primary-color)</code> will use the color <code>brown</code> for the border.</p>
+
+        <h3>Scope of CSS Variables</h3>
+        <p>By default, CSS variables are scoped to the element in which they are declared. This means if you declare a variable inside a class (like <code>.box</code>), it will only be accessible within that class and its descendants.</p>
+
+        <h3>Global CSS Variables</h3>
+        <p>If you want to declare a variable that can be accessed anywhere in the stylesheet, declare it inside the <code>:root</code> pseudo-class:</p>
+        <pre><code class="language-css">
+:root {
+    --primary-color: brown;
+    --custom-width: 330px;
+}
+        </code></pre>
+        <p>The <code>:root</code> selector refers to the highest-level parent element (the <code>&lt;html&gt;</code> element), so variables declared here are accessible anywhere in the document.</p>
+
+        <h3>Example of Global Variables</h3>
+        <p>With the <code>:root</code> declaration, you can use the variables throughout your styles:</p>
+        <pre><code class="language-css">
+.container {
+    background-color: beige;
+    height: 650px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--custom-width);
+}
+        </code></pre>
+
+        <h3>Advantages of Using CSS Variables</h3>
+        <ul>
+            <li><strong>Maintainability:</strong> You can change the value of a variable in one place, and it will automatically update everywhere it is used.</li>
+            <li><strong>Consistency:</strong> Variables help ensure that repeated values (like colors, sizes, or fonts) are consistent across your website.</li>
+            <li><strong>Dynamic Updates:</strong> You can dynamically change variables with JavaScript, allowing for more interactive designs.</li>
+        </ul>
+
+        <h3>Notes on CSS Variables</h3>
+        <ul>
+            <li>CSS variables are case-sensitive.</li>
+            <li>CSS variables can inherit from parent elements if declared inside them.</li>
+            <li>They are also inherited by child elements, which is useful for theming.</li>
+        </ul>
+
+        <h3>Summary of CSS Variables</h3>
+        <p>CSS variables make it easier to manage your styles by allowing you to define reusable values and update them globally across your stylesheets. Whether you're working on a small project or a large-scale website, CSS variables can improve both maintainability and flexibility.</p>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

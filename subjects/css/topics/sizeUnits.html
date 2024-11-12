@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Size Units - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Size & Units</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssSizeUnits')">CSS Size Units</h2>
+    <div id="cssSizeUnits" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure (Without CSS Styling) -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Size Units Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="parent"&gt;
+      &lt;div id="box"&gt;
+        hello G kaise ho sare.
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;h3&gt;Two types of Size Units&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;Absolute&lt;/li&gt;
+      &lt;li&gt;Relative&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4&gt;Absolute Units&lt;/h4&gt;
+    &lt;small&gt;Sizes that are fixed and independent of other elements.&lt;/small&gt;
+    &lt;ul&gt;
+      &lt;li&gt;% (Percentage)&lt;/li&gt;
+      &lt;li&gt;px (Pixels)&lt;/li&gt;
+      &lt;li&gt;vw &amp; vh (Viewport Width &amp; Height)&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;h4&gt;Relative Units&lt;/h4&gt;
+    &lt;small&gt;Sizes that are dependent on the parent element's properties.&lt;/small&gt;
+    &lt;ul&gt;
+      &lt;li&gt;em&lt;/li&gt;
+      &lt;li&gt;rem&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;code&gt;
+      Example: If the parent tag font size is 16px, and the child tag uses 10em, the child font size becomes 160px (16 * 10).
+    &lt;/code&gt;
+
+    &lt;h6&gt;Tip: Using relative units improves the UI experience on various devices and screen sizes.&lt;/h6&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Size Units</h3>
+        <p>In CSS, sizes can be defined in either absolute or relative units. Each serves a different purpose in responsive design and layout structuring.</p>
+
+        <!-- Absolute Units Explanation -->
+        <h3>Absolute Units</h3>
+        <p><strong>Absolute units</strong> are independent of other elements and provide fixed sizing. Common absolute units include:</p>
+        <ul>
+            <li><strong>px (Pixels):</strong> Defines a specific number of screen pixels, ideal for precise measurements but less flexible for responsiveness.</li>
+            <li><strong>% (Percentage):</strong> Sets sizes as a percentage of the parent container’s size, making it somewhat responsive while keeping a defined ratio to the parent.</li>
+            <li><strong>vw & vh (Viewport Width & Height):</strong> Sizes elements relative to the viewport’s width or height. Useful for full-screen layouts and dynamic resizing based on the window size.</li>
+        </ul>
+
+        <!-- Relative Units Explanation -->
+        <h3>Relative Units</h3>
+        <p><strong>Relative units</strong> adjust based on the parent element’s properties, creating flexible layouts that respond well to different devices:</p>
+        <ul>
+            <li><strong>em:</strong> Relative to the font size of the nearest parent. For example, if the parent’s font size is 16px, and an element is set to 2em, the element’s size will be 32px.</li>
+            <li><strong>rem (Root EM):</strong> Relative to the root (usually the <code>&lt;html&gt;</code>) font size, providing a more consistent relative sizing across nested elements.</li>
+        </ul>
+
+        <!-- Practical Use Cases and Tips -->
+        <h3>Tips for Effective Use of Size Units</h3>
+        <p>While absolute units like <code>px</code> provide control, they may not respond well to screen variations. Relative units, such as <code>em</code> and <code>rem</code>, enable adaptability across devices and screen sizes, making layouts more flexible and visually consistent.</p>
+        
+        <p>For responsive design, try to favor relative units, especially for font sizes and padding. They help ensure a smoother user experience across varying device dimensions.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

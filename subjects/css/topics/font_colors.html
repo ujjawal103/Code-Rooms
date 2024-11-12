@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Font-Colors Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Font & Colors</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+<section class="sub">
+    <h2 onclick="toggleContent('fontStyling')">Font Styling in CSS</h2>
+    <div id="fontStyling" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet consectetur...&lt;/p&gt;
+    &lt;article&gt;Lorem ipsum dolor sit amet consectetur...&lt;/article&gt;
+    &lt;p id="para"&gt;Lorem ipsum dolor sit amet consectetur...&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Font Styling in CSS</h3>
+        <p>Font styling in CSS allows control over text appearance, such as size, weight, style, and spacing, to improve readability and aesthetic.</p>
+
+        <!-- Font Properties with Examples -->
+        <h3>Font Properties</h3>
+        <p><strong>font-size</strong>: Sets the size of the font. For example:</p>
+        <pre><code class="language-css">
+p {
+    font-size: 30px;
+}
+        </code></pre>
+
+        <p>This <code>font-size</code> style will make the text in all <code>&lt;p&gt;</code> tags appear larger (30 pixels).</p>
+
+        <p><strong>font-weight</strong>: Sets the thickness of the font. The following code makes text bold:</p>
+        <pre><code class="language-css">
+p {
+    font-weight: bold;
+}
+        </code></pre>
+
+        <p>Now all <code>&lt;p&gt;</code> elements will have a bold weight, enhancing emphasis.</p>
+
+        <p><strong>font-style</strong>: Controls the style, like <code>italic</code> or <code>oblique</code> for slanted text:</p>
+        <pre><code class="language-css">
+article {
+    font-style: oblique;
+}
+        </code></pre>
+
+        <p>Setting <code>font-style: oblique;</code> will give the <code>&lt;article&gt;</code> text a slanted appearance.</p>
+
+        <p><strong>line-height</strong>: Defines the spacing between lines, improving readability:</p>
+        <pre><code class="language-css">
+p {
+    line-height: 70px;
+}
+        </code></pre>
+
+        <p>With <code>line-height</code> set to 70 pixels, there will be 70 pixels of space between each line in <code>&lt;p&gt;</code> elements.</p>
+
+        <p><strong>font-family</strong>: Specifies the typeface, like <code>cursive</code> for a handwritten look:</p>
+        <pre><code class="language-css">
+article {
+    font-family: cursive;
+}
+        </code></pre>
+
+        <p>This sets a cursive style to <code>&lt;article&gt;</code> text.</p>
+
+        <p><strong>font shorthand</strong>: The <code>font</code> property allows multiple settings in one line:</p>
+        <pre><code class="language-css">
+#para {
+    font: small-caption;
+}
+        </code></pre>
+
+        <p>This shorthand applies a small-caps style to the <code>&lt;p id="para"&gt;</code> element.</p>
+
+        <!-- External Font-Family Explanation -->
+        <h3>Using External Fonts</h3>
+        <p>To use a custom font from Google Fonts, follow these steps:</p>
+        <ol>
+            <li>Copy the font link from Google Fonts and add it in the <code>&lt;head&gt;</code> tag of your HTML file.</li>
+            <li>Apply the font to elements by setting the <code>font-family</code> property in CSS, like so:</li>
+        </ol>
+        <pre><code class="language-css">
+body {
+    font-family: 'Your Font Name', sans-serif;
+}
+        </code></pre>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('colorStyling')">CSS Color Styling</h2>
+    <div id="colorStyling" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Lorem ipsum dolor sit amet...&lt;/p&gt;
+    &lt;article&gt;Lorem ipsum dolor sit...&lt;/article&gt;
+    &lt;div id="article2"&gt;Lorem ipsum dolor...&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Color Styling</h3>
+        <p>In CSS, colors can be applied in various ways, such as named colors, RGB, RGBA, and hexadecimal formats. Each method allows control over the color's intensity, transparency, and visibility.</p>
+
+        <!-- Named Colors -->
+        <h3>Named Colors</h3>
+        <p>CSS provides a set of predefined color names, like <code>yellow</code> or <code>blue</code>. These can be used directly:</p>
+        <pre><code class="language-css">
+p {
+    color: yellow; /* Applies a yellow color to the paragraph text */
+}
+        </code></pre>
+
+        <!-- RGB Colors -->
+        <h3>RGB Colors</h3>
+        <p>The RGB format uses red, green, and blue values to create a wide range of colors. Each color can range from 0 to 255. For example:</p>
+        <pre><code class="language-css">
+article {
+    color: rgb(55, 122, 156); /* Applies a custom RGB color to the article text */
+}
+        </code></pre>
+
+        <!-- RGBA Colors -->
+        <h3>RGBA Colors</h3>
+        <p>The RGBA format adds an alpha value for transparency. The alpha value ranges from 0 (fully transparent) to 1 (fully opaque):</p>
+        <pre><code class="language-css">
+article {
+    background-color: rgba(255, 100, 122, 0.2); /* Adds a semi-transparent background */
+}
+        </code></pre>
+
+        <!-- Hexadecimal Colors -->
+        <h3>Hexadecimal Colors</h3>
+        <p>Hex colors begin with a <code>#</code> symbol, followed by six characters representing red, green, and blue. You can use an online color picker to find hex codes:</p>
+        <pre><code class="language-css">
+#article2 {
+    background-color: #ffffff; /* White background */
+    color: #0fd05f; /* Custom green text color */
+}
+        </code></pre>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basics - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Basics Of CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBasics')">Basics of CSS and Selectors</h2>
+    <div id="cssBasics" class="content" style="display: block;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .priority {
+            background-color: aqua !important;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Hello, how is everyone!&lt;/p&gt; &lt;br&gt;
+    &lt;p class="priority"&gt;As we know, inline CSS has higher priority than internal CSS.&lt;/p&gt; &lt;br&gt;
+    &lt;p class="priority" style="background-color: yellow;"&gt;However, we can override inline styles using <code>!important</code> in internal CSS.&lt;/p&gt;
+    
+    &lt;hr&gt;
+    &lt;h3&gt;Selectors in HTML for CSS&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Element Selector: uses tag name.&lt;/li&gt;
+        &lt;li&gt;ID Selector: uses hash (<code>#</code>).&lt;/li&gt;
+        &lt;li&gt;Class Selector: uses dot (<code>.</code>).&lt;/li&gt;
+        &lt;li&gt;Group Selector: selects multiple elements with a comma (&lt;code&gt;,&lt;/code&gt;).&lt;/li&gt;
+    &lt;/ul&gt;
+
+    &lt;!-- Examples of Selectors --&gt;
+    &lt;code&gt;
+        Example: 
+        p, article {
+            background-color: black;
+        }
+    &lt;/code&gt;
+
+    &lt;p&gt;Selecting a specific paragraph with its class name:&lt;/p&gt;
+    &lt;code&gt;
+        Example: 
+        p.class_name {
+            background-color: black;
+        }
+    &lt;/code&gt;
+    
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Basics</h3>
+        <p>This section introduces internal CSS, which is defined in the <code>&lt;style&gt;</code> tag inside the HTML <code>&lt;head&gt;</code>. The use of the <code>!important</code> keyword allows internal CSS to override inline CSS, which normally has higher precedence.</p>
+        
+        <h3>CSS Selectors</h3>
+        <p>CSS selectors specify which elements the CSS rules apply to:</p>
+        <ul>
+            <li><strong>Element Selector</strong>: Targets all elements of a specific type. For example, <code>p</code> selects all paragraphs.</li>
+            <li><strong>ID Selector</strong>: Targets elements with a specific <code>id</code> attribute. IDs are unique per page.</li>
+            <li><strong>Class Selector</strong>: Targets elements with a specific class. Multiple elements can share the same class.</li>
+            <li><strong>Group Selector</strong>: Allows selection of multiple elements by separating selectors with a comma.</li>
+        </ul>
+
+        <h3>Example of Using Selectors</h3>
+        <p>In the example code:</p>
+        <ul>
+            <li><code>p, article { background-color: black; }</code> - This sets a background color for both <code>&lt;p&gt;</code> and <code>&lt;article&gt;</code> elements.</li>
+            <li><code>p.class_name { background-color: black; }</code> - This applies a background color only to paragraphs with the class <code>class_name</code>.</li>
+        </ul>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

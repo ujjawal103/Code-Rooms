@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforms - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Transforms In CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssTransformBasics')">Basics in Transforms</h2>
+    <div id="cssTransformBasics" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .box{
+            height: 200px;
+            width: 200px;
+            background-color: rgb(255, 0, 0);
+            border: 2px solid black;
+            transition: transform 2s ease;
+        }
+
+        /* Applying transformation when hovering */
+        .box:hover{
+            transform: rotate(45deg) scale(1.5) translateX(200px);
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="box"&gt;This is a box&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is a CSS Transform?</h3>
+        <p>CSS transforms allow you to change the shape, position, size, and orientation of an element. This can be achieved using the <code>transform</code> property in CSS.</p>
+
+        <h3>Types of Transforms:</h3>
+        <ul>
+            <li><strong>Translation:</strong> Moves the element from one location to another (e.g., <code>translateX()</code>, <code>translateY()</code>, or <code>translate()</code>).</li>
+            <li><strong>Rotation:</strong> Rotates the element around a fixed point (e.g., <code>rotate()</code>).</li>
+            <li><strong>Scaling:</strong> Changes the size of an element (e.g., <code>scale()</code>).</li>
+            <li><strong>Skewing:</strong> Distorts the shape of an element (e.g., <code>skew()</code>). Not covered in this section.</li>
+        </ul>
+
+        <h3>2D Transforms:</h3>
+        <p>In this section, we focus on 2D transforms, which include translation, rotation, and scaling of elements in a two-dimensional space.</p>
+
+        <h3>How Transforms Work with Pseudo-Classes and Transitions:</h3>
+        <p>Transforms are commonly used with pseudo-classes such as <code>:hover</code> to create smooth interactions when the user hovers over an element. Using <code>transition</code> with transforms makes the change smoother by animating the transformation.</p>
+
+        <h3>Key Transform Functions:</h3>
+        <ul>
+            <li><strong>rotate(deg):</strong> Rotates the element by a specified angle in degrees. Example: <code>rotate(45deg)</code> rotates the element 45 degrees clockwise.</li>
+            <li><strong>scale(x, y):</strong> Scales the element along the X and Y axes. Example: <code>scale(1.5)</code> increases the size of the element by 1.5 times.</li>
+            <li><strong>translateX(px), translateY(px):</strong> Moves the element horizontally (X axis) or vertically (Y axis) by a specified number of pixels. Example: <code>translateX(200px)</code> moves the element 200 pixels to the right.</li>
+        </ul>
+
+        <h3>Example Explained:</h3>
+        <p>In the example above, when the user hovers over the red box, the following transforms occur:</p>
+        <ul>
+            <li>The box rotates by 45 degrees.</li>
+            <li>The box scales up by 1.5 times its original size.</li>
+            <li>The box moves 200 pixels to the right on the X axis.</li>
+        </ul>
+
+        <h3>Conclusion:</h3>
+        <p>CSS transforms are a powerful tool for altering the visual appearance and behavior of elements. By using properties like <code>rotate()</code>, <code>scale()</code>, and <code>translate()</code>, you can create interactive, engaging user interfaces.</p>
+    </div>
+</section>
+
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBoxTransforms')">CSS Transforms: Box Transformations</h2>
+    <div id="cssBoxTransforms" class="content" style="display: block;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #box{
+            width: 400px;
+            height: 400px;
+            background-color: navy;
+            border: 5px red solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            transition: all 3s ease-in 1s;
+        }
+
+        #box:hover{
+            transform: matrix(0.866, 0.7, -0.7, 0.866, 0, 0); /* Matrix transform example */
+        }
+
+        p{
+            font-size: x-large;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+    &lt;div id="box"&gt;
+        &lt;p&gt;hello g mai hun box.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is a CSS Transform?</h3>
+        <p>CSS transforms are used to modify the shape, position, and size of an element in a 2D or 3D space. The <code>transform</code> property allows elements to be rotated, scaled, skewed, and translated with ease.</p>
+
+        <h3>Transform Properties:</h3>
+        <ul>
+            <li><strong>rotate(angle):</strong> Rotates an element by the specified angle. Positive values rotate clockwise and negative values rotate counterclockwise.</li>
+            <li><strong>scale(x, y):</strong> Scales an element. The values can be greater than 1 to enlarge, or less than 1 to shrink.</li>
+            <li><strong>skew(x-angle, y-angle):</strong> Skews (or tilts) an element along the X and Y axes by the given angle values.</li>
+            <li><strong>translate(x, y):</strong> Moves an element from its original position, where <code>x</code> and <code>y</code> values are in pixels or other units.</li>
+            <li><strong>matrix(a, b, c, d, e, f):</strong> A more advanced transformation function that combines multiple transformations (rotation, scaling, translation) in one function.</li>
+        </ul>
+
+        <h3>Explanation of the Box Transformation:</h3>
+        <p>The transformation applied to the box when hovered is a matrix transformation:</p>
+        <pre>
+transform: matrix(0.866, 0.7, -0.7, 0.866, 0, 0);
+        </pre>
+        <p>This matrix transformation applies both rotation and scaling to the element. It alters the X and Y axes of the element in a more complex way than a simple rotation or scaling transformation.</p>
+
+        <h3>Understanding Matrix Transformation:</h3>
+        <p>The <code>matrix()</code> function is a 2D transformation that combines translation, scaling, rotation, and skewing into a single function, represented by six values:</p>
+        <ul>
+            <li><code>a, b, c, d:</code> Values that control rotation, scaling, and skewing.</li>
+            <li><code>e, f:</code> Values that control translation (position).</li>
+        </ul>
+
+        <h3>Example of Transformations:</h3>
+        <p>Below are some examples of the transformations you can apply to the box:</p>
+        <ul>
+            <li><strong>Rotate:</strong> <code>transform: rotate(45deg);</code> rotates the box by 45 degrees.</li>
+            <li><strong>Scale:</strong> <code>transform: scale(1.5);</code> increases the box's size by 1.5 times.</li>
+            <li><strong>Skew:</strong> <code>transform: skew(45deg);</code> tilts the box at a 45-degree angle.</li>
+            <li><strong>Translate:</strong> <code>transform: translate(300px, 200px);</code> moves the box 300px right and 200px down.</li>
+        </ul>
+
+        <h3>Conclusion:</h3>
+        <p>CSS transforms allow for complex and dynamic changes in elements' appearances and positions. Combining them with transitions can create smooth, interactive effects that improve the user experience.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Transitions in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssTransitionsBasics')">Basics in CSS Transitions</h2>
+    <div id="cssTransitionsBasics" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        transition: all 0.5s ease;
+    }
+    .box:hover{
+        width: 250px;
+        height: 250px;
+        background-color: green;
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is a CSS Transition?</h3>
+        <p>A CSS transition allows you to change the style of an element from one state to another over a specific duration. The transition starts when an event (like hovering or focusing) happens, and it moves smoothly from the initial state (source) to the final state (destination).</p>
+
+        <h3>How is Transition Different from Animation?</h3>
+        <p>Transitions and animations are both used to change an element's properties over time, but they differ in the following ways:</p>
+        <ul>
+            <li><strong>Animation:</strong> A combination of multiple transitions, where the element moves from one location to another and then continues moving to another position. It involves multiple keyframes (steps).</li>
+            <li><strong>Transition:</strong> A one-step movement from the source to the destination state. It happens when an event is triggered and completes in a single motion.</li>
+        </ul>
+        <p>In simple terms, transitions are a part of animations; animation uses multiple transitions to create complex movements.</p>
+
+        <h3>Shorthand Notations for CSS Transitions</h3>
+        <p>You can define transitions using shorthand notations, making your code more concise. Below are the common syntax rules:</p>
+
+        <h4>1. Apply to 1 property:</h4>
+        <pre><code class="language-css">
+/* property name | duration */
+transition: margin-right 4s;
+        </code></pre>
+
+        <h4>2. Apply to 1 property with delay:</h4>
+        <pre><code class="language-css">
+/* property name | duration | delay */
+transition: margin-right 4s 1s;
+        </code></pre>
+
+        <h4>3. Apply to 1 property with easing function:</h4>
+        <pre><code class="language-css">
+/* property name | duration | easing function */
+transition: margin-right 4s ease-in-out;
+        </code></pre>
+
+        <h4>4. Apply to 1 property with delay and easing:</h4>
+        <pre><code class="language-css">
+/* property name | duration | easing function | delay */
+transition: margin-right 4s ease-in-out 1s;
+        </code></pre>
+
+        <h4>5. Apply to 1 property with behavior:</h4>
+        <pre><code class="language-css">
+/* property name | duration | behavior */
+transition: display 4s allow-discrete;
+        </code></pre>
+
+        <h4>6. Apply to multiple properties:</h4>
+        <pre><code class="language-css">
+/* Apply to 2 properties */
+transition: margin-right 4s, color 1s;
+        </code></pre>
+
+        <h4>7. Apply to all changed properties:</h4>
+        <pre><code class="language-css">
+/* Apply to all changed properties */
+transition: all 0.5s ease-out allow-discrete;
+transition: 200ms linear 50ms;
+        </code></pre>
+
+        <h4>8. Use global values:</h4>
+        <pre><code class="language-css">
+/* Global values */
+transition: inherit;
+transition: initial;
+transition: revert;
+transition: revert-layer;
+transition: unset;
+        </code></pre>
+
+        <h3>Conclusion</h3>
+        <p>CSS transitions are a great way to enhance user interaction with smooth visual effects. They are easy to implement and can be customized using the different shorthand properties to control duration, delay, easing, and the properties to be transitioned.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssTransitionWidth')">CSS Transition: Width Change</h2>
+    <div id="cssTransitionWidth" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .box{
+            height: 400px;
+            width: 400px;
+            background-color: rgb(255, 0, 0);
+            border: 2px solid black;
+
+            /* Using transition for width */
+            transition-property: all;
+            transition-duration: 2s;
+            transition-delay: 1s;
+            transition-timing-function: linear;
+        }
+
+        /* Hover effect */
+        .box:hover{
+            width: 1600px;
+            background-color: azure;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="box"&gt;
+        increasing width using transition.
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is Happening in This Example?</h3>
+        <p>In this example, we are demonstrating how to increase the width of an element using CSS transitions.</p>
+
+        <h3>Key Parts of the Code:</h3>
+        <ul>
+            <li><strong>Initial State:</strong> The <code>.box</code> element is a red square with a width of 400px.</li>
+            <li><strong>Transition Properties:</strong> The <code>transition-property</code> is set to <code>all</code>, meaning all properties that change will be transitioned. In this case, <code>width</code> and <code>background-color</code> will be transitioned.</li>
+            <li><strong>Transition Duration:</strong> The <code>transition-duration</code> is set to <code>2s</code>, which means the transition will take 2 seconds to complete.</li>
+            <li><strong>Delay:</strong> The transition starts after a 1-second delay (<code>transition-delay: 1s</code>).</li>
+            <li><strong>Timing Function:</strong> The transition uses <code>linear</code> timing, which ensures the transition happens at a constant speed.</li>
+        </ul>
+
+        <h3>When Hovering Over the Box:</h3>
+        <p>When the user hovers over the red box, the width increases from 400px to 1600px and the background color changes to <code>azure</>. This change happens smoothly over 2 seconds, with a 1-second delay before it begins.</p>
+
+        <h3>Transition Property Options:</h3>
+        <p>There are multiple ways to define what properties should be transitioned. In this case:</p>
+        <ul>
+            <li><code>transition-property: all;</code> applies the transition to all properties that change.</li>
+            <li>To apply the transition only to the width, we could use <code>transition-property: width;</code>.</li>
+        </ul>
+
+        <h3>Conclusion:</h3>
+        <p>Transitions allow smooth changes between styles. By specifying properties such as duration, delay, and timing function, you can control how and when the transition happens. In this case, we applied it to the width and background-color of the box.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

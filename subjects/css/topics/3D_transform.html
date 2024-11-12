@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D-Transform - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>3D-Transform in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssTransformations')">CSS Transformations: Rotate, Translate, and Scale</h2>
+    <div id="cssTransformations" class="content" style="display: block;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin:0%;
+            padding:0%;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height:100%;
+            width:100%;
+        }
+
+        .container{
+            display: grid;
+            background-color: greenyellow;
+            padding: 5rem;
+            gap: 1rem;
+            grid-template-columns: repeat(3,1fr);
+        }
+
+        .items{
+            padding: 2rem;
+            height: 150px;
+            width: 150px;
+            background-color: rgb(76, 76, 141);
+            border: 2px solid black;
+        }
+
+        #rotatex:hover{
+             transform: RotateX(45deg);
+        }
+
+        #rotatey:hover{
+           transform: RotateY(-45deg);
+        }
+
+        #rotatez:hover{
+            transition: all linear 1s;
+            transform: RotateZ(45deg);
+        }
+
+        #translatex:hover{
+           transform: translatex(100px);
+        }
+
+        #translatey:hover{
+           transform: translateY(100px);
+        }
+
+        #translatez:hover{
+           transform: perspective(200px) translatez(100px);
+        }
+
+        #scalex:hover{
+           transform: scalex(1.5);
+        }
+
+        #scaley:hover{
+           transform: scaley(1.5);
+        }
+
+        #scalez:hover{
+           transform: perspective(300px) scalez(5) rotatey(30deg);
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="items" id="rotatex"&gt;RotateX&lt;/div&gt;
+        &lt;div class="items" id="rotatey"&gt;RotateY&lt;/div&gt;
+        &lt;div class="items" id="rotatez"&gt;RotateZ&lt;/div&gt;
+        &lt;div class="items" id="translatex"&gt;TranslateX&lt;/div&gt;
+        &lt;div class="items" id="translatey"&gt;TranslateY&lt;/div&gt;
+        &lt;div class="items" id="translatez"&gt;TranslateZ&lt;/div&gt;
+        &lt;div class="items" id="scalex"&gt;scaleX&lt;/div&gt;
+        &lt;div class="items" id="scaley"&gt;scaleY&lt;/div&gt;
+        &lt;div class="items" id="scalez"&gt;scaleZ&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>CSS Transformations: Rotate, Translate, and Scale</h3>
+        <p>CSS transformations allow you to modify the position, size, and shape of elements without affecting the document layout. In this example, we will explore three primary types of transformations: <strong>rotate</strong>, <strong>translate</strong>, and <strong>scale</strong>, each applied on hover.</p>
+
+        <h3>1. Rotate</h3>
+        <p>The <code>rotate()</code> function in CSS allows you to rotate an element around a fixed point, typically the center of the element. You can rotate elements on three axes: X, Y, and Z. Here are the different rotation methods used in this example:</p>
+        <ul>
+            <li><strong>RotateX:</strong> The element rotates around the X-axis. This rotation tilts the element forward or backward, as if flipping it on a horizontal axis.</li>
+            <li><strong>RotateY:</strong> The element rotates around the Y-axis. This rotation gives a 3D effect, flipping the element as if turning it on a vertical axis.</li>
+            <li><strong>RotateZ:</strong> The element rotates around the Z-axis. This is the most common rotation, where the element spins in a 2D plane.</li>
+        </ul>
+
+        <h3>2. Translate</h3>
+        <p>Translation moves an element from one place to another along the X, Y, or Z axis. The <code>translate()</code> function shifts an element without affecting its layout.</p>
+        <ul>
+            <li><strong>TranslateX:</strong> Moves the element horizontally along the X-axis.</li>
+            <li><strong>TranslateY:</strong> Moves the element vertically along the Y-axis.</li>
+            <li><strong>TranslateZ:</strong> Moves the element along the Z-axis, creating a 3D effect. This requires a <code>perspective</code> property to simulate depth.</li>
+        </ul>
+
+        <h3>3. Scale</h3>
+        <p>Scaling changes the size of an element. The <code>scale()</code> function allows you to enlarge or shrink an element along the X, Y, or Z axis:</p>
+        <ul>
+            <li><strong>ScaleX:</strong> Stretches or shrinks the element horizontally along the X-axis.</li>
+            <li><strong>ScaleY:</strong> Stretches or shrinks the element vertically along the Y-axis.</li>
+            <li><strong>ScaleZ:</strong> Scales the element in 3D space, expanding or shrinking its depth. This transformation is often combined with a <code>rotate</code> function for more dynamic effects.</li>
+        </ul>
+
+        <h3>Why Use CSS Transformations?</h3>
+        <ul>
+            <li>They create visually interesting effects without requiring additional HTML elements or complex JavaScript.</li>
+            <li>They improve user interaction by adding dynamic behavior to page elements, such as hover effects, which engage the user.</li>
+            <li>CSS transformations are hardware accelerated and perform better than traditional layout methods, making them efficient for animations and transitions.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>CSS transformations are a powerful way to create interactive, dynamic web elements. Whether it's rotating, translating, or scaling, these transformations allow you to manipulate elements in a 2D or 3D space, providing a more engaging user experience.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

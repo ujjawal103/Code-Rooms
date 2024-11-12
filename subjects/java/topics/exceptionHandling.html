@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Notes Gallery</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="generalCss.css">
+</head>
+<body>
+
+    <header>
+        <h1>Exception Handling</h1>
+        <p>Explore all Java notes in one place</p>
+    </header>
+
+    <div class="gallery-container" id="gallery"></div>
+
+    <!-- Lightbox Overlay -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-button" onclick="closeLightbox()">×</span>
+        <span class="prev-button" onclick="showPrev()">&#10094;</span>
+        <img id="lightbox-img" src="" alt="Enlarged Image">
+        <span class="next-button" onclick="showNext()">&#10095;</span>
+    </div>
+
+    <div id="space"></div>
+    <footer>
+        <p>&copy; 2024 My Java Notes - Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        const images = [
+ "../images/Java 2nd left side/IMG_20241112_142713.jpg", 
+"../images/java 2nd Right Side/IMG_20241112_143858.jpg",
+"../images/Java 2nd left side/IMG_20241112_142725.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143906.jpg",
+"../images/Java 2nd left side/IMG_20241112_142735.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143914.jpg",
+"../images/Java 2nd left side/IMG_20241112_142743.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143927.jpg",
+"../images/Java 2nd left side/IMG_20241112_142755.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143934.jpg",
+"../images/Java 2nd left side/IMG_20241112_142806.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143943.jpg",
+"../images/Java 2nd left side/IMG_20241112_142816.jpg",
+"../images/java 2nd Right Side/IMG_20241112_143953.jpg",
+"../images/Java 2nd left side/IMG_20241112_142834.jpg",
+        ];
+
+        let currentIndex = 0;
+
+        const gallery = document.getElementById("gallery");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        // Dynamically create gallery items
+        images.forEach((image, index) => {
+            const imgDiv = document.createElement("div");
+            imgDiv.classList.add("gallery-item");
+            imgDiv.innerHTML = `<img src="${image}" alt="Java Note ${index + 1}" onclick="openLightbox(${index})" class="border">`;
+            gallery.appendChild(imgDiv);
+        });
+
+        function openLightbox(index) {
+            currentIndex = index;
+            lightbox.style.display = "flex";
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function closeLightbox() {
+            lightbox.style.display = "none";
+        }
+
+        function showPrev() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            lightboxImg.src = images[currentIndex];
+        }
+
+        function showNext() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            lightboxImg.src = images[currentIndex];
+        }
+    </script>
+
+</body>
+</html>

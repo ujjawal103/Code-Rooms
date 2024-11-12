@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Float & Clear - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Float & Clear</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssFloatProperty')">CSS Float Property</h2>
+    <div id="cssFloatProperty" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure (Without CSS Styling) -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Float Property Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+
+    &lt;h4&gt;Why Float?&lt;/h4&gt;
+    &lt;small&gt;The float property is used to align elements side-by-side and create flowing text around images and other objects.&lt;/small&gt;
+    &lt;br&gt;
+
+    &lt;!-- Example 1 --&gt;
+    &lt;div class="container"&gt;
+        &lt;img src="/05_positionProperty/akhand.jpeg" alt="akhand"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;br&gt;
+
+    &lt;!-- Example 2 with Multiple Floated Images --&gt;
+    &lt;div class="container"&gt;
+        &lt;img src="/05_positionProperty/akhand.jpeg" alt="akhand" id="img1"&gt;
+        &lt;img src="/05_positionProperty/akhand.jpeg" alt="akhand" id="img2"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit...&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;br&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Float Property</h3>
+        <p>The <code>float</code> property in CSS is used to align elements side-by-side within their container and to wrap text around images and other elements. Commonly used for layout purposes, it enables content to "float" to the left or right of the container, making space for inline content such as text or additional images.</p>
+
+        <!-- CSS Code Snippets with Explanations -->
+        <h4>CSS Styling Code</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Floats the image to the right, aligning text next to it */
+img {
+    float: right;
+    height: 250px;
+}
+
+/* Adds different sizes for multiple floated images */
+#img1 {
+    float: right;
+    height: 250px;
+}
+
+#img2 {
+    float: right;
+    height: 300px;
+}
+            </code>
+        </pre>
+
+        <h3>Explanation of CSS Code</h3>
+        <ul>
+            <li><code>float: right;</code> is applied to the <code>img</code> elements, making each image align to the right side of its container. The surrounding text wraps neatly around these images, creating a more visually engaging layout.</li>
+            <li>The <code>height</code> property defines the size of each image. In this example:
+                <ul>
+                    <li><code>img</code> and <code>#img1</code> are set to 250px in height, maintaining consistency between the first and second images in Example 2.</li>
+                    <li><code>#img2</code> has a height of 300px, illustrating how floated elements can vary in size while maintaining their alignment.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <!-- Explanation of Each Example -->
+        <h3>Example Breakdown</h3>
+        <ol>
+            <li>
+                <strong>Example 1:</strong> In this example, an image is floated to the right, allowing the paragraph text to wrap around it. This setup is ideal for creating dynamic, visually engaging layouts, such as for blog posts or article content.
+            </li>
+            <li>
+                <strong>Example 2:</strong> Two images are floated to the right, showcasing how multiple elements can align together to achieve a more complex layout. Here, <code>#img1</code> and <code>#img2</code> have different heights, demonstrating that floated elements can have individual properties and still be aligned together.
+            </li>
+        </ol>
+
+        <!-- Practical Tips -->
+        <h3>Best Practices for Using Float</h3>
+        <p>While float is powerful for layout control, modern alternatives like Flexbox or CSS Grid are often preferred for responsive and complex layouts. Float is still useful in specific cases, such as text wrapping around images or floating small elements.</p>
+
+        <p>When using float, it’s important to clear floats correctly to avoid layout issues. Consider using <code>clear: both;</code> or a clearfix method to ensure elements don’t unintentionally overlap or disrupt the flow of the layout.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssClearProperty')">CSS Clear Property</h2>
+    <div id="cssClearProperty" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure (Without CSS Styling) -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h4&gt;Why Clear?&lt;/h4&gt;
+    &lt;small&gt;Clear property Decides to elements which are floating left-right are still float or need to remove from their and align to other place.&lt;/small&gt;
+    &lt;br&gt;
+
+    &lt;div class="container"&gt;
+        &lt;img src="/05_positionProperty/akhand.jpeg" alt="akhand" id="img1"&gt;
+        &lt;img src="/05_positionProperty/akhand.jpeg" alt="akhand" id="img2"&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. ...&lt;/p&gt;
+    &lt;/div&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Clear Property</h3>
+        <p>The <code>clear</code> property is used to control the behavior of elements that follow floated elements. By default, floated elements are taken out of the normal flow of the document, allowing subsequent elements to wrap around them. The <code>clear</code> property specifies on which side of the element floating is not allowed.</p>
+
+        <h4>CSS Styling Code</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Floats the first image to the right */
+#img1{
+    float: right;
+    height: 250px;
+}
+
+/* Floats the second image to the right and ensures it clears any previous floats on the right */
+#img2{
+    float: right;
+    height: 300px;
+    clear: right;
+}
+            </code>
+        </pre>
+
+        <h3>Explanation of CSS Code</h3>
+        <ul>
+            <li><code>float: right;</code> is applied to both <code>#img1</code> and <code>#img2</code>, which causes both images to float to the right of the container. The surrounding text flows around the images as a result.</li>
+            <li><code>clear: right;</code> is applied to <code>#img2</code>, meaning that it will not allow any floating elements on its right side. This ensures that <code>#img2</code> will appear below the first floated image, rather than next to it. The <code>clear</code> property prevents the second image from overlapping or floating beside the first one.</li>
+        </ul>
+
+        <h3>Why Use the Clear Property?</h3>
+        <p>The <code>clear</code> property is particularly useful when you need to manage the layout of floated elements in a more controlled manner. For example, in a layout where multiple images are floated, using <code>clear</code> ensures that elements that follow the floated images are properly aligned below them and do not overlap or wrap around unexpectedly.</p>
+
+        <h3>Practical Application</h3>
+        <p>In the example above, by applying <code>clear: right;</code> to the second image, you prevent it from floating beside the first image and force it to start on a new line. This is often used in article layouts where you may have multiple images or other floated elements that need to stack properly.</p>
+
+        <h3>Best Practices</h3>
+        <p>While the <code>clear</code> property is effective for managing layout around floats, it's important to use it judiciously. Too much reliance on floating elements and clearing can lead to complex, hard-to-maintain code. Modern layout techniques like Flexbox or CSS Grid are generally recommended for more responsive and flexible layouts.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssOverflow')">Overflow Property in CSS</h2>
+    <div id="cssOverflow" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Overflow Example&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div id="container1"&gt;
+        &lt;h2&gt;Without Overflow.&lt;/h2&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet purus et neque facilisis lacinia. Donec in mi nec arcu cursus blandit.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div id="container2"&gt;
+        &lt;h2&gt;With Overflow.&lt;/h2&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet purus et neque facilisis lacinia. Donec in mi nec arcu cursus blandit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet purus et neque facilisis lacinia. Donec in mi nec arcu cursus blandit.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Overflow</h3>
+        <p>The <code>overflow</code> property in CSS controls what happens when content overflows an element's box. This can occur when content is too large to fit inside the specified width and height of an element.</p>
+
+        <!-- Explanation for #container1 and #container2 -->
+        <h3>Example of Overflow in Action</h3>
+        <p>In this example, the <code>#container1</code> element does not display overflow, meaning that any extra content will be hidden:</p>
+        <pre><code class="language-css">
+#container1 {
+    overflow: hidden;
+}
+        </code></pre>
+
+        <p>On the other hand, <code>#container2</code> has an <code>overflow: auto;</code> setting, meaning scrollbars will appear when the content exceeds the container's size:</p>
+        <pre><code class="language-css">
+#container2 {
+    overflow: auto;
+}
+        </code></pre>
+
+        <!-- Practical Use Cases -->
+        <h3>Use Cases for Overflow</h3>
+        <ul>
+            <li>Managing content that might exceed the available space in a container.</li>
+            <li>Creating scrollable areas within a page, such as in modals or sidebars.</li>
+            <li>Preventing content from breaking the layout by hiding excess content.</li>
+        </ul>
+
+        <p>This example demonstrates how the <code>overflow</code> property can be used to manage content overflow in web design.</p>
+        
+        <!-- CSS Module -->
+        <h3>CSS Module for Overflow</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Container without overflow */
+#container1 {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+/* Container with overflow enabled */
+#container2 {
+    width: 300px;
+    height: 250px;
+    border: 1px solid black;
+    overflow: auto;
+}
+            </code>
+        </pre>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

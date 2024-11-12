@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shadow - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Shadow in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssShadow')">CSS Shadow</h2>
+    <div id="cssShadow" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="box"&gt;This box has a shadow&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Shadow</h3>
+        <p>CSS provides two types of shadow effects that can be applied to elements: <strong>box-shadow</strong> and <strong>text-shadow</strong>. These shadows enhance the visual presentation by adding depth and emphasis to elements on a page.</p>
+
+        <!-- Types of Shadow -->
+        <h3>Types of Shadow in CSS</h3>
+        <ul>
+            <li><strong>Box Shadow</strong>: Adds shadow effects around an element's frame.</li>
+            <li><strong>Text Shadow</strong>: Adds shadow effects to text.</li>
+        </ul>
+
+        <!-- Box Shadow Syntax -->
+        <h3>Box Shadow Syntax</h3>
+        <p>The <code>box-shadow</code> property is used to apply shadow effects to an element. It takes up to five values:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 5px 5px black; /* Horizontal offset, vertical offset, blur radius, and color */
+        </code></pre>
+
+        <!-- Box Shadow Examples -->
+        <h3>Examples of Box Shadow</h3>
+        <h4>1. Basic Box Shadow:</h4>
+        <pre><code class="language-css">
+box-shadow: 10px 5px 5px black;
+        </code></pre>
+        <p>This adds a simple shadow with a 10px horizontal and 5px vertical offset, with a 5px blur radius and a black color.</p>
+
+        <h4>2. Multiple Shadows:</h4>
+        <pre><code class="language-css">
+box-shadow: 3px 3px red inset, -1em 0 0.4em olive;
+        </code></pre>
+        <p>This adds two shadows: a red inset shadow and an olive-colored shadow on the outer edge.</p>
+
+        <h4>3. Inset Box Shadow:</h4>
+        <pre><code class="language-css">
+box-shadow: inset 5em 1em gold;
+        </code></pre>
+        <p>The <code>inset</code> keyword changes the shadow from an outer shadow to an inner shadow.</p>
+
+        <!-- Text Shadow Syntax -->
+        <h3>Text Shadow Syntax</h3>
+        <p>The <code>text-shadow</code> property is used to apply shadow effects to text. It takes up to four values:</p>
+        <pre><code class="language-css">
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, and color */
+        </code></pre>
+
+        <!-- Global Values for Box Shadow -->
+        <h3>Global Values for Box Shadow</h3>
+        <p>Box shadows can also use global values to control inheritance and resetting:</p>
+        <pre><code class="language-css">
+box-shadow: inherit; /* Inherits the value from the parent element */
+box-shadow: initial; /* Resets to the default value */
+box-shadow: unset; /* Removes any applied shadow */
+        </code></pre>
+
+        <h3>Summary of CSS Shadow</h3>
+        <p>Shadows in CSS add depth to elements, enhancing the design of your web page. Use <code>box-shadow</code> for element shadows and <code>text-shadow</code> for text effects. By customizing values like color, blur radius, and offsets, you can achieve various visual effects for modern web designs.</p>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBoxShadow')">CSS Box Shadow</h2>
+    <div id="cssBoxShadow" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+            box-shadow: 10px -60px brown;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="image.jpg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Box Shadow</h3>
+        <p>In CSS, the <code>box-shadow</code> property is used to apply shadow effects around an element's box. It is particularly useful for giving depth to an element by making it appear as though it is floating above the page. The box-shadow can be customized with multiple values for horizontal and vertical offsets, blur radius, spread radius, and color.</p>
+
+        <!-- Box Shadow Syntax -->
+        <h3>Box Shadow Syntax</h3>
+        <p>The basic syntax for the <code>box-shadow</code> property is:</p>
+        <pre><code class="language-css">
+box-shadow: h-offset v-offset blur spread color inset;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> Horizontal shadow offset (positive for right, negative for left).</li>
+            <li><strong>v-offset:</strong> Vertical shadow offset (positive for down, negative for up).</li>
+            <li><strong>blur:</strong> The blur radius (increases shadow softness).</li>
+            <li><strong>spread:</strong> The spread radius (increases or decreases shadow size).</li>
+            <li><strong>color:</strong> The color of the shadow.</li>
+            <li><strong>inset (optional):</strong> Makes the shadow appear inside the element.</li>
+        </ul>
+
+        <!-- Example with Box Shadow -->
+        <h3>Example of Box Shadow</h3>
+        <p>The following example applies a shadow effect with a horizontal offset of 10px, a vertical offset of -60px, and a brown color to the box:</p>
+        <pre><code class="language-css">
+box-shadow: 10px -60px brown;
+        </code></pre>
+        <p>In this case, the shadow is positioned 10px to the right and 60px above the element.</p>
+
+        <!-- Changing Shadow Position -->
+        <h3>Changing the Shadow's Position</h3>
+        <p>By changing the horizontal and vertical offsets, you can control the shadow's direction:</p>
+        <pre><code class="language-css">
+box-shadow: -10px 10px gray; /* Shadow is 10px left and 10px down */
+        </code></pre>
+
+        <h4>Notes on Shadow Offsets:</h4>
+        <p>
+            - Positive values for the horizontal offset move the shadow to the right, and negative values move it to the left.<br>
+            - Positive values for the vertical offset move the shadow down, and negative values move it up.
+        </p>
+
+        <!-- Shadow Blur -->
+        <h3>Shadow Blur</h3>
+        <p>The <strong>blur radius</strong> controls the softness of the shadow. A larger value creates a softer, more diffuse shadow:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 10px 15px gray; /* Larger blur radius creates a softer shadow */
+        </code></pre>
+
+        <!-- Inset Shadow -->
+        <h3>Inset Shadow</h3>
+        <p>Adding the <code>inset</code> keyword creates an inner shadow effect:</p>
+        <pre><code class="language-css">
+box-shadow: inset 5px 5px 10px #000000; /* Creates a shadow inside the element */
+        </code></pre>
+
+        <!-- Global Values for Box Shadow -->
+        <h3>Global Values for Box Shadow</h3>
+        <p>The box-shadow property can also use global values to control inheritance or resetting:</p>
+        <pre><code class="language-css">
+box-shadow: inherit; /* Inherits the value from the parent element */
+box-shadow: initial; /* Resets to the default value */
+box-shadow: unset; /* Removes any applied shadow */
+        </code></pre>
+
+        <h3>Summary of Box Shadow</h3>
+        <p>Box shadows in CSS help enhance the visual presentation of elements by making them appear to float above the page. You can control the shadow's position, softness, spread, and color to create unique visual effects that add depth to your design.</p>
+
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBoxShadowWithBlur')">CSS Box Shadow with Blur</h2>
+    <div id="cssBoxShadowWithBlur" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+            box-shadow: 10px 60px 50px brown;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="image.jpg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Box Shadow with Blur</h3>
+        <p>The <code>box-shadow</code> property in CSS allows you to create a shadow effect around an element. By adding a blur radius, you can make the shadow appear softer or more diffuse. The blur value controls the spread of the shadow, making it less sharp and more spread out the higher the value.</p>
+
+        <!-- Box Shadow Syntax with Blur -->
+        <h3>Box Shadow Syntax with Blur</h3>
+        <p>For a shadow effect that includes a blur radius, the syntax looks like this:</p>
+        <pre><code class="language-css">
+box-shadow: h-offset v-offset blur color;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> The horizontal offset of the shadow (positive for right, negative for left).</li>
+            <li><strong>v-offset:</strong> The vertical offset of the shadow (positive for down, negative for up).</li>
+            <li><strong>blur:</strong> The blur radius which controls the softness of the shadow.</li>
+            <li><strong>color:</strong> The color of the shadow.</li>
+        </ul>
+
+        <!-- Example with Box Shadow and Blur -->
+        <h3>Example of Box Shadow with Blur</h3>
+        <p>In the following example, the box shadow has a horizontal offset of 10px, a vertical offset of 60px, and a blur radius of 50px:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 60px 50px brown;
+        </code></pre>
+        <p>This creates a shadow that is 10px to the right, 60px down, and has a blur radius of 50px, resulting in a soft shadow effect.</p>
+
+        <!-- Changing Shadow Blur -->
+        <h3>Changing the Shadow's Blur</h3>
+        <p>The <strong>blur radius</strong> controls the sharpness of the shadow. A higher blur value makes the shadow more diffuse:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 60px 100px brown; /* Larger blur radius creates a softer shadow */
+        </code></pre>
+
+        <!-- Shadow Offset with Blur -->
+        <h3>Shadow Offset with Blur</h3>
+        <p>You can adjust both the shadow's offset and the blur to achieve different visual effects. A combination of larger offset and blur results in a more distant and softer shadow:</p>
+        <pre><code class="language-css">
+box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.5); /* Shadow moves to the left and down, with a blur effect */
+        </code></pre>
+
+        <h4>Notes on Blur:</h4>
+        <p>
+            - A larger blur value will make the shadow spread out, creating a more subtle effect.<br>
+            - A smaller blur value makes the shadow sharper and more defined.
+        </p>
+
+        <!-- Global Values for Box Shadow with Blur -->
+        <h3>Global Values for Box Shadow</h3>
+        <p>The box-shadow property can use global values to inherit or reset shadow styles:</p>
+        <pre><code class="language-css">
+box-shadow: inherit; /* Inherits the shadow from the parent element */
+box-shadow: initial; /* Resets to the default value */
+box-shadow: unset; /* Removes any applied shadow */
+        </code></pre>
+
+        <h3>Summary of Box Shadow with Blur</h3>
+        <p>The <code>box-shadow</code> property with blur radius is a powerful tool for creating shadows in CSS. By adjusting the horizontal and vertical offsets as well as the blur radius, you can control the appearance of the shadow to suit your design needs. The blur radius specifically helps to soften the shadow and make it more visually appealing.</p>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBoxShadowWithSpread')">CSS Box Shadow with Spread Radius</h2>
+    <div id="cssBoxShadowWithSpread" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+            box-shadow: 10px 30px 10px 40px brown;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="image.jpg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Box Shadow with Spread Radius</h3>
+        <p>The <code>box-shadow</code> property in CSS allows you to add a shadow effect around an element. The <strong>spread radius</strong> determines how much the shadow spreads beyond the element. A positive value increases the size of the shadow, while a negative value makes it shrink. The spread radius is applied after the blur radius.</p>
+
+        <!-- Box Shadow Syntax with Spread -->
+        <h3>Box Shadow Syntax with Spread</h3>
+        <p>To create a box shadow with a spread radius, you can use the following syntax:</p>
+        <pre><code class="language-css">
+box-shadow: h-offset v-offset blur spread color;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> The horizontal offset of the shadow (positive for right, negative for left).</li>
+            <li><strong>v-offset:</strong> The vertical offset of the shadow (positive for down, negative for up).</li>
+            <li><strong>blur:</strong> The blur radius which controls the softness of the shadow.</li>
+            <li><strong>spread:</strong> The spread radius, which determines the size of the shadow.</li>
+            <li><strong>color:</strong> The color of the shadow.</li>
+        </ul>
+
+        <!-- Example of Box Shadow with Spread -->
+        <h3>Example of Box Shadow with Spread Radius</h3>
+        <p>In the following example, the box shadow has a horizontal offset of 10px, vertical offset of 30px, a blur radius of 10px, and a spread radius of 40px:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 30px 10px 40px brown;
+        </code></pre>
+        <p>This creates a shadow that is 10px to the right, 30px down, with a blur radius of 10px, and the shadow spreads outward by 40px, making the shadow appear larger around the element.</p>
+
+        <!-- Changing Shadow Spread -->
+        <h3>Changing the Shadow Spread</h3>
+        <p>The <strong>spread radius</strong> controls how much the shadow grows outward. A positive spread value increases the shadow's size, while a negative value shrinks it:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 30px 10px 80px brown; /* Larger spread radius */
+        </code></pre>
+        <p>In this case, the shadow will spread much farther from the element, creating a larger and more diffused effect.</p>
+
+        <!-- Spread Radius Example -->
+        <h3>Example of a Negative Spread Radius</h3>
+        <p>Using a negative spread radius will shrink the shadow, pulling it closer to the element:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 30px 10px -20px brown; /* Negative spread radius */
+        </code></pre>
+        <p>This will create a shadow that appears tighter and smaller around the element.</p>
+
+        <h4>Notes on Spread Radius:</h4>
+        <p>
+            - A positive value increases the size of the shadow, making it appear more distant.<br>
+            - A negative value pulls the shadow in closer to the element, making it tighter.
+        </p>
+
+        <!-- Global Values for Box Shadow -->
+        <h3>Global Values for Box Shadow</h3>
+        <p>As with other properties, the box-shadow property can use global values to inherit or reset shadow styles:</p>
+        <pre><code class="language-css">
+box-shadow: inherit; /* Inherits the shadow from the parent element */
+box-shadow: initial; /* Resets to the default value */
+box-shadow: unset; /* Removes any applied shadow */
+        </code></pre>
+
+        <h3>Summary of Box Shadow with Spread Radius</h3>
+        <p>The <code>box-shadow</code> property with a spread radius allows you to control the size of the shadow around an element. By adjusting the horizontal, vertical offsets, blur, and spread radius, you can create unique shadow effects that enhance the design of your webpage. The spread radius is especially useful when you want to control how large or small the shadow appears.</p>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssBoxShadowInset')">CSS Box Shadow with Inset</h2>
+    <div id="cssBoxShadowInset" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+            box-shadow: inset 10px -15px brown;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="image.jpg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Box Shadow with Inset</h3>
+        <p>The <code>box-shadow</code> property in CSS can be used to create an inset shadow effect inside an element. This effect gives the illusion that the content is pressed into the background, as opposed to casting a shadow outside the element.</p>
+
+        <!-- Box Shadow Syntax with Inset -->
+        <h3>Box Shadow Syntax with Inset</h3>
+        <p>To create an inset shadow, simply add the <code>inset</code> keyword before the shadow's properties:</p>
+        <pre><code class="language-css">
+box-shadow: inset h-offset v-offset blur spread color;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> The horizontal offset of the shadow (positive for right, negative for left).</li>
+            <li><strong>v-offset:</strong> The vertical offset of the shadow (positive for down, negative for up).</li>
+            <li><strong>blur:</strong> The blur radius which controls the softness of the shadow.</li>
+            <li><strong>spread:</strong> The spread radius, which determines the size of the shadow.</li>
+            <li><strong>color:</strong> The color of the shadow.</li>
+        </ul>
+
+        <!-- Example of Box Shadow with Inset -->
+        <h3>Example of Box Shadow with Inset</h3>
+        <p>In the following example, an inset shadow is applied to the box. The shadow is created with a horizontal offset of 10px, vertical offset of -15px, and a brown color:</p>
+        <pre><code class="language-css">
+box-shadow: inset 10px -15px brown;
+        </code></pre>
+        <p>This creates a shadow effect that is applied inside the element, giving it a "pressed" look.</p>
+
+        <h4>Effect of Inset Shadows:</h4>
+        <ul>
+            <li>Inset shadows make the element appear as if it's recessed into the page.</li>
+            <li>They provide a sense of depth and are great for creating button-like effects or card designs.</li>
+        </ul>
+
+        <!-- Changing Shadow with Inset -->
+        <h3>Changing the Inset Shadow</h3>
+        <p>You can adjust the offsets, blur, and spread values to change the appearance of the inset shadow. Here is an example with a larger blur and spread:</p>
+        <pre><code class="language-css">
+box-shadow: inset 15px 30px 20px 5px brown;
+        </code></pre>
+        <p>This creates a more prominent inset shadow with a wider spread and softer edges.</p>
+
+        <!-- Notes on Inset Shadows -->
+        <h4>Notes on Inset Shadows:</h4>
+        <p>
+            - The <strong>inset</strong> keyword is what differentiates an inside shadow from the default outside shadow.<br>
+            - Inset shadows are commonly used for designs such as buttons, input fields, or containers that appear to be indented.
+        </p>
+
+        <!-- Global Values for Box Shadow -->
+        <h3>Global Values for Box Shadow</h3>
+        <p>As with other properties, the box-shadow property can use global values to inherit or reset shadow styles:</p>
+        <pre><code class="language-css">
+box-shadow: inherit; /* Inherits the shadow from the parent element */
+box-shadow: initial; /* Resets to the default value */
+box-shadow: unset; /* Removes any applied shadow */
+        </code></pre>
+
+        <h3>Summary of Box Shadow with Inset</h3>
+        <p>The <code>box-shadow</code> property with the <code>inset</code> keyword creates a shadow inside the element, making it appear indented. By adjusting the shadow's offset, blur, and spread values, you can create unique visual effects, making your designs more dynamic and engaging.</p>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssMultipleBoxShadows')">CSS Multiple Box Shadows</h2>
+    <div id="cssMultipleBoxShadows" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+            box-shadow: 10px 15px brown, 15px 20px green;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="image.jpg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Multiple Box Shadows</h3>
+        <p>The <code>box-shadow</code> property can accept multiple shadow values, separated by commas. This allows you to apply more than one shadow effect to an element, creating depth, layering, and multiple lighting effects in a single design.</p>
+
+        <!-- Multiple Box Shadow Syntax -->
+        <h3>Multiple Box Shadow Syntax</h3>
+        <p>When using multiple shadows, you define each shadow's properties (offset, blur, spread, color) separated by commas. The shadows will be applied in the order they are written, one on top of the other:</p>
+        <pre><code class="language-css">
+box-shadow: h-offset1 v-offset1 blur1 spread1 color1, h-offset2 v-offset2 blur2 spread2 color2;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> The horizontal offset of the shadow.</li>
+            <li><strong>v-offset:</strong> The vertical offset of the shadow.</li>
+            <li><strong>blur:</strong> The blur radius, which controls how soft the shadow edges are.</li>
+            <li><strong>spread:</strong> The spread radius, controlling how much the shadow grows.</li>
+            <li><strong>color:</strong> The color of the shadow.</li>
+        </ul>
+
+        <!-- Example of Multiple Box Shadows -->
+        <h3>Example of Multiple Box Shadows</h3>
+        <p>In the following example, two shadows are applied to the element:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 15px brown, 15px 20px green;
+        </code></pre>
+        <p>The first shadow has a 10px horizontal offset, 15px vertical offset, and brown color. The second shadow has a 15px horizontal offset, 20px vertical offset, and green color.</p>
+
+        <h4>Effect of Multiple Shadows:</h4>
+        <ul>
+            <li>Each shadow is applied one after the other, with the first shadow on top of the second.</li>
+            <li>The shadows are stacked, allowing for complex and creative effects, such as a shadow on shadow or layered highlights.</li>
+        </ul>
+
+        <!-- Changing Multiple Box Shadows -->
+        <h3>Changing Multiple Box Shadows</h3>
+        <p>You can modify the position, size, and color of each shadow individually. Here’s an example with different shadow colors and blur values:</p>
+        <pre><code class="language-css">
+box-shadow: 10px 15px 10px brown, 15px 20px 20px rgba(0, 255, 0, 0.5);
+        </code></pre>
+        <p>The first shadow has no blur, while the second shadow has a blur radius of 20px, and the color is partially transparent green.</p>
+
+        <!-- Layering Shadows -->
+        <h3>Layering Shadows</h3>
+        <p>By adjusting the offsets and blur radii, you can create layered shadow effects:</p>
+        <pre><code class="language-css">
+box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4), 15px 15px 15px rgba(0, 0, 0, 0.2);
+        </code></pre>
+        <p>This creates a layered effect where the first shadow is a soft, large blur and the second shadow is sharper and smaller.</p>
+
+        <!-- Notes on Multiple Shadows -->
+        <h4>Notes on Multiple Shadows:</h4>
+        <ul>
+            <li>Shadows are drawn in the order they are listed, with the first shadow being the closest and the last shadow being the farthest.</li>
+            <li>You can create interesting effects by combining hard and soft shadows, or using semi-transparent shadows for more subtle effects.</li>
+        </ul>
+
+        <h3>Summary of Multiple Box Shadows</h3>
+        <p>Using multiple shadows in the <code>box-shadow</code> property allows you to create complex, multi-layered effects that can enhance your design. Experimenting with different offsets, blur, spread, and color values will help you achieve unique and dynamic visual results.</p>
+
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssTextShadows')">CSS Text Shadows</h2>
+    <div id="cssTextShadows" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        .container{
+            background-color: beige;
+            height: 650px;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: aquamarine;
+            width: 330px;
+            height: 330px;
+            border: 1px solid black;
+            margin: 5px;
+        }
+        h2{
+            text-shadow: yellow 2px 3px 2px;
+        }
+        p{
+            text-shadow: yellow 2px 3px 5px, brown 3px 4px;
+        }
+        .box img{
+            width: 40px;
+            height: 40px;
+        }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            &lt;img src="akhand.jpeg" alt="Description"&gt;
+            &lt;h2&gt;Welcome to Akhand's Page!&lt;/h2&gt;
+            &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos quas, accusamus maiores exercitationem minima laboriosam illo dolorum ea nobis quaerat!&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of CSS Text Shadows</h3>
+        <p>The <code>text-shadow</code> property allows you to add shadow effects to text. It is defined using the following syntax:</p>
+        <pre><code class="language-css">
+text-shadow: h-offset v-offset blur-radius spread-radius color;
+        </code></pre>
+        <ul>
+            <li><strong>h-offset:</strong> Horizontal offset of the shadow (required).</li>
+            <li><strong>v-offset:</strong> Vertical offset of the shadow (required).</li>
+            <li><strong>blur-radius:</strong> The blur radius of the shadow (optional, default is 0).</li>
+            <li><strong>spread-radius:</strong> The spread radius of the shadow (optional, default is 0).</li>
+            <li><strong>color:</strong> The color of the shadow (optional, default is black).</li>
+        </ul>
+
+        <h3>Examples of Text Shadows</h3>
+
+        <!-- Example 1: Basic Text Shadow -->
+        <h4>Method 1: Basic Shadow</h4>
+        <pre><code class="language-css">
+text-shadow: 2px 3px 2px white;
+        </code></pre>
+        <p>This example creates a white shadow with a 2px horizontal offset, a 3px vertical offset, and a 2px blur radius.</p>
+
+        <!-- Example 2: Colored Text Shadow -->
+        <h4>Method 2: Colored Shadow</h4>
+        <pre><code class="language-css">
+text-shadow: yellow 2px 3px 2px;
+        </code></pre>
+        <p>This example adds a yellow shadow with a 2px horizontal offset, a 3px vertical offset, and a 2px blur radius.</p>
+
+        <!-- Example 3: Shadow Without Blur -->
+        <h4>Method 3: Shadow Without Blur</h4>
+        <pre><code class="language-css">
+text-shadow: yellow 2px 3px;
+        </code></pre>
+        <p>This creates a sharp yellow shadow without any blur, just an offset in both horizontal and vertical directions.</p>
+
+        <!-- Example 4: Default Shadow -->
+        <h4>Method 4: Default Shadow</h4>
+        <pre><code class="language-css">
+text-shadow: 2px 3px;
+        </code></pre>
+        <p>If you don't specify a color, the default color is black, and you will see a simple shadow with the specified offset.</p>
+
+        <!-- Example 5: Multiple Shadows -->
+        <h4>Method 5: Multiple Shadows</h4>
+        <pre><code class="language-css">
+text-shadow: yellow 2px 3px 5px, brown 3px 4px;
+        </code></pre>
+        <p>Multiple shadows can be added by separating them with commas. In this case, a yellow shadow with a blur radius and a brown shadow with an offset are applied.</p>
+
+        <h3>Practical Uses of Text Shadows</h3>
+        <p>Text shadows are commonly used for:</p>
+        <ul>
+            <li>Creating a 3D effect for text.</li>
+            <li>Making text stand out against a background.</li>
+            <li>Improving readability on complex backgrounds.</li>
+            <li>Creating glowing or neon effects for text.</li>
+        </ul>
+
+        <h3>Notes on Text Shadows</h3>
+        <ul>
+            <li>Using too many text shadows can make the text hard to read. It's best to use shadows sparingly and ensure they complement the design.</li>
+            <li>You can create "glowing" text effects by using bright colors and a higher blur radius.</li>
+        </ul>
+
+        <h3>Summary of Text Shadows</h3>
+        <p>The <code>text-shadow</code> property is a powerful tool for enhancing text visibility and creating stylistic effects. By adjusting the offsets, blur radius, and color of the shadow, you can achieve various design aesthetics, such as glowing text or a 3D-like effect.</p>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Grids in CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridBasics')">CSS Grid Basics</h2>
+    <div id="cssGridBasics" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;CSS Grid Layout&lt;/title&gt;
+    &lt;style&gt;
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .box {
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+            text-align: center;
+        }
+
+        .box1 { grid-column: 1 / 3; }
+        .box2 { grid-row: 2 / 4; }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box box1"&gt;Box 1&lt;/div&gt;
+        &lt;div class="box"&gt;Box 2&lt;/div&gt;
+        &lt;div class="box"&gt;Box 3&lt;/div&gt;
+        &lt;div class="box box2"&gt;Box 4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is CSS Grid?</h3>
+        <p>CSS Grid is a two-dimensional layout system used to create complex grid-based designs. It allows you to define both rows and columns to form a grid, and place items within the grid. CSS Grid is often used in conjunction with Flexbox to create powerful, responsive layouts.</p>
+
+        <h3>Grid Properties</h3>
+        <p>To create a 2D grid with <code>m</code> rows and <code>n</code> columns, we use the following properties:</p>
+        <ul>
+            <li><strong>grid-template-rows:</strong> Defines the number and size of rows in the grid. Example: <code>grid-template-rows: 1fr 1fr 1fr;</code></li>
+            <li><strong>grid-template-columns:</strong> Defines the number and size of columns in the grid. Example: <code>grid-template-columns: 1fr 2fr 1fr;</code></li>
+            <li><strong>gap:</strong> Defines the spacing between rows and columns. Example: <code>gap: 2rem;</code> is shorthand for both <code>row-gap</code> and <code>column-gap</code>.</li>
+            <li><strong>row-gap:</strong> Defines the gap between rows. Example: <code>row-gap: 10px;</code></li>
+            <li><strong>column-gap:</strong> Defines the gap between columns. Example: <code>column-gap: 20px;</code></li>
+        </ul>
+
+        <h3>Fractional Units (fr)</h3>
+        <p>The <code>fr</code> unit is used to distribute available space in a container. For example, if you set <code>grid-template-columns: 1fr 1fr 1fr;</code>, each column will take up 1/3 of the available space. If you use different values like <code>grid-template-columns: 2fr 1fr 1fr;</code>, the first column will take 2/4 (or 50%) of the space, and the other two will take 1/4 each (or 25%).</p>
+
+        <h3>Declaring Grid Rows and Columns in Fractions</h3>
+        <p>If you want to create multiple rows or columns with the same size, you can use the <code>repeat()</code> function:</p>
+        <pre><code>grid-template-rows: repeat(10, 1fr);</code></pre>
+        <p>This creates 10 rows, each with a size of 1 fraction of the available space.</p>
+
+        <h3>Extending Grid Items</h3>
+        <p>To extend the length or height of a grid item, you can use grid lines:</p>
+        <ul>
+            <li><strong>grid-column:</strong> Determines which column the item spans. Example: <code>grid-column: 1 / 4;</code> spans columns 1 to 3.</li>
+            <li><strong>grid-row:</strong> Determines which row the item spans. Example: <code>grid-row: 2 / 4;</code> spans rows 2 to 3.</li>
+        </ul>
+
+        <h3>Shorthand Notations for Grid</h3>
+        <p>You can use shorthand notations to combine the <code>grid-column</code> and <code>grid-row</code> properties:</p>
+        <ul>
+            <li><strong>grid-column:</strong> Combines <code>grid-column-start</code> and <code>grid-column-end</code>.</li>
+            <li><strong>grid-row:</strong> Combines <code>grid-row-start</code> and <code>grid-row-end</code>.</li>
+        </ul>
+
+        <h3>Aligning Grid Items</h3>
+        <ul>
+            <li><strong>justify-self:</strong> Aligns an item horizontally within its grid cell.</li>
+            <li><strong>align-self:</strong> Aligns an item vertically within its grid cell.</li>
+            <li><strong>place-self:</strong> A shorthand for both <code>justify-self</code> and <code>align-self</code>. Example: <code>place-self: center;</code> will center the item both horizontally and vertically.</li>
+        </ul>
+
+        <h3>Aligning Items in the Grid Container</h3>
+        <ul>
+            <li><strong>justify-items:</strong> Aligns all grid items horizontally within the container.</li>
+            <li><strong>align-items:</strong> Aligns all grid items vertically within the container.</li>
+            <li><strong>place-items:</strong> A shorthand for both <code>justify-items</code> and <code>align-items</code>. Example: <code>place-items: center;</code> will center all items both horizontally and vertically within the grid container.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>CSS Grid is a powerful tool for creating complex, two-dimensional layouts. By combining grid properties with fractional units, gap properties, and alignment features, you can create flexible and responsive layouts with ease.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridLayoutExample')">CSS Grid Layout Example</h2>
+    <div id="cssGridLayoutExample" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: rgb(15, 130, 202);
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+            row-gap: 2rem; /* To gap between each row */
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;Item 1&lt;/div&gt;
+        &lt;div class="item"&gt;Item 2&lt;/div&gt;
+        &lt;div class="item"&gt;Item 3&lt;/div&gt;
+        &lt;div class="item"&gt;Item 4&lt;/div&gt;
+        &lt;div class="item"&gt;Item 5&lt;/div&gt;
+        &lt;div class="item"&gt;Item 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is CSS Grid?</h3>
+        <p>CSS Grid is a two-dimensional layout system that allows you to create complex web layouts with ease by dividing the page into rows and columns.</p>
+
+        <h3>Key Features in This Example</h3>
+        <ul>
+            <li><strong>Box Sizing:</strong> The <code>* { margin: 0%; padding: 0%; box-sizing: border-box; }</code> rule ensures all elements are consistent with zero margin and padding, and borders are included in the element's size calculation.</li>
+            <li><strong>Grid Container:</strong> The <code>.container</code> class is the grid container, and its layout is defined using <code>display: grid;</code>. This enables the grid behavior where the child elements (items) will be arranged inside the grid.</li>
+            <li><strong>Padding:</strong> The container has <code>padding: 4rem;</code> to provide space around the grid.</li>
+            <li><strong>Row Gap:</strong> The <code>row-gap: 2rem;</code> property adds spacing between the rows of items inside the grid.</li>
+            <li><strong>Grid Items:</strong> Each grid item is given the <code>.item</code> class, which defines its background color, border, and other styles.</li>
+        </ul>
+
+        <h3>CSS Grid Layout and Gap Properties</h3>
+        <p>The <code>grid</code> layout is an effective way to create responsive designs with items that are placed in a grid. You can control the spacing between items using the <code>gap</code>, <code>row-gap</code>, and <code>column-gap</code> properties. In this case, the <code>row-gap</code> is specifically used to space out rows, but you could also define a <code>column-gap</code> to space out columns.</p>
+
+        <h3>Explanation of the Code</h3>
+        <ul>
+            <li>The <code>.container</code> has <code>display: grid;</code>, which means the child elements will automatically be laid out in a grid pattern.</li>
+            <li>The <code>padding: 4rem;</code> ensures there is enough space around the grid within the container.</li>
+            <li>The <code>row-gap: 2rem;</code> adds vertical space between the grid items.</li>
+            <li>The <code>.item</code> class gives the individual grid items a background color and a border to make them visually distinct.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>This example demonstrates how to create a simple grid layout using CSS Grid, where the items are displayed with space between them, thanks to the <code>gap</code> and <code>row-gap</code> properties. CSS Grid is an essential tool for creating modern, flexible, and responsive layouts.</p>
+    </div>
+</section>
+
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridLayoutWithRowsAndColumns')">CSS Grid Layout</h2>
+    <div id="cssGridLayoutWithRowsAndColumns" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 80%;
+            display: grid;
+            padding: 4rem;
+
+            grid-template-rows: 100px 100px; /* Row sizes */
+            grid-template-columns: 100px 100px 100px; /* Column sizes */
+
+            row-gap: 2rem; /* Horizontal gap between rows */
+            column-gap: 2rem; /* Vertical gap between columns */
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;Item 1&lt;/div&gt;
+        &lt;div class="item"&gt;Item 2&lt;/div&gt;
+        &lt;div class="item"&gt;Item 3&lt;/div&gt;
+        &lt;div class="item"&gt;Item 4&lt;/div&gt;
+        &lt;div class="item"&gt;Item 5&lt;/div&gt;
+        &lt;div class="item"&gt;Item 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is CSS Grid?</h3>
+        <p>CSS Grid is a powerful layout system that allows you to create complex two-dimensional layouts with both rows and columns. It enables a flexible and responsive design approach where you can control the size and spacing of elements with ease.</p>
+
+        <h3>Key Features in This Example</h3>
+        <ul>
+            <li><strong>Grid Template Rows and Columns:</strong> The grid layout is defined using <code>grid-template-rows</code> and <code>grid-template-columns</code>, where you specify the size of rows and columns respectively. In this example, the grid has two rows of 100px and three columns of 100px each.</li>
+            <li><strong>Gap Between Items:</strong> The <code>row-gap</code> property defines the gap between the rows (horizontal space), and the <code>column-gap</code> property defines the gap between the columns (vertical space). Both are set to 2rem.</li>
+            <li><strong>Flexible Layout:</strong> By changing the values of <code>grid-template-rows</code> and <code>grid-template-columns</code>, you can easily create grids with different sizes and dimensions.</li>
+            <li><strong>Use of Fractional Units:</strong> The code uses fixed pixel values (e.g., 100px) for simplicity, but you can use fractional units like <code>fr</code> for responsive designs where the grid items scale based on the available space.</li>
+        </ul>
+
+        <h3>Understanding the Grid Template Properties</h3>
+        <ul>
+            <li><strong>grid-template-rows:</strong> Defines the height of each row in the grid. In this example, we have two rows, each set to a fixed height of 100px.</li>
+            <li><strong>grid-template-columns:</strong> Defines the width of each column in the grid. This example uses three columns, each 100px wide.</li>
+        </ul>
+
+        <h3>Explanation of the Code</h3>
+        <ul>
+            <li>The <code>* { margin: 0%; padding: 0%; box-sizing: border-box; }</code> rule resets margins and padding across all elements to ensure uniformity.</li>
+            <li>The <code>body</code> element is set to take up the full viewport width and height using <code>width: 100vw;</code> and <code>height: 100vh;</code>.</li>
+            <li>The <code>.container</code> class is the grid container, with the layout controlled by the <code>grid-template-rows</code> and <code>grid-template-columns</code> properties. These define the structure of the grid with two rows and three columns.</li>
+            <li>The <code>row-gap</code> and <code>column-gap</code> add spacing between the grid items, making the layout more visually appealing and easier to understand.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>This example demonstrates a basic use of CSS Grid to create a two-dimensional layout with two rows and three columns. It highlights the flexibility and control you have over the size, spacing, and positioning of items within the grid. You can experiment with fractional units, gaps, and other grid properties to create dynamic, responsive designs.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridRepeatFunction')">CSS Grid Fractional Unit</h2>
+    <div id="cssGridRepeatFunction" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+
+            grid-template-rows: repeat(2, 1fr); /* 2 equal rows */
+            grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+
+            row-gap: 2rem;
+            column-gap: 2rem;
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;Item 1&lt;/div&gt;
+        &lt;div class="item"&gt;Item 2&lt;/div&gt;
+        &lt;div class="item"&gt;Item 3&lt;/div&gt;
+        &lt;div class="item"&gt;Item 4&lt;/div&gt;
+        &lt;div class="item"&gt;Item 5&lt;/div&gt;
+        &lt;div class="item"&gt;Item 6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is the `repeat()` Function in CSS Grid?</h3>
+        <p>The <code>repeat()</code> function is a shorthand used in CSS Grid to simplify the definition of grid-template-rows and grid-template-columns when you need to repeat certain values multiple times. This can save you from manually defining multiple identical values.</p>
+
+        <h3>Key Features in This Example</h3>
+        <ul>
+            <li><strong>Using `repeat()` for Rows:</strong> Instead of manually specifying each row size, you can use <code>grid-template-rows: repeat(2, 1fr);</code> to create two equal rows, each taking up 1 fraction of the available space.</li>
+            <li><strong>Using `repeat()` for Columns:</strong> Similarly, <code>grid-template-columns: repeat(3, 1fr);</code> creates three equal columns, each occupying 1 fraction of the available space.</li>
+            <li><strong>Flexible and Compact Layout:</strong> The <code>repeat()</code> function reduces repetition in your CSS code, making the layout more readable and maintainable.</li>
+            <li><strong>Responsive Design:</strong> The use of fractional units (e.g., <code>1fr</code>) ensures that the grid items adjust flexibly based on the available space in the container.</li>
+        </ul>
+
+        <h3>Understanding the Repeat Function</h3>
+        <p>The <code>repeat()</code> function works by repeating a specific track size (either row or column) a given number of times. In this example:</p>
+        <ul>
+            <li><code>grid-template-rows: repeat(2, 1fr);</code> means there will be two rows, each taking up equal space (1 fraction each).</li>
+            <li><code>grid-template-columns: repeat(3, 1fr);</code> means there will be three columns, each taking up equal space (1 fraction each).</li>
+        </ul>
+
+        <h3>Explanation of the Code</h3>
+        <ul>
+            <li>The <code>* { margin: 0%; padding: 0%; box-sizing: border-box; }</code> rule ensures uniform margin, padding, and box-sizing across all elements.</li>
+            <li><code>body</code> takes up the entire viewport with <code>width: 100vw;</code> and <code>height: 100vh;</code>, ensuring the content fills the screen.</li>
+            <li>The <code>.container</code> class is the grid container, where <code>grid-template-rows</code> and <code>grid-template-columns</code> define the grid structure using the <code>repeat()</code> function.</li>
+            <li><code>row-gap</code> and <code>column-gap</code> control the space between rows and columns, respectively, adding 2rem of space between each item.</li>
+            <li>The <code>.item</code> class represents individual grid items, each with a background color and a border for clarity.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>This example demonstrates the use of the <code>repeat()</code> function in CSS Grid to define multiple rows and columns with equal size in a more compact and efficient way. The flexibility of CSS Grid allows for easily creating complex layouts that are both responsive and maintainable. The <code>repeat()</code> function is particularly useful when you need to repeat a pattern of rows or columns without redundancy in your code.</p>
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridLayoutAdvanced')">Advanced CSS Grid Layout</h2>
+    <div id="cssGridLayoutAdvanced" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem; 
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header{
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .footer{
+            grid-column-start: 1;
+            grid-column-end: 4;
+        }
+        .sidebar{
+            grid-row-start: 2;
+            grid-row-end: 4;
+        }
+        .content1{
+            grid-column-start: 2;
+            grid-column-end: 4;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item header"&gt;Header&lt;/div&gt;
+        &lt;div class="item sidebar"&gt;Sidebar&lt;/div&gt;
+        &lt;div class="item content1"&gt; Content-1&lt;/div&gt;
+        &lt;div class="item content2"&gt;Content-2&lt;/div&gt;
+        &lt;div class="item content3"&gt;Content-3&lt;/div&gt;
+        &lt;div class="item footer"&gt;Footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Advanced Grid Item Placement</h3>
+        <p>In this example, we use advanced CSS Grid properties to control the placement and size of grid items, making the layout more flexible and maintainable. Instead of relying solely on the automatic grid system, we explicitly place items in specific rows and columns.</p>
+
+        <h3>Key Features in This Example</h3>
+        <ul>
+            <li><strong>Grid Layout:</strong> The container is set to a grid display with <code>grid-template-rows: repeat(4, 1fr);</code> and <code>grid-template-columns: repeat(3, 1fr);</code> to create a 4-row by 3-column layout with equal-sized grid tracks.</li>
+            <li><strong>Item Placement Using Grid Lines:</strong> Each item is manually placed in specific grid cells using <code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-row-start</code>, and <code>grid-row-end</code> properties.</li>
+        </ul>
+
+        <h3>Grid Item Placement Explained</h3>
+        <ul>
+            <li><strong>Header:</strong> The header spans from <code>grid-column-start: 1</code> to <code>grid-column-end: 4</code>, meaning it spans all three columns (from column 1 to 3).</li>
+            <li><strong>Footer:</strong> Similar to the header, the footer spans all three columns with <code>grid-column-start: 1</code> and <code>grid-column-end: 4</code>.</li>
+            <li><strong>Sidebar:</strong> The sidebar spans from <code>grid-row-start: 2</code> to <code>grid-row-end: 4</code>, meaning it occupies the second and third rows.</li>
+            <li><strong>Content-1:</strong> Content-1 spans from <code>grid-column-start: 2</code> to <code>grid-column-end: 4</code>, meaning it starts in the second column and spans to the third column (it takes up two columns).</li>
+        </ul>
+
+        <h3>Why This Approach Is Beneficial</h3>
+        <ul>
+            <li><strong>Custom Layout Control:</strong> By manually placing items in specific grid lines, you have more control over the layout and positioning of the elements. This allows you to design more complex and customized grid layouts.</li>
+            <li><strong>Maintainability:</strong> Using explicit grid placement makes the code more maintainable, especially when working with larger layouts where certain items need to span multiple rows or columns.</li>
+            <li><strong>Responsive Design:</strong> The use of fractional units (<code>1fr</code>) ensures that the layout is flexible and adapts to different screen sizes while keeping proportions consistent.</li>
+        </ul>
+
+        <h3>Additional Notes</h3>
+        <p>The <code>gap</code> property is used to add space between both rows and columns. In this case, <code>gap: 2rem;</code> adds 2rem of space between the grid items. This is the shorthand for <code>row-gap</code> and <code>column-gap</code>, making it easier to manage spacing.</p>
+
+        <h3>Conclusion</h3>
+        <p>This example demonstrates how to use advanced CSS Grid properties to precisely control the placement and size of grid items, making your layout more flexible and maintainable. By explicitly defining the position of each item within the grid, you can create complex, responsive, and well-structured designs that adapt to different screen sizes.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridResponsive')">Responsive CSS Grid Layout</h2>
+    <div id="cssGridResponsive" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+            grid-template-rows: repeat(6, 1fr);
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem; 
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (min-width: 326px){
+            .container{
+                grid-template-rows: repeat(4, 1fr);
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .header, .footer{
+                grid-column-start: 1;
+                grid-column-end: 4;
+            }
+            .sidebar{
+                grid-row-start: 2;
+                grid-row-end: 4;
+            }
+            .content1{
+                grid-column-start: 2;
+                grid-column-end: 4;
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item header"&gt;Header&lt;/div&gt;
+        &lt;div class="item sidebar"&gt;Sidebar&lt;/div&gt;
+        &lt;div class="item content1"&gt; Content-1&lt;/div&gt;
+        &lt;div class="item content2"&gt;Content-2&lt;/div&gt;
+        &lt;div class="item content3"&gt;Content-3&lt;/div&gt;
+        &lt;div class="item footer"&gt;Footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Responsive Grid Layout with Media Queries</h3>
+        <p>This example demonstrates how to create a responsive CSS Grid layout using media queries. The grid layout adapts to different screen sizes, providing an optimal user experience on both small and large screens.</p>
+
+        <h3>Key Features in This Example</h3>
+        <ul>
+            <li><strong>Default Layout:</strong> On smaller screens (less than 326px), the layout is a single-column grid with six rows.</li>
+            <li><strong>Media Query:</strong> A media query is used to detect when the screen width is 326px or greater, adjusting the grid to have three columns and four rows.</li>
+        </ul>
+
+        <h3>Understanding the Media Query</h3>
+        <ul>
+            <li><strong>For small screens:</strong> The container grid uses <code>grid-template-rows: repeat(6, 1fr);</code> and <code>grid-template-columns: repeat(1, 1fr);</code> to create a simple one-column grid with six rows.</li>
+            <li><strong>For larger screens (min-width: 326px):</strong> The grid layout switches to three columns with four rows using <code>grid-template-columns: repeat(3, 1fr);</code> and <code>grid-template-rows: repeat(4, 1fr);</code>.</li>
+        </ul>
+
+        <h3>Item Placement in the Grid</h3>
+        <ul>
+            <li><strong>Header and Footer:</strong> These elements span all three columns in larger screens using <code>grid-column-start: 1;</code> and <code>grid-column-end: 4;</code>.</li>
+            <li><strong>Sidebar:</strong> The sidebar spans the second and third rows in larger screens using <code>grid-row-start: 2;</code> and <code>grid-row-end: 4;</code>.</li>
+            <li><strong>Content1:</strong> Content1 spans from the second to the third column using <code>grid-column-start: 2;</code> and <code>grid-column-end: 4;</code>.</li>
+        </ul>
+
+        <h3>Why Use Media Queries?</h3>
+        <ul>
+            <li><strong>Responsive Design:</strong> Media queries allow the layout to adapt to different screen sizes, ensuring the content looks great on any device.</li>
+            <li><strong>Better User Experience:</strong> By adjusting the layout for different screen sizes, users can navigate and view content easily, whether they are using a mobile phone, tablet, or desktop.</li>
+        </ul>
+
+        <h3>Additional Notes</h3>
+        <p>The <code>gap</code> property is used to add space between the grid items. In this example, <code>gap: 2rem;</code> adds 2rem of space between both rows and columns. This is the shorthand for <code>row-gap</code> and <code>column-gap</code>, making it easier to manage spacing in the grid.</p>
+
+        <h3>Conclusion</h3>
+        <p>This example shows how to use media queries to create a responsive CSS Grid layout that adapts to different screen sizes. By adjusting the number of rows and columns at different breakpoints, you can ensure that your layout works well on both small and large screens, providing a better user experience.</p>
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridItemPositioning')">Item Positioning in CSS Grid</h2>
+    <div id="cssGridItemPositioning" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem; 
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+            width: 100px;
+            height: 100px;
+            justify-self: end;     /* Or: start, stretch, flex-end, flex-start, center, etc. */
+            align-self: stretch;   /* Can use stretch, center, flex-start, flex-end, baseline, etc. */
+            place-self: start;     /* shorthand for justify-self & align-self */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;div class="item"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Positioning Grid Items Using justify-self, align-self, and place-self</h3>
+        <p>This example shows how to use CSS Grid's <code>justify-self</code>, <code>align-self</code>, and <code>place-self</code> properties to position grid items within the grid container.</p>
+
+        <h3>Key Properties</h3>
+        <ul>
+            <li><strong>justify-self:</strong> Controls the horizontal positioning of grid items. You can use values like <code>end</code>, <code>start</code>, <code>center</code>, <code>stretch</code>, and more.</li>
+            <li><strong>align-self:</strong> Controls the vertical positioning of grid items. This works similarly to <code>justify-self</code> but for the vertical axis. Values include <code>stretch</code>, <code>center</code>, <code>flex-start</code>, <code>flex-end</code>, and <code>baseline</code>.</li>
+            <li><strong>place-self:</strong> A shorthand property to set both <code>justify-self</code> and <code>align-self</code> at the same time.</li>
+        </ul>
+
+        <h3>Item Positioning Examples</h3>
+        <ul>
+            <li><strong>justify-self: end;</strong> Positions the item to the end of the grid container along the horizontal axis.</li>
+            <li><strong>justify-self: start;</strong> Positions the item at the start of the grid container along the horizontal axis.</li>
+            <li><strong>justify-self: stretch;</strong> Stretches the grid item to take up the available space along the horizontal axis.</li>
+            <li><strong>align-self: stretch;</strong> Stretches the grid item vertically to take up the available space.</li>
+            <li><strong>place-self: start;</strong> A shorthand for setting both <code>justify-self</code> and <code>align-self</code> to <code>start</code>.</li>
+        </ul>
+
+        <h3>Understanding the Layout</h3>
+        <ul>
+            <li><strong>Grid Container:</strong> The container uses <code>display: grid</code>, and items are placed in a 4-row grid with only one column, as defined by <code>grid-template-rows: repeat(4, 1fr)</code> and <code>grid-template-columns: repeat(1, 1fr)</code>.</li>
+            <li><strong>Grid Items:</strong> Each item in the container has a fixed width and height of <code>100px</code>, and uses <code>justify-self</code> to control horizontal placement.</li>
+            <li><strong>Item Repositioning:</strong> The <code>justify-self</code> and <code>align-self</code> properties are used to reposition items along both axes. For example, <code>justify-self: end;</code> will move the item to the right, while <code>align-self: stretch;</code> will stretch the item vertically to fill the available space.</li>
+        </ul>
+
+        <h3>Shorthand for Item Positioning</h3>
+        <p>The <code>place-self</code> property is a shorthand that combines both <code>justify-self</code> and <code>align-self</code>. For example, <code>place-self: start;</code> applies <code>justify-self: start;</code> and <code>align-self: start;</code> at the same time.</p>
+
+        <h3>Conclusion</h3>
+        <p>By using <code>justify-self</code>, <code>align-self</code>, and <code>place-self</code>, you can easily control the positioning of individual grid items within the container. These properties provide fine control over the layout, allowing for more flexible and responsive designs.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssGridItemPositioningContainer')">ADVANCED Item Positioning </h2>
+    <div id="cssGridItemPositioningContainer" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            background-color: aquamarine;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            padding: 4rem;
+            grid-template-rows: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            justify-items: last baseline; /* Aligns items horizontally */
+            align-items: center; /* Aligns items vertically */
+            place-items: flex-end; /* Shorthand for both justify-items and align-items */
+        }
+        .item{
+            background-color: gainsboro;
+            border: 5px white solid;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;div class="item"&gt;4&lt;/div&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;div class="item"&gt;4&lt;/div&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;div class="item"&gt;4&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Positioning Grid Items Using justify-items, align-items, and place-items</h3>
+        <p>This example shows how to use CSS Grid's <code>justify-items</code>, <code>align-items</code>, and <code>place-items</code> properties to position grid items within the grid container.</p>
+
+        <h3>Key Properties</h3>
+        <ul>
+            <li><strong>justify-items:</strong> Controls the horizontal positioning of grid items within their respective cells. You can use values like <code>end</code>, <code>start</code>, <code>center</code>, <code>stretch</code>, and more.</li>
+            <li><strong>align-items:</strong> Controls the vertical positioning of grid items within their respective cells. Values include <code>center</code>, <code>stretch</code>, <code>flex-start</code>, <code>flex-end</code>, and <code>baseline</code>.</li>
+            <li><strong>place-items:</strong> A shorthand property to set both <code>justify-items</code> and <code>align-items</code> at the same time. For example, <code>place-items: flex-end;</code> sets both properties to <code>flex-end</code>.</li>
+        </ul>
+
+        <h3>Item Positioning Examples</h3>
+        <ul>
+            <li><strong>justify-items: last baseline;</strong> Positions items along the horizontal axis, aligning them to the last baseline of their cell.</li>
+            <li><strong>justify-items: end;</strong> Aligns the items to the end of their cells along the horizontal axis.</li>
+            <li><strong>align-items: center;</strong> Vertically centers items within their respective cells.</li>
+            <li><strong>align-items: end;</strong> Aligns the items to the end of their cells along the vertical axis.</li>
+            <li><strong>place-items: flex-end;</strong> A shorthand for <code>justify-items: flex-end;</code> and <code>align-items: flex-end;</code>, positioning items to the end of both axes.</li>
+        </ul>
+
+        <h3>Understanding the Layout</h3>
+        <ul>
+            <li><strong>Grid Container:</strong> The container is a 3-column, 4-row grid, as defined by <code>grid-template-columns: repeat(3, 1fr);</code> and <code>grid-template-rows: repeat(4, 1fr);</code>. Items are placed in this grid structure with a <code>gap</code> of <code>2rem</code> between them.</li>
+            <li><strong>Item Positioning:</strong> The <code>justify-items</code> and <code>align-items</code> properties control the positioning of items horizontally and vertically within their respective grid cells. The <code>place-items</code> shorthand property can be used to set both properties simultaneously.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>By using <code>justify-items</code>, <code>align-items</code>, and <code>place-items</code>, you can easily control the alignment and positioning of grid items within their cells in a grid layout. These properties allow for more precise control over the layout of elements and enable flexible, responsive designs.</p>
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('responsiveLayoutGridContainer')">Responsive Layout Using Grid (Without Media Queries)</h2>
+    <div id="responsiveLayoutGridContainer" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Responsive Grid Layout&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100vw;
+            height: 100vh;
+        }
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 500px));
+            gap: 1rem;
+            background-color: lightblue;
+            padding: 1rem;
+        }
+        .item{
+            background-color: lightgray;
+            height: 100px;
+            border: 1px solid black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;1&lt;/div&gt;
+        &lt;div class="item"&gt;2&lt;/div&gt;
+        &lt;div class="item"&gt;3&lt;/div&gt;
+        &lt;div class="item"&gt;4&lt;/div&gt;
+        &lt;div class="item"&gt;5&lt;/div&gt;
+        &lt;div class="item"&gt;6&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Responsive Layout Using Grid (Without Media Queries)</h3>
+        <p>Instead of using <code>@media</code> queries, CSS Grid can be used to create responsive layouts that automatically adjust the number of columns and rows based on the available space. Two main properties are involved in achieving this:</p>
+
+        <h3>Key Properties</h3>
+        <ul>
+            <li><strong>auto-fill:</strong> Automatically fills the grid with as many columns or rows as possible based on the available space.</li>
+            <li><strong>minmax:</strong> Specifies the minimum and maximum size for a grid item. This allows the layout to adjust based on the viewport size, ensuring that the grid items scale appropriately.</li>
+        </ul>
+
+        <h3>Example Explained</h3>
+        <p>In this example, we use <code>grid-template-columns: repeat(auto-fit, minmax(200px, 500px));</code>. Here's how it works:</p>
+        <ul>
+            <li><strong>auto-fit:</strong> The grid will automatically adjust the number of columns based on the available space. As the screen size changes, the number of columns will change accordingly.</li>
+            <li><strong>minmax(200px, 500px):</strong> This ensures that the grid items will have a minimum width of 200px and a maximum width of 500px. If there's enough space, the items will grow to 500px, but they will shrink no smaller than 200px.</li>
+        </ul>
+
+        <h3>How It Responds to Different Screen Sizes</h3>
+        <ul>
+            <li><strong>If the screen width is 2000px:</strong> 4 columns of 500px will be arranged horizontally.</li>
+            <li><strong>If the screen width is 1000px:</strong> 2 columns of 500px will be arranged horizontally.</li>
+            <li><strong>If the screen width is 1500px:</strong> 3 columns of 500px will be arranged horizontally.</li>
+            <li><strong>If the screen width is 200px:</strong> Only 1 column of 200px will be displayed, as it is the minimum size defined.</li>
+            <li><strong>If the screen width is 300px:</strong> 1 column of 200px will be shown.</li>
+            <li><strong>If the screen width is 600px:</strong> 1 column of 500px will be displayed, and it will not shrink below 200px in width.</li>
+        </ul>
+
+        <h3>Advantages Over Media Queries</h3>
+        <p>Using <code>auto-fill</code> and <code>minmax</code> for responsive layouts is simpler and less verbose compared to media queries. The grid automatically adjusts based on the available space, reducing the need for additional media query breakpoints.</p>
+
+        <h3>Conclusion</h3>
+        <p>CSS Grid's <code>auto-fill</code> and <code>minmax</code> properties provide a simple and effective way to create responsive layouts without relying on media queries. These properties ensure that your grid items automatically adjust in size and number based on the screen width, offering a fluid and adaptive layout for various screen sizes.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('responsiveGridMinMaxContainer')">Responsive Grid Layout with MinMax</h2>
+    <div id="responsiveGridMinMaxContainer" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Responsive Grid Layout&lt;/title&gt;
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            height: 100%;
+            width: 100%;
+            padding: 4rem;
+            display: grid;
+            gap: 1rem;
+            background-color: rgb(115, 112, 112);
+            grid-template-columns: repeat(auto-fit, minmax(200px, 500px));
+        }
+
+        .item {
+            border: 5px solid navy;
+            background-color: blanchedalmond;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="item"&gt;A&lt;/div&gt;
+        &lt;div class="item"&gt;B&lt;/div&gt;
+        &lt;div class="item"&gt;C&lt;/div&gt;
+        &lt;div class="item"&gt;D&lt;/div&gt;
+        &lt;div class="item"&gt;E&lt;/div&gt;
+        &lt;div class="item"&gt;F&lt;/div&gt;
+        &lt;div class="item"&gt;G&lt;/div&gt;
+        &lt;div class="item"&gt;H&lt;/div&gt;
+        &lt;div class="item"&gt;I&lt;/div&gt;
+        &lt;div class="item"&gt;J&lt;/div&gt;
+        &lt;div class="item"&gt;K&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Responsive Grid Layout with MinMax</h3>
+        <p>This layout uses the CSS Grid feature with the <code>repeat(auto-fit, minmax(200px, 500px))</code> syntax. Here's what each part does:</p>
+
+        <ul>
+            <li><strong>auto-fit:</strong> Automatically adjusts the number of columns to fit within the available space. It will try to create as many columns as possible while respecting the size constraints.</li>
+            <li><strong>minmax(200px, 500px):</strong> Sets a minimum and maximum size for each grid item. Each grid item will be at least 200px wide and can grow up to 500px based on the available space.</li>
+        </ul>
+
+        <h3>Key Features</h3>
+        <ul>
+            <li>The number of columns adjusts automatically based on the available screen space.</li>
+            <li>Each grid item will resize according to the defined minimum and maximum size constraints.</li>
+            <li>This approach removes the need for media queries in creating a responsive layout, as the grid adjusts itself based on the viewport size.</li>
+        </ul>
+
+        <h3>How It Works</h3>
+        <p>In this example, the grid will automatically adjust to display as many columns as the space allows. If the screen is wide enough, it will display more columns. If the screen is smaller, fewer columns will appear, with each item having a minimum width of 200px and a maximum width of 500px. This ensures that the layout remains fluid and adaptive to different screen sizes.</p>
+
+        <h3>Explanation of Layout Behavior</h3>
+        <p>The <code>grid-template-columns: repeat(auto-fit, minmax(200px, 500px));</code> declaration ensures that:</p>
+        <ul>
+            <li>If the screen width is large (e.g., 2000px), several columns (up to 500px) will fit in the grid.</li>
+            <li>If the screen width reduces, the number of columns will decrease, and each item will shrink to fit within the minimum size constraint (200px).</li>
+            <li>If the screen width is very small, such as on mobile devices, the grid will still show one column, ensuring usability across different devices without needing additional breakpoints or media queries.</li>
+        </ul>
+
+        <h3>Advantages Over Media Queries</h3>
+        <p>By using <code>minmax</code> and <code>auto-fit</code> with the grid layout, you create a truly responsive design without the need to write specific media queries for different breakpoints. This makes the layout simpler and easier to maintain.</p>
+
+        <h3>Conclusion</h3>
+        <p>CSS Grid with <code>minmax</code> and <code>auto-fit</code> offers a powerful and simple way to create responsive layouts that adapt to various screen sizes without the complexity of media queries. This method allows you to define flexible column widths that scale based on the available space, ensuring an optimized user experience on all devices.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('responsiveGridAutoFillContainer')">Responsive Grid Layout with Auto-Fill</h2>
+    <div id="responsiveGridAutoFillContainer" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+
+    &lt;style&gt;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .item1, .item2, .item3, .item4 {
+            border: 1px solid black;
+            border-radius: 3px;
+            min-height: 250px;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .item1 { background-color: aqua; }
+        .item2 { background-color: pink; }
+        .item3 { background-color: green; }
+        .item4 { background-color: springgreen; }
+
+        body {
+            height: 100vh;
+            place-items: center;
+            padding: 100px 0;
+        }
+
+        .autofill {
+            width: 90vw;
+            margin-top: 4%;
+            border-radius: 3px;
+            border: 1px solid rgb(22, 3, 3);
+            display: grid;
+            gap: 5px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="autofill"&gt;
+        &lt;div class="item1"&gt;
+            &lt;h1 class="set"&gt;1&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class="item2"&gt;
+            &lt;h1 class="set"&gt;2&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class="item3"&gt;
+            &lt;h1 class="set"&gt;3&lt;/h1&gt;
+        &lt;/div&gt;
+        &lt;div class="item4"&gt;
+            &lt;h1 class="set"&gt;4&lt;/h1&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Responsive Grid Layout with Auto-Fill</h3>
+        <p>This layout utilizes the CSS Grid feature with the <code>repeat(auto-fill, minmax(200px, 1fr))</code> syntax. Here's an explanation of what each part of the code does:</p>
+
+        <ul>
+            <li><strong>auto-fill:</strong> Automatically fills the grid with as many columns as can fit based on the available space. It will create columns that adjust according to the width of the container.</li>
+            <li><strong>minmax(200px, 1fr):</strong> Defines a minimum column width of 200px and allows the column to expand up to a fraction of the available space (1fr). This ensures that the grid is flexible and adapts to different screen sizes.</li>
+        </ul>
+
+        <h3>How the Layout Works</h3>
+        <p>The grid container (<code>.autofill</code>) defines a responsive layout where the number of columns is determined by the available width. As the screen size changes, the number of grid items displayed in a row adjusts automatically. The <code>minmax(200px, 1fr)</code> ensures that each grid item has a minimum width of 200px but can expand to take up available space.</p>
+
+        <h3>What Happens as the Screen Resizes?</h3>
+        <ul>
+            <li>If the screen is large (e.g., desktop), multiple columns are displayed, each with a minimum width of 200px and a maximum width of 1fr (fractional unit).</li>
+            <li>If the screen is smaller (e.g., tablet or mobile), the grid will adjust by displaying fewer columns, with each column having a minimum width of 200px. As the screen narrows further, the grid will continue to adjust, displaying one column if necessary.</li>
+        </ul>
+
+        <h3>Advantages of Using Auto-Fill</h3>
+        <p>Using <code>auto-fill</code> with CSS Grid removes the need to manually specify the number of columns in the grid for different screen sizes. The grid automatically adjusts to fit the available space, making it ideal for responsive layouts where the content may vary in size.</p>
+
+        <h3>Visualizing the Layout Behavior</h3>
+        <p>The layout in the example will adjust based on the available width:</p>
+        <ul>
+            <li>If the viewport is large, multiple grid items will be displayed in each row (with a maximum width of 1fr for each item).</li>
+            <li>If the viewport is smaller, fewer grid items will be displayed per row, and each item will shrink to fit within the available space.</li>
+        </ul>
+
+        <h3>Conclusion</h3>
+        <p>CSS Grid with <code>auto-fill</code> and <code>minmax</code> provides a simple and powerful way to create flexible, responsive layouts without the need for media queries. This method ensures that your content is displayed in an optimal way, regardless of the screen size.</p>
+    </div>
+</section>
+
+<section class="sub">
+    <h2 onclick="toggleContent('gridTemplateAreasMatrix')">Grid Layout Using Grid Template Areas</h2>
+    <div id="gridTemplateAreasMatrix" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+        *{
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+        }
+
+        .container {
+            display: grid;
+            gap: 1rem;
+            background-color: rgb(65, 59, 59);
+            padding: 4rem;
+
+            /* Instead of creating boxes in a grid format for each and need to expand rows and columns, we can just create a matrix using grid-area and it will automatically adjust the grid as per the matrix setup. */
+            grid-template-areas: 
+                "header header header"
+                "sidebar content1 content1"  /* This creates a layout with 3 columns and 4 rows, with spanning rows and columns */
+                "sidebar content2 content3"
+                "footer footer footer";
+        }
+
+        .items {
+            background-color: rgb(112, 44, 56);
+            border: 2px solid black;
+            padding: 1rem;
+        }
+
+        #header {
+            grid-area: header;
+        }
+
+        #sidebar {
+            grid-area: sidebar;
+        }
+
+        #content1 {
+            grid-area: content1;
+        }
+
+        #content2 {
+            grid-area: content2;
+        }
+
+        #content3 {
+            grid-area: content3;
+        }
+
+        #footer {
+            grid-area: footer;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="items" id="header"&gt;Header&lt;/div&gt;
+        &lt;div class="items" id="sidebar"&gt;Sidebar&lt;/div&gt;
+        &lt;div class="items" id="content1"&gt;Content1&lt;/div&gt;
+        &lt;div class="items" id="content2"&gt;Content2&lt;/div&gt;
+        &lt;div class="items" id="content3"&gt;Content3&lt;/div&gt;
+        &lt;div class="items" id="footer"&gt;Footer&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Grid Layout Using Grid Template Areas</h3>
+        <p>This layout utilizes the CSS Grid feature with the <code>grid-template-areas</code> property to create a simple and effective grid layout. By naming grid areas, you can define the structure of your layout easily and control how each element spans across the grid.</p>
+
+        <ul>
+            <li><strong>grid-template-areas:</strong> This property allows you to specify how grid items are placed within the grid by naming the areas. Each name corresponds to a section of the grid, and the layout will automatically adjust based on the definitions in the template.</li>
+            <li><strong>grid-area:</strong> The <code>grid-area</code> property assigns each grid item to a specific area defined in <code>grid-template-areas</code>. For example, the element with <code>id="header"</code> will be placed in the "header" area.</li>
+        </ul>
+
+        <h3>Understanding the Layout</h3>
+        <p>The grid is divided into a 3-column by 4-row matrix, with some items spanning multiple columns or rows:</p>
+        <ul>
+            <li><strong>header:</strong> The header spans across the entire top row, from the first to the third column.</li>
+            <li><strong>sidebar:</strong> The sidebar spans two rows, occupying the first column.</li>
+            <li><strong>content1:</strong> The content1 box spans across the second and third columns of the second row.</li>
+            <li><strong>content2:</strong> Content2 takes the second row of the third column.</li>
+            <li><strong>content3:</strong> Content3 occupies the third column on the third row.</li>
+            <li><strong>footer:</strong> The footer spans the entire bottom row, from the first to the third column.</li>
+        </ul>
+
+        <h3>Why Use Grid Template Areas?</h3>
+        <p>Using <code>grid-template-areas</code> allows for easier visual layout management. By defining named areas, you can quickly adjust and rearrange the layout without having to adjust the individual positioning of each item manually. This method simplifies the design process, especially for complex grid layouts.</p>
+
+        <h3>Advantages</h3>
+        <ul>
+            <li>It is easy to understand and manage, as the grid layout is explicitly defined in a visual format.</li>
+            <li>It reduces the need for complex positioning and floating elements, simplifying CSS code.</li>
+            <li>It provides better control over responsive layouts, as you can rearrange grid items easily based on different screen sizes.</li>
+        </ul>
+
+        <h3>Visualizing the Grid</h3>
+        <p>The grid layout defined by <code>grid-template-areas</code> visually represents a matrix with designated areas. This makes it intuitive to see how each element is positioned and how they span multiple columns or rows. For example, the header takes up the full top row, while the footer spans the bottom row.</p>
+
+        <h3>Conclusion</h3>
+        <p>Using <code>grid-template-areas</code> in CSS Grid is a powerful way to create flexible and easily understandable layouts. By naming grid areas and controlling how elements span, you can quickly adjust your design without complicating your code. This approach is particularly useful when working with complex layouts and responsive designs.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

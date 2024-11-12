@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display-Property</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Display Property</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+
+<section class="sub">
+    <h2 onclick="toggleContent('divElements')">Div Elements</h2>
+    <div id="divElements" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h3&gt;Unlike SPAN, DIV tag is not an inline element&lt;/h3&gt;
+    &lt;div id="box1"&gt;Hello, I'm box1.&lt;/div&gt;
+    &lt;div id="box2"&gt;Hello, I'm box2.&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Div Elements</h3>
+        <p>The <code>&lt;div&gt;</code> tag is a block-level element in HTML. Unlike inline elements like <code>&lt;span&gt;</code>, block-level elements occupy the full width of their container and stack vertically. This makes <code>&lt;div&gt;</code> elements useful for creating structured layouts.</p>
+
+        <!-- Example 1: Basic Div Styling -->
+        <h3>Example 1: Basic Div Styling</h3>
+        <p>Setting background colors, padding, and borders on <code>&lt;div&gt;</code> elements is straightforward since they are block elements:</p>
+        <pre><code class="language-css">
+#box1 {
+    width: 200px;
+    height: 100px;
+    background-color: lightblue;
+    border: 2px solid black;
+    padding: 10px;
+}
+
+#box2 {
+    width: 200px;
+    height: 100px;
+    background-color: lightcoral;
+    border: 2px dashed red;
+    padding: 10px;
+}
+        </code></pre>
+        <p><strong>Result:</strong> Each <code>&lt;div&gt;</code> element appears as a block with specified background color, border, and padding.</p>
+
+        <!-- Example 2: Changing Display to Inline and Inline-Block -->
+        <h3>Example 2: Changing Display to Inline and Inline-Block</h3>
+        <p>To control layout, you can alter a <code>&lt;div&gt;</code> element’s display property:</p>
+
+        <pre><code class="language-css">
+/* Inline Display */
+#box1 {
+    display: inline;
+    background-color: lightgreen;
+    padding: 10px;
+}
+
+/* Inline-Block Display */
+#box2 {
+    display: inline-block;
+    width: 150px;
+    height: 50px;
+    background-color: lightcoral;
+    padding: 10px;
+}
+        </code></pre>
+        <p><strong>Result:</strong> With <code>display: inline</code>, <code>#box1</code> takes up only the necessary width, placing it in line with adjacent elements. With <code>display: inline-block</code>, <code>#box2</code> behaves inline but allows custom sizing.</p>
+
+        <p>This section demonstrates how <code>&lt;div&gt;</code> elements are versatile for structuring content, and how adjusting their display properties impacts layout.</p>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('boxSizing')">box-sizing: border-box</h2>
+    <div id="boxSizing" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+      * {
+          padding: 0;
+          margin: 0;
+          box-sizing: border-box;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Why &lt;i&gt;box-sizing: border-box;&lt;/i&gt; is a Good Habit&lt;/h1&gt;
+    &lt;p&gt;
+      WITHOUT IT, if we create a div of 300px*300px and add a 20px border, the box becomes 320px*320px.
+      Increasing padding or margin also increases the box's total dimension.
+    &lt;/p&gt;
+    &lt;p&gt;
+      WITH IT, all padding and borders stay inside the defined dimensions, keeping the box size fixed.
+      Using <code>box-sizing: border-box</code> universally applies this effect to all elements.
+    &lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of box-sizing: border-box</h3>
+        <p>The <code>box-sizing: border-box;</code> property alters how elements calculate their width and height, keeping borders and padding within the defined size of the box. This is often used as a universal reset to create consistent layouts.</p>
+
+        <!-- Example 1: Default Box Sizing Behavior -->
+        <h3>Example 1: Default Box Sizing Behavior (content-box)</h3>
+        <p>By default, the box model follows <code>box-sizing: content-box;</code>, which means any added padding or border increases the total size of an element:</p>
+        <pre><code class="language-css">
+div {
+    width: 300px;
+    height: 300px;
+    border: 20px solid black;
+}
+        </code></pre>
+        <p><strong>Result:</strong> The div now takes up 340px by 340px in total because of the added border.</p>
+
+        <!-- Example 2: Using box-sizing: border-box for Consistent Sizing -->
+        <h3>Example 2: Using <code>box-sizing: border-box</code> for Consistent Sizing</h3>
+        <p>Applying <code>box-sizing: border-box;</code> ensures that padding and borders are included within the element’s defined width and height:</p>
+        <pre><code class="language-css">
+* {
+    box-sizing: border-box;
+}
+        </code></pre>
+        <p><strong>Result:</strong> Now, any padding or border is contained within the 300px by 300px box, maintaining consistent sizing.</p>
+
+        <p>This approach simplifies layouts and makes it easier to work with fixed dimensions, especially when dealing with padding and borders.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

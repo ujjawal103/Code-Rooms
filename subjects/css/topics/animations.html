@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animations - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Animations</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+<section class="sub">
+    <h2 onclick="toggleContent('cssAnimation')">Basics in Animation</h2>
+    <div id="cssAnimation" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;CSS Animation Example&lt;/title&gt;
+    &lt;style&gt;
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: aquamarine;
+        animation-name: rightMovement;
+        animation-duration: 5s;
+        animation-iteration-count: 2;
+        animation-delay: 2s;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes rightMovement {
+        from {
+          left: 0;
+        }
+        to {
+          left: 200px;
+        }
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="box"&gt;&lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is CSS Animation?</h3>
+        <p>CSS Animation allows you to change an element's style from one state to another over a specified duration. With the help of keyframes, you can define the start and end points of an animation, and use additional properties to control the timing, delay, and iteration behavior of the animation.</p>
+
+        <h3>Properties in CSS Animation</h3>
+        <p>The following are the key properties used for CSS animations:</p>
+        <ul>
+            <li><code>@keyframes</code></li>
+            <li><code>animation-name</code></li>
+            <li><code>animation-duration</code></li>
+            <li><code>animation-delay</code></li>
+            <li><code>animation-iteration-count</code></li>
+            <li><code>animation-direction</code></li>
+            <li><code>animation-timing-function</code></li>
+            <li><code>animation-fill-mode</code></li>
+            <li><code>animation-play-state</code></li>
+        </ul>
+
+        <h3>Syntax for Keyframes</h3>
+        <p>Keyframes define the stages of the animation. You specify the styles at different points using <code>from</code> (start) and <code>to</code> (end) or percentage-based positions.</p>
+        <pre><code class="language-css">
+@keyframes animation-name {
+    from {
+        /* starting style */
+    }
+    to {
+        /* ending style */
+    }
+}
+        </code></pre>
+
+        <h3>Example of Keyframes</h3>
+        <p>In this example, we define an animation that moves a box from left to right:</p>
+        <pre><code class="language-css">
+.box {
+    animation-name: rightMovement;
+    animation-duration: 5s;
+}
+
+@keyframes rightMovement {
+    from {
+        left: 0;
+    }
+    to {
+        left: 200px;
+    }
+}
+        </code></pre>
+
+        <h3>CSS Animation Properties</h3>
+        <p>Here are the essential properties used to control the behavior of animations:</p>
+
+        <ul>
+            <li><strong>animation-name:</strong> Specifies the name of the animation (defined in the @keyframes rule). <code>animation-name: rightMovement;</code></li>
+            <li><strong>animation-duration:</strong> Specifies the duration of the animation. <code>animation-duration: 5s;</code></li>
+            <li><strong>animation-iteration-count:</strong> Specifies how many times the animation will run. <code>animation-iteration-count: 2;</code></li>
+            <li><strong>animation-delay:</strong> Specifies the delay before the animation starts. <code>animation-delay: 2s;</code></li>
+            <li><strong>animation-timing-function:</strong> Defines the speed curve of the animation. Example values:
+                <ul>
+                    <li><code>linear</code>: Constant speed.</li>
+                    <li><code>ease</code>: Starts slow, speeds up, and slows down again (default).</li>
+                    <li><code>ease-in</code>: Starts slow, then speeds up.</li>
+                    <li><code>ease-out</code>: Starts fast, then slows down.</li>
+                    <li><code>ease-in-out</code>: Starts and ends slow.</li>
+                    <li><code>cubic-bezier(n,n,n,n)</code>: Define your own speed curve.</li>
+                </ul>
+            </li>
+            <li><strong>animation-direction:</strong> Specifies the direction of the animation. Values:
+                <ul>
+                    <li><code>normal</code>: Runs from start to end.</li>
+                    <li><code>reverse</code>: Runs from end to start.</li>
+                    <li><code>alternate</code>: Runs forward, then reverses.</li>
+                    <li><code>alternate-reverse</code>: Runs in reverse, then forward.</li>
+                </ul>
+            </li>
+            <li><strong>animation-fill-mode:</strong> Specifies the state of the element before or after the animation. Values:
+                <ul>
+                    <li><code>forwards</code>: Keeps the element in the final state after the animation ends.</li>
+                    <li><code>backwards</code>: Keeps the element in the initial state before the animation starts.</li>
+                    <li><code>both</code>: Applies both the forward and backward behaviors.</li>
+                    <li><code>none</code>: No behavior applied.</li>
+                </ul>
+            </li>
+            <li><strong>animation-play-state:</strong> Specifies whether the animation is running or paused. Values:
+                <ul>
+                    <li><code>paused</code>: The animation is paused.</li>
+                    <li><code>running</code>: The animation is active.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>Shorthand Notation for CSS Animation</h3>
+        <p>You can combine all the animation properties into one shorthand property:</p>
+        <pre><code class="language-css">
+animation: duration timing-function delay iteration-count direction fill-mode play-state name;
+        </code></pre>
+        <p>Example of shorthand animation syntax:</p>
+        <pre><code class="language-css">
+animation: 5s linear 1s infinite alternate none paused rightMovement;
+        </code></pre>
+
+        <h3>Conclusion</h3>
+        <p>CSS Animations provide a powerful way to add motion to your website. By using keyframes and various animation properties, you can create smooth and dynamic effects. Understanding the key properties and their shorthand usage will help you efficiently implement animations on your site.</p>
+
+    </div>
+</section>
+
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAnimationExample')">CSS Animation Example</h2>
+    <div id="cssAnimationExample" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container {
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        border: 5px solid black;
+    }
+    .box {
+        width: 350px;
+        height: 80px;
+        background-color: blue;
+        border: 3px solid yellow;
+        margin: 10px;
+        position: relative;
+        animation-name: rightMovement;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-delay: 2s;
+        animation-timing-function: linear;
+    }
+    @keyframes rightMovement {
+        from {
+            top: 0;
+            left: 0;
+        }
+        to {
+            top: 0;
+            left: 1200px;
+        }
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            hello g i'm going away 1200px from left side.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is this example?</h3>
+        <p>This example demonstrates how to apply CSS animations to an element. The blue box moves from the left side of the screen to the right side with a specified duration and timing.</p>
+
+        <h3>Explanation of Key Parts:</h3>
+        <h4>1. Global Reset</h4>
+        <p>The following CSS resets the margin, padding, and box-sizing properties globally for all elements, ensuring consistent spacing and layout:</p>
+        <pre><code class="language-css">
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        </code></pre>
+
+        <h4>2. Container</h4>
+        <p>The container is set to fill the entire viewport width and height, with a beige background and a border:</p>
+        <pre><code class="language-css">
+.container {
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    border: 5px solid black;
+}
+        </code></pre>
+
+        <h4>3. Box Styling</h4>
+        <p>The box element has a blue background, yellow border, and is given a margin. It is positioned relative to allow for animation changes to its position:</p>
+        <pre><code class="language-css">
+.box {
+    width: 350px;
+    height: 80px;
+    background-color: blue;
+    border: 3px solid yellow;
+    margin: 10px;
+    position: relative;
+}
+        </code></pre>
+
+        <h4>4. Animation Properties</h4>
+        <p>The animation is applied to the box element with these key properties:</p>
+        <ul>
+            <li><strong>animation-name:</strong> Specifies the name of the animation, in this case, <code>rightMovement</code>.</li>
+            <li><strong>animation-duration:</strong> Defines how long the animation will run, here it is <code>5s</code>.</li>
+            <li><strong>animation-iteration-count:</strong> Defines how many times the animation will repeat. In this case, it is set to <code>infinite</code> for an endless loop.</li>
+            <li><strong>animation-delay:</strong> Adds a delay before the animation starts, set to <code>2s</code>.</li>
+            <li><strong>animation-timing-function:</strong> Controls the speed of the animation. Here it is set to <code>linear</code> to maintain constant speed throughout the animation.</li>
+        </ul>
+
+        <h4>5. @keyframes Rule</h4>
+        <p>The <code>@keyframes</code> rule defines the animation behavior at different points in time. In this case, the box moves horizontally from left to right:</p>
+        <pre><code class="language-css">
+@keyframes rightMovement {
+    from {
+        top: 0;
+        left: 0;
+    }
+    to {
+        top: 0;
+        left: 1200px;
+    }
+}
+        </code></pre>
+
+        <h3>What happens in this example?</h3>
+        <p>When the page is loaded, the box element will start at the left (top: 0, left: 0) and move horizontally to the right (top: 0, left: 1200px) over 5 seconds. This will repeat infinitely with a 2-second delay before each iteration starts.</p>
+
+        <h3>Conclusion</h3>
+        <p>This example shows how to apply a simple CSS animation that moves an element across the screen. You can customize the animation duration, timing, iteration count, and direction by adjusting the relevant CSS properties. Understanding how to use <code>@keyframes</code> and the different animation properties gives you the ability to create dynamic and interactive effects in your web designs.</p>
+
+    </div>
+</section>
+
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAnimationAlternateDirection')">CSS Animation Reverse </h2>
+    <div id="cssAnimationAlternateDirection" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        border: 5px solid black;
+    }
+    .box{
+        width: 350px;
+        height: 80px;
+        background-color: blue;
+        border: 3px solid yellow;
+        margin: 10px;
+        position: relative;   
+        animation-name: rightMovement; 
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+    @keyframes rightMovement{
+        from{
+            top: 0;
+            left: 0;
+        }
+        to{
+            top: 0;
+            left: 1200px;
+        }
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            i will also come back due to animation-direction:alternate;.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is this example?</h3>
+        <p>This example demonstrates the use of the <code>animation-direction: alternate;</code> property to make an animation reverse direction after each cycle, creating a back-and-forth movement for the animated element.</p>
+
+        <h3>Explanation of Key Parts:</h3>
+        <h4>1. Global Reset</h4>
+        <p>The following CSS resets the margin, padding, and box-sizing properties globally for all elements, ensuring consistent spacing and layout:</p>
+        <pre><code class="language-css">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        </code></pre>
+
+        <h4>2. Container</h4>
+        <p>The container fills the entire viewport width and height, with a beige background and a black border:</p>
+        <pre><code class="language-css">
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    border: 5px solid black;
+}
+        </code></pre>
+
+        <h4>3. Box Styling</h4>
+        <p>The box element has a blue background, yellow border, margin, and is positioned relatively to allow the animation to affect its position:</p>
+        <pre><code class="language-css">
+.box{
+    width: 350px;
+    height: 80px;
+    background-color: blue;
+    border: 3px solid yellow;
+    margin: 10px;
+    position: relative;
+}
+        </code></pre>
+
+        <h4>4. Animation Properties</h4>
+        <p>The animation is applied to the box element with these key properties:</p>
+        <ul>
+            <li><strong>animation-name:</strong> Specifies the name of the animation, here it is <code>rightMovement</code>.</li>
+            <li><strong>animation-duration:</strong> Defines how long the animation will run, set to <code>5s</code>.</li>
+            <li><strong>animation-iteration-count:</strong> Defines how many times the animation will repeat. In this case, it is set to <code>infinite</code> for endless loops.</li>
+            <li><strong>animation-timing-function:</strong> Controls the speed of the animation, here it is set to <code>linear</code>.</li>
+            <li><strong>animation-direction:</strong> Controls the direction of the animation. The value <code>alternate</code> causes the animation to reverse direction after each cycle, making the box move back to its starting position before repeating the animation.</li>
+        </ul>
+
+        <h4>5. @keyframes Rule</h4>
+        <p>The <code>@keyframes</code> rule defines the animation behavior at different points in time. In this case, the box moves horizontally from left to right:</p>
+        <pre><code class="language-css">
+@keyframes rightMovement{
+    from{
+        top: 0;
+        left: 0;
+    }
+    to{
+        top: 0;
+        left: 1200px;
+    }
+}
+        </code></pre>
+
+        <h3>What happens in this example?</h3>
+        <p>When the page is loaded, the box element will start from the left (top: 0, left: 0) and move horizontally to the right (top: 0, left: 1200px) over 5 seconds. After reaching the rightmost point, the box will reverse direction (due to <code>animation-direction: alternate;</code>) and move back to its original position, repeating this cycle infinitely.</p>
+
+        <h3>Conclusion</h3>
+        <p>This example demonstrates how the <code>animation-direction: alternate;</code> property can be used to make an animation move back and forth. By adjusting the properties like <code>animation-duration</code>, <code>animation-timing-function</code>, and <code>@keyframes</code>, you can create smooth, bidirectional animations that are visually engaging.</p>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAnimationFillMode')">CSS Animation with Fill Mode</h2>
+    <div id="cssAnimationFillMode" class="content" style="display: none;">
+        
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+&lt;/head&gt;
+&lt;style&gt;
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .container{
+        width: 100vw;
+        height: 100vh;
+        background-color: beige;
+        border: 5px solid black;
+    }
+    .box{
+        width: 350px;
+        height: 80px;
+        background-color: blue;
+        border: 3px solid yellow;
+        margin: 10px;
+        position: relative;   
+        animation-name: rightMovement; 
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+    }
+    @keyframes rightMovement{
+        from{
+            top: 0;
+            left: 0;
+        }
+        to{
+            top: 0;
+            left: 1200px;
+        }
+    }
+&lt;/style&gt;
+&lt;body&gt;
+    &lt;div class="container"&gt;
+        &lt;div class="box"&gt;
+            i will also come back due to animation-direction:alternate;.
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is this example?</h3>
+        <p>This example demonstrates the use of the <code>animation-fill-mode: forwards;</code> property to maintain the final state of an animation after it has finished running.</p>
+
+        <h3>Explanation of Key Parts:</h3>
+        <h4>1. Global Reset</h4>
+        <p>The following CSS resets the margin, padding, and box-sizing properties globally for all elements, ensuring consistent spacing and layout:</p>
+        <pre><code class="language-css">
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+        </code></pre>
+
+        <h4>2. Container</h4>
+        <p>The container takes up the full viewport width and height, with a beige background and black border:</p>
+        <pre><code class="language-css">
+.container{
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    border: 5px solid black;
+}
+        </code></pre>
+
+        <h4>3. Box Styling</h4>
+        <p>The box element is styled with a blue background, yellow border, margin, and relative positioning, which allows the animation to affect its position:</p>
+        <pre><code class="language-css">
+.box{
+    width: 350px;
+    height: 80px;
+    background-color: blue;
+    border: 3px solid yellow;
+    margin: 10px;
+    position: relative;
+}
+        </code></pre>
+
+        <h4>4. Animation Properties</h4>
+        <p>The animation is applied to the box element with these key properties:</p>
+        <ul>
+            <li><strong>animation-name:</strong> Specifies the name of the animation, which is <code>rightMovement</code> in this case.</li>
+            <li><strong>animation-duration:</strong> Defines how long the animation runs, set to <code>5s</code>.</li>
+            <li><strong>animation-timing-function:</strong> Defines how the animation speeds up or slows down. It is set to <code>linear</code> here, meaning the animation maintains a constant speed.</li>
+            <li><strong>animation-fill-mode:</strong> Specifies how the element's style should be affected before and after the animation. The value <code>forwards</code> makes the element retain the styles set at the end of the animation (i.e., the box will remain at its final position after the animation completes).</li>
+        </ul>
+
+        <h4>5. @keyframes Rule</h4>
+        <p>The <code>@keyframes</code> rule defines the animation sequence, moving the box from the left to the right:</p>
+        <pre><code class="language-css">
+@keyframes rightMovement{
+    from{
+        top: 0;
+        left: 0;
+    }
+    to{
+        top: 0;
+        left: 1200px;
+    }
+}
+        </code></pre>
+
+        <h3>What happens in this example?</h3>
+        <p>When the page is loaded, the box will start from its initial position (top: 0, left: 0) and move horizontally to the right (top: 0, left: 1200px) over 5 seconds. Once the animation completes, the <code>animation-fill-mode: forwards;</code> property ensures that the box stays in the final position (left: 1200px) instead of returning to its initial position.</p>
+
+        <h3>Conclusion</h3>
+        <p>This example illustrates the use of the <code>animation-fill-mode: forwards;</code> property, which ensures that an animated element retains its final state after the animation completes. This can be useful for creating animations where the element should remain in the end position, such as moving a box to a new location and keeping it there after the animation ends.</p>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

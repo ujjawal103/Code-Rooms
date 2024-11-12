@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexBox - CSS Notes</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <!-- Prism.js for syntax highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <style>
+        body{
+            position: relative;
+            height: 100vh;
+        }
+        .sub{
+            background: none;
+            background-color: rgb(69, 65, 65);
+            p{
+            color: blanchedalmond;
+            }
+            h2{
+                color: rgb(229, 228, 229);
+                font-size: medium;
+            }
+            ul li{
+                color: rgb(136, 181, 229);
+            }
+        }
+        .content h4{
+            color: rgb(15, 219, 237);
+            font-weight: 900;
+            font-size: larger;
+            text-shadow: black;
+            text-decoration: underline;
+            text-decoration-color: rgb(19, 104, 105);
+        }
+        .content .html-structure{
+            color: rgb(20, 198, 118);
+        }
+      
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FlexBox In CSS</h1>
+        <p>A collection of useful CSS topics and code snippets.</p>
+    </header>
+    <header class="fakeWala"></header>
+
+    <main>
+        <!-- CSS Topic Sections -->
+<section class="sub">
+    <h2 onclick="toggleContent('cssFlexColumnReverse')">flexbox: USING DISPLAY FLEX</h2>
+    <div id="cssFlexColumnReverse" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Flexbox: Column-Reverse Layout</h3>
+        <p>In this example, the container is using the Flexbox layout with the <code>flex-direction: column-reverse</code> property. This causes the items inside the container to be displayed in a column, but in reverse order, with the last item appearing first.</p>
+
+        <!-- Explanation for .container and .box -->
+        <h3>Flexbox Layout Explanation</h3>
+        <p>The <code>.container</code> is set to a Flex container with the <code>flex-direction: column-reverse;</code> property, which reverses the order of the child elements:</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    flex-direction: column-reverse;  /* Flex items in column order but reversed */
+}
+        </code></pre>
+
+        <p>The <code>.box</code> elements are the children of the Flex container. Each <code>.box</code> has a set size and margin to create spacing between the boxes:</p>
+        <pre><code class="language-css">
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+        </code></pre>
+
+        <h3>Effect of flex-direction: column-reverse</h3>
+        <p>With <code>flex-direction: column-reverse;</code>, the elements inside the container are stacked vertically, but the last element (in normal flow) will appear at the top, and the first element will appear at the bottom.</p>
+
+        <!-- Practical Use Cases -->
+        <h3>Use Cases for Flexbox: Column-Reverse</h3>
+        <ul>
+            <li>Reversing the order of elements in a layout without changing the HTML structure.</li>
+            <li>Creating dynamic layouts that adjust based on content, where the order needs to be reversed for specific visual effects.</li>
+            <li>Flexible navigation or message layout where the most recent items appear at the top.</li>
+        </ul>
+
+        <p>This example demonstrates how the <code>flex-direction: column-reverse</code> property can be used to reverse the visual stacking of elements in a Flex container.</p>
+        
+        <!-- CSS Module -->
+        <h3>CSS Module for Flexbox: Column-Reverse</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Flex container with column-reverse direction */
+.container {
+    display: flex;
+    flex-direction: column-reverse; /* Reverses the order of elements */
+}
+
+/* Box styling */
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Individual box colors */
+#box101 {
+    background-color: aquamarine;
+}
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+#box103 {
+    background-color: rgb(128, 168, 18);
+}
+#box104 {
+    background-color: rgb(27, 4, 78);
+}
+            </code>
+        </pre>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssFlexWrap')">Flexbox: Using Flex Wrap</h2>
+    <div id="cssFlexWrap" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Why Use Flex Wrap?&lt;/h1&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Overview of Flex Wrap</h3>
+        <p>Flexbox is used to layout elements in a flexible way. When you apply <code>display: flex;</code> to a container, its child elements will be placed in a row by default. However, when there is not enough space to fit all the elements in a single row, you can use <code>flex-wrap</code> to wrap the items to the next line, instead of squishing them together.</p>
+        
+        <p>By default, Flexbox items will try to fit in a single line. The <code>flex-wrap</code> property enables the items to wrap onto multiple lines if needed. This is especially useful for responsive layouts.</p>
+
+        <!-- Explanation for .container and .box -->
+        <h3>Flex Wrap: Available Values</h3>
+        <p>The <code>flex-wrap</code> property accepts the following values:</p>
+        <ul>
+            <li><code>nowrap</code>: Prevents the items from wrapping, and they will shrink to fit the container if needed.</li>
+            <li><code>wrap</code>: Allows the items to wrap to the next line if there's insufficient space in the container.</li>
+            <li><code>wrap-reverse</code>: Similar to <code>wrap</code>, but the items will wrap to the previous line, in reverse order.</li>
+        </ul>
+
+        <h3>Practical Example: Flex Wrap</h3>
+        <p>In this example, the <code>.container</code> uses <code>flex-wrap: wrap;</code> to ensure that the boxes will wrap to the next line when there's not enough space on the page. The boxes have a fixed size and will wrap if the container width is decreased:</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Allows the boxes to wrap to the next line */
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+        </code></pre>
+
+        <h3>Shorthand Property: flex-flow</h3>
+        <p>The <code>flex-flow</code> property is a shorthand for <code>flex-direction</code> and <code>flex-wrap</code> combined. It allows you to set both properties in a single line:</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    flex-flow: row wrap; /* Flex direction set to row and allows wrapping */
+}
+        </code></pre>
+
+        <h3>Use Cases for Flex Wrap</h3>
+        <ul>
+            <li>Creating flexible, responsive grids that adapt to different screen sizes.</li>
+            <li>Ensuring that elements like cards or images automatically wrap when there's insufficient space.</li>
+            <li>Implementing layout components like navigation menus that adjust according to the viewport width.</li>
+        </ul>
+
+        <p>This example demonstrates how the <code>flex-wrap</code> property enables flexible layouts that adjust to varying screen sizes and available space.</p>
+
+        <!-- CSS Module -->
+        <h3>CSS Module for Flex Wrap</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Flex container with wrapping */
+.container {
+    display: flex;
+    flex-wrap: wrap; /* Wraps the items to the next line */
+}
+
+/* Box styling */
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Individual box colors */
+#box101 {
+    background-color: aquamarine;
+}
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+#box103 {
+    background-color: rgb(128, 168, 18);
+}
+#box104 {
+    background-color: rgb(27, 4, 78);
+}
+            </code>
+        </pre>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssJustifyContent')">Flexbox: Using Justify Content</h2>
+    <div id="cssJustifyContent" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is Justify Content?</h3>
+        <p>The <code>justify-content</code> property is used in Flexbox to align the items along the **main axis**. The main axis is determined by the <code>flex-direction</code> property (either row or column). In a row-based layout, the main axis runs horizontally, and in a column-based layout, it runs vertically.</p>
+
+        <h3>Available Values for justify-content</h3>
+        <p>Here are the available values for <code>justify-content</code>:</p>
+        <ul>
+            <li><code>center</code>: Aligns all the items to the center of the container.</li>
+            <li><code>flex-start</code>: Aligns all the items to the start of the container (left for row or top for column).</li>
+            <li><code>flex-end</code>: Aligns all the items to the end of the container (right for row or bottom for column).</li>
+            <li><code>space-between</code>: Distributes the items evenly along the main axis, with the first item at the start and the last item at the end. The remaining space is distributed between the items.</li>
+            <li><code>space-around</code>: Distributes the items evenly, with equal space around each item.</li>
+            <li><code>space-evenly</code>: Distributes the items evenly with equal space between each item, including the space before the first item and after the last item.</li>
+        </ul>
+
+        <h3>Practical Example: Justify Content in Flexbox</h3>
+        <p>The following example demonstrates how <code>justify-content</code> works by using different values to align the boxes inside the container. Try changing the value of <code>justify-content</code> in the CSS to observe the different alignments.</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    height: 300px;
+    justify-content: space-evenly; /* Adjust the spacing between the items */
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+        </code></pre>
+
+        <h3>Effect of justify-content on Flex Items</h3>
+        <p>In this example, the items inside the container are aligned using <code>justify-content: space-evenly;</code>, which distributes the boxes evenly across the main axis, ensuring equal spacing between each box, including the first and last boxes.</p>
+
+        <h3>CSS Module for Justify Content</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Flex container with justification */
+.container {
+    display: flex;
+    justify-content: space-evenly; /* Align the items with even spacing */
+}
+
+/* Box styling */
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Individual box colors */
+#box101 {
+    background-color: aquamarine;
+}
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+#box103 {
+    background-color: rgb(128, 168, 18);
+}
+#box104 {
+    background-color: rgb(27, 4, 78);
+}
+            </code>
+        </pre>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAlignItems')">Flexbox: Using Align Items</h2>
+    <div id="cssAlignItems" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is Align Items?</h3>
+        <p>The <code>align-items</code> property in Flexbox is used to align flex items along the **cross-axis**, which is typically the vertical axis when the flex direction is row (default) or the horizontal axis when the flex direction is column. This property helps in controlling how the items are aligned within the container.</p>
+
+        <h3>Available Values for align-items</h3>
+        <p>Here are the available values for <code>align-items</code>:</p>
+        <ul>
+            <li><code>flex-start</code>: Aligns the items to the start of the cross-axis (top for row, left for column).</li>
+            <li><code>flex-end</code>: Aligns the items to the end of the cross-axis (bottom for row, right for column).</li>
+            <li><code>center</code>: Aligns the items to the center of the cross-axis (vertically centered for row or horizontally centered for column).</li>
+            <li><code>stretch</code>: Stretches the items to fill the container along the cross-axis. This only works if no specific height (for rows) or width (for columns) is defined for the flex items.</li>
+        </ul>
+
+        <h3>Practical Example: Align Items in Flexbox</h3>
+        <p>The following example demonstrates how <code>align-items</code> works by aligning the items at the end of the container along the cross-axis using <code>align-items: flex-end;</code>.</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    height: 300px;
+    align-items: end; /* Align the items to the bottom of the container */
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+        </code></pre>
+
+        <h3>Effect of align-items on Flex Items</h3>
+        <p>In this example, the flex items are aligned at the **bottom** of the container because of the use of <code>align-items: end;</code>. You can modify this to <code>flex-start</code>, <code>center</code>, or <code>stretch</code> to see different effects.</p>
+
+        <h3>CSS Module for Align Items</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Flex container with alignment */
+.container {
+    display: flex;
+    height: 300px;
+    align-items: flex-end; /* Align the items to the bottom */
+}
+
+/* Box styling */
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Individual box colors */
+#box101 {
+    background-color: aquamarine;
+}
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+#box103 {
+    background-color: rgb(128, 168, 18);
+}
+#box104 {
+    background-color: rgb(27, 4, 78);
+}
+            </code>
+        </pre>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAlignContent')">Flexbox: Using Align Content</h2>
+    <div id="cssAlignContent" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>What is Align Content?</h3>
+        <p>The <code>align-content</code> property is used in Flexbox to manage the spacing between lines of flex items when the container has multiple lines (such as when <code>flex-wrap</code> is used). It aligns the entire lines of items along the **cross-axis** (perpendicular to the main axis). This property only has an effect when the items are wrapped (i.e., when <code>flex-wrap</code> is set to wrap).</p>
+
+        <h3>Available Values for align-content</h3>
+        <p>Here are the available values for <code>align-content</code>:</p>
+        <ul>
+            <li><code>flex-start</code>: Aligns the lines to the start of the cross-axis (top for row direction, left for column direction).</li>
+            <li><code>flex-end</code>: Aligns the lines to the end of the cross-axis (bottom for row direction, right for column direction).</li>
+            <li><code>center</code>: Aligns the lines to the center of the cross-axis.</li>
+            <li><code>space-between</code>: Distributes the lines evenly, with the first line at the start and the last one at the end of the cross-axis, leaving equal spaces between them.</li>
+            <li><code>space-around</code>: Distributes the lines evenly with equal space around each line, including at the start and end.</li>
+            <li><code>stretch</code>: Stretches the lines to fill the available space along the cross-axis.</li>
+        </ul>
+
+        <h3>Practical Example: Align Content in Flexbox</h3>
+        <p>The following example demonstrates how <code>align-content</code> works with a wrapped flex container to align the content (lines) in the container.</p>
+        <pre><code class="language-css">
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1200px;
+    border: 5px solid black;
+    align-content: start; /* Aligns all the lines to the start of the container */
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+        </code></pre>
+
+        <h3>Effect of align-content on Flex Items</h3>
+        <p>In this example, the <code>align-content</code> property is used to remove gaps between lines of items by aligning them to the start of the container. As the screen size changes and the flex items wrap, the lines will be aligned accordingly.</p>
+
+        <h3>CSS Module for Align Content</h3>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+/* Flex container with wrapping and content alignment */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    height: 1200px;
+    border: 5px solid black;
+    align-content: start; /* Aligns the content lines to the start */
+}
+
+/* Box styling */
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+/* Individual box colors */
+#box101 {
+    background-color: aquamarine;
+}
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+#box103 {
+    background-color: rgb(128, 168, 18);
+}
+#box104 {
+    background-color: rgb(27, 4, 78);
+}
+            </code>
+        </pre>
+
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssFlexItemProperties')">Flexbox: USING Flex Items</h2>
+    <div id="cssFlexItemProperties" class="content" style="display: none;">
+
+        <!-- Sample HTML Structure -->
+        <h4 class="html-structure">Sample HTML Structure:</h4>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;box1&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;box2&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;box3&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;box4&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <!-- Explanation Section -->
+        <h3>Properties for Flex Items</h3>
+        <p>In Flexbox, items can be customized with different properties that allow for control over their layout and behavior. The key properties used for flex items include <code>order</code>, <code>flex-shrink</code>, <code>flex-grow</code>, and <code>flex-basis</code>.</p>
+
+        <h4>1. <code>order</code></h4>
+        <p>The <code>order</code> property is used to change the visual order of flex items. By default, all items have an order of 0, but you can change this value to rearrange the sequence of items. For example, setting <code>order: -1</code> on an item will make it appear first, even if it is listed later in the HTML.</p>
+
+        <h4>2. <code>flex-shrink</code></h4>
+        <p>The <code>flex-shrink</code> property specifies how much an item should shrink relative to other items when the container's width is reduced (or when there isn't enough space). The default value is 1, meaning the items will shrink equally. If set to a higher value, the item will shrink faster than others. For example, <code>flex-shrink: 4</code> means the item will shrink four times faster than the other items.</p>
+
+        <h4>3. <code>flex-grow</code></h4>
+        <p>The <code>flex-grow</code> property determines how much a flex item will grow relative to other items when there is extra space in the container. For instance, if <code>flex-grow: 5</code> is set, the item will grow to fill available space faster than items with a lower <code>flex-grow</code> value.</p>
+
+        <h4>4. <code>flex-basis</code></h4>
+        <p>The <code>flex-basis</code> property defines the initial size of a flex item before any extra space is distributed. It can be set to a fixed value (e.g., <code>flex-basis: 400px</code>) or left as <code>auto</code> for the item to use its natural size.</p>
+
+        <h3>Shorthand Notation</h3>
+        <p>These properties can be combined into one shorthand property:</p>
+        <pre><code class="language-css">
+flex: <em>flex-grow</em> <em>flex-shrink</em> <em>flex-basis</em>;
+        </code></pre>
+
+        <h3>Example of Flexbox Properties</h3>
+        <p>The following example demonstrates how to use these properties to manipulate the behavior and layout of flex items:</p>
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-css">
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+.box {
+    width: 150px;
+    height: 150px;
+    padding: 10px;
+    margin: 10px;
+}
+
+#box101 {
+    background-color: aquamarine;
+    order: 500;  /* Moves box1 to the last position */
+    flex-shrink: 4;  /* Shrinks box1 faster than others */
+}
+
+#box102 {
+    background-color: rgb(112, 12, 80);
+}
+
+#box103 {
+    background-color: rgb(128, 168, 18);
+    order: -1;  /* Moves box3 to the first position */
+}
+
+#box104 {
+    background-color: rgb(27, 4, 78);
+    order: 200;  /* Doesn't change order significantly */
+    flex-grow: 5;  /* Makes box4 grow faster to cover available space */
+}
+            </code>
+        </pre>
+
+        <h3>Summary of Properties:</h3>
+        <ul>
+            <li><code>order</code>: Changes the position of an item in the flex container.</li>
+            <li><code>flex-shrink</code>: Controls the shrink speed of the item when the container shrinks.</li>
+            <li><code>flex-grow</code>: Determines how much an item grows when there is extra space in the container.</li>
+            <li><code>flex-basis</code>: Defines the initial size of an item before growing or shrinking.</li>
+        </ul>
+    </div>
+</section>
+
+
+<section class="sub">
+    <h2 onclick="toggleContent('cssAlignSelf')">FLEXBOX: USING ALIGN SELF</h2>
+    <div id="cssAlignSelf" class="content" style="display: none;">
+        
+        <!-- Explanation Section -->
+        <h3>What is <code>align-self</code>?</h3>
+        <p>The <code>align-self</code> property allows you to align an individual flex item along the cross-axis (the vertical axis by default) within a flex container. This property overrides the <code>align-items</code> property that applies to all flex items within the container.</p>
+
+        <h4>Values of <code>align-self</code>:</h4>
+        <ul>
+            <li><code>center</code>: Centers the item along the cross-axis.</li>
+            <li><code>start</code>: Aligns the item at the start of the cross-axis (top by default).</li>
+            <li><code>end</code>: Aligns the item at the end of the cross-axis (bottom by default).</li>
+        </ul>
+        <p><strong>Note:</strong> This property is used when you need to align an individual item differently from the other items in the flex container.</p>
+
+        <h3>Example of <code>align-self</code> in Action:</h3>
+        <p>The following example demonstrates the use of <code>align-self</code> to adjust the alignment of specific flex items:</p>
+
+        <pre style="background-color: white; padding: 10px; border-radius: 5px;">
+            <code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Document&lt;/title&gt;
+    &lt;style&gt;
+      .container {
+        display: flex;
+        height: 1200px;
+        padding: 10px;
+        margin: 10px;
+      }
+      .box {
+        display: block;
+      }
+      #box101 {
+        background-color: aquamarine;
+        align-self: center;  /* Centers box1 vertically */
+      }
+      #box102 {
+        background-color: rgb(112, 12, 80);
+        align-self: self-end;  /* Aligns box2 at the bottom */
+      }
+      #box103 {
+        background-color: rgb(128, 168, 18);
+      }
+      #box104 {
+        background-color: rgb(27, 4, 78);
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="box" id="box101"&gt;box1&lt;/div&gt;
+      &lt;div class="box" id="box102"&gt;box2&lt;/div&gt;
+      &lt;div class="box" id="box103"&gt;box3&lt;/div&gt;
+      &lt;div class="box" id="box104"&gt;box4&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
+        <h3>Summary of <code>align-self</code> Values:</h3>
+        <ul>
+            <li><code>center</code>: Centers the flex item along the cross-axis.</li>
+            <li><code>start</code>: Aligns the item at the start of the cross-axis (usually the top).</li>
+            <li><code>end</code>: Aligns the item at the end of the cross-axis (usually the bottom).</li>
+        </ul>
+
+        <h3>Practical Use Case:</h3>
+        <p>The <code>align-self</code> property is particularly useful when you want to align one flex item differently from the others in a flex container without affecting the alignment of other items. For example, centering one item while others align at the top or bottom.</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </main>
+ <div id="space" style="height: 70px;"></div>
+    <footer style="position: fixed; bottom: 0px;">
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script>
+        function toggleContent(id) {
+            const content = document.getElementById(id);
+            content.style.display = content.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
