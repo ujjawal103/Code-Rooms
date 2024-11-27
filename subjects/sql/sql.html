@@ -1,0 +1,109 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MySQL Notes</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../offCanvas.css">
+</head>
+<body>
+    <header>
+        <h1>MySQL Notes</h1>
+        <p>A collection of notes on MySQL concepts and queries.</p>
+        <button id="menuButton" class="menu-button" aria-label="Open Topics Menu">☰ Topics</button>
+    </header>
+    <header class="fakeWala"></header>
+
+    <!-- Off-canvas sidebar for topics -->
+    <div id="offCanvas" class="off-canvas">
+        <button id="closeButton" class="close-button" aria-label="Close Topics Menu">×</button>
+        <h2>Topics</h2>
+        <ul>
+            <li><a href="#intro">Introduction to MySQL & DataTypes</a></li>
+            <li><a href="#commands">Basic Commands</a></li>
+            <li><a href="#keys">Keys</a></li>
+            <li><a href="#clause">Clause With Aggregate Functions</a></li>
+            <li><a href="#foreignKey">Foreign Key in MySQL</a></li>
+            <li><a href="#tableQueries">Table Related Queries</a></li>
+            <li><a href="#joins">Joins in MySQL</a></li>
+            <li><a href="#union">Union & Union All</a></li>
+            <li><a href="#subQueries">SubQueries & Views</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <a href="topics/basics.html">
+            <section id="intro" class="sub">
+                <h3>Introduction to MySQL & DataTypes</h3>
+                <p>Overview of MySQL<br> Understanding data types like INT, VARCHAR, DATE, etc.</p>
+            </section>
+        </a>
+
+        <a href="topics/basicCommands.html">
+            <section id="commands" class="sub">
+                <h3>Basic Commands</h3>
+                <p>Frequently used commands like CREATE, SELECT, INSERT, etc.</p>
+            </section>
+        </a>
+
+        <a href="topics/keys.html">
+            <section id="keys" class="sub">
+                <h3>Keys & Constraints</h3>
+                <p>Explanation of Primary Key, Unique Key, and Constraints</p>
+            </section>
+        </a>
+
+        <a href="topics/clause.html">
+            <section id="clause" class="sub">
+                <h3>Clause With Aggregate Functions</h3>
+                <p>Using WHERE, GROUP BY, HAVING, and ORDER BY with aggregate functions like COUNT, SUM, AVG, etc.</p>
+            </section>
+        </a>
+
+        <a href="topics/foreignKey.html">
+            <section id="foreignKey" class="sub">
+                <h3>Foreign Key in MySQL</h3>
+                <p>Definition and examples of creating and managing foreign keys in MySQL.</p>
+            </section>
+        </a>
+
+        <a href="topics/tableQueries.html">
+            <section id="tableQueries" class="sub">
+                <h3>Table Related Queries</h3>
+                <p>Commands for altering, deleting, and describing table structures.</p>
+            </section>
+        </a>
+
+        <a href="topics/joins.html">
+            <section id="joins" class="sub">
+                <h3>Joins in MySQL</h3>
+                <p>Different types of joins: INNER, OUTER, LEFT, RIGHT, etc., with examples.</p>
+            </section>
+        </a>
+
+        <a href="topics/union.html">
+            <section id="union" class="sub">
+                <h3>Union & Union All</h3>
+                <p>Combining result sets with UNION and UNION ALL, along with their differences.</p>
+            </section>
+        </a>
+
+        <a href="topics/subQueries.html">
+            <section id="subQueries" class="sub">
+                <h3>SubQueries & Views</h3>
+                <p>Using subqueries within queries and creating reusable database views.</p>
+            </section>
+        </a>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
