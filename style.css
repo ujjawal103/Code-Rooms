@@ -22,12 +22,15 @@ header {
 
    
     position: fixed;
+    overflow: hidden;
 }
 .fakeWala{
     height: 24vh;
     position: relative;
     z-index: -1;
+    overflow: hidden;
 }
+
 
 nav {
     background: #333;
