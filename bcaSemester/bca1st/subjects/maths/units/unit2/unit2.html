@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit II: Differential and Integral Calculus</title>
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <link rel="stylesheet" href="../../../../../offCanvas.css">
+    <style>
+        .sub h3 {
+            color: rgb(45, 237, 183);
+        }
+        .sub li {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit II: Differential and Integral Calculus</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+    <header class="fakeWala">
+        <h1>Unit II: Differential and Integral Calculus</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+
+    <!-- Off-canvas sidebar for topics -->
+    <div id="offCanvas" class="off-canvas">
+        <button id="closeButton" class="close-button">×</button>
+        <h2>Topics</h2>
+        <ul>
+            <li><a href="#topic1"><p>Successive Differentiation</p></a></li>
+            <li><a href="#topic2"><p>Partial Derivatives</p></a></li>
+            <li><a href="#topic3"><p>Euler’s Theorem for Homogeneous Functions</p></a></li>
+            <li><a href="#topic4"><p>Total Derivatives</p></a></li>
+            <li><a href="#topic5"><p>Taylor’s and Maclaurin’s Theorem</p></a></li>
+            <li><a href="#topic6"><p>Expansion of Functions of Several Variables</p></a></li>
+            <li><a href="#topic7"><p>Definite and Indefinite Integration</p></a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <a href="topics/topic1.html">
+        <section id="topic1" class="sub">
+            <h3>Successive Differentiation</h3>
+            <p>Understanding the process of successive differentiation:
+                <ul>
+                    <li><strong>Definition:</strong> Repeated differentiation of a function to find higher-order derivatives.</li>
+                    <li><strong>Examples:</strong> Techniques for calculating the second, third, and higher derivatives.</li>
+                    <li><strong>Applications:</strong> Used to find concavity, inflection points, and rates of change in various problems.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic2.html">
+        <section id="topic2" class="sub">
+            <h3>Partial Derivatives</h3>
+            <p>Understanding partial derivatives:
+                <ul>
+                    <li><strong>Definition:</strong> Derivatives of functions with more than one variable, taken with respect to one variable while holding others constant.</li>
+                    <li><strong>Examples:</strong> Calculating the first-order and higher-order partial derivatives of functions.</li>
+                    <li><strong>Applications:</strong> Used in multivariable optimization, physics, economics, and engineering.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic3.html">
+        <section id="topic3" class="sub">
+            <h3>Euler’s Theorem for Homogeneous Functions</h3>
+            <p>Exploring Euler's Theorem:
+                <ul>
+                    <li><strong>Theorem Statement:</strong> For a homogeneous function of degree <em>n</em>, Euler's theorem provides a relationship between the function and its partial derivatives.</li>
+                    <li><strong>Mathematical Formulation:</strong> <em>F(x, y) = x(∂F/∂x) + y(∂F/∂y)</em> for homogeneous functions.</li>
+                    <li><strong>Applications:</strong> Used in economics, thermodynamics, and physics to study scalable functions.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic4.html">
+        <section id="topic4" class="sub">
+            <h3>Total Derivatives</h3>
+            <p>Understanding total derivatives:
+                <ul>
+                    <li><strong>Definition:</strong> The derivative of a function with respect to one variable, considering the dependence of other variables on this variable.</li>
+                    <li><strong>Formula:</strong> <em>dF = (∂F/∂x)dx + (∂F/∂y)dy + ...</em> where each partial derivative is multiplied by its corresponding differential.</li>
+                    <li><strong>Applications:</strong> Used in multivariable calculus, particularly for functions with interdependencies between variables.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic5.html">
+        <section id="topic5" class="sub">
+            <h3>Taylor’s and Maclaurin’s Theorem</h3>
+            <p>Exploring Taylor's and Maclaurin's Theorem:
+                <ul>
+                    <li><strong>Taylor's Theorem:</strong> Provides an approximation of a function around a point using its derivatives at that point.</li>
+                    <li><strong>Maclaurin’s Theorem:</strong> A special case of Taylor's theorem where the expansion is around the point <em>x = 0</em>.</li>
+                    <li><strong>Formula:</strong> <em>f(x) ≈ f(a) + f'(a)(x - a) + f''(a)(x - a)^2/2! + ...</em> for Taylor expansion.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic6.html">
+        <section id="topic6" class="sub">
+            <h3>Expansion of Functions of Several Variables</h3>
+            <p>Understanding expansion of multivariable functions:
+                <ul>
+                    <li><strong>Multivariable Taylor Series:</strong> Extends Taylor's theorem to functions of multiple variables.</li>
+                    <li><strong>Formula:</strong> <em>f(x, y) ≈ f(a, b) + (∂f/∂x)(a, b)(x - a) + (∂f/∂y)(a, b)(y - b) + ...</em></li>
+                    <li><strong>Applications:</strong> Used in fields like economics, physics, and optimization to approximate complex functions.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic7.html">
+        <section id="topic7" class="sub">
+            <h3>Definite and Indefinite Integration</h3>
+            <p>Exploring integration:
+                <ul>
+                    <li><strong>Indefinite Integration:</strong> The process of finding an antiderivative, represented by <em>∫f(x)dx</em> and including an arbitrary constant of integration.</li>
+                    <li><strong>Definite Integration:</strong> The process of evaluating the integral between specified limits, represented by <em>∫[a, b] f(x)dx</em>.</li>
+                    <li><strong>Applications:</strong> Used in calculating areas, volumes, and solving problems in physics and engineering.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+
+    <script src="../../../../../script.js"></script>
+</body>
+</html>

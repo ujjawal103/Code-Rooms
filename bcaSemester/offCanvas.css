@@ -1,0 +1,113 @@
+/* Off-canvas styles */
+.off-canvas {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 250px;
+    height: 100vh; /* Set height to viewport height */
+    background: linear-gradient(135deg, #1f1f1d, #8e2964);
+    color: #fff;
+    padding: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto; /* Enable vertical scrolling */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #8e2964 transparent; /* Scrollbar colors */
+   
+    h2 {
+        font-size: 4vh;
+        color: #11c2d2;
+    }
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.off-canvas::-webkit-scrollbar {
+    width: 8px; /* Scrollbar width */
+}
+
+.off-canvas::-webkit-scrollbar-thumb {
+    background: #8e2964; /* Scrollbar thumb color */
+    border-radius: 4px;
+}
+
+.off-canvas::-webkit-scrollbar-track {
+    background: transparent; /* Scrollbar track color */
+}
+
+.off-canvas ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.off-canvas ul li {
+    margin: 5px 0px;
+    font-size: 3vh;
+    p{
+        font-size: 2vh;
+        color: gold;
+       margin-top: 0%;
+    }
+}
+
+.off-canvas ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.off-canvas ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Toggle button styles */
+.menu-button,
+.close-button {
+    font-size: 1.5rem;
+    background-color: rgb(86, 5, 70);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 10%;
+}
+
+.menu-button {
+    position: absolute;
+    top: 1px;
+    left: 4px;
+    z-index: 1001;
+    background-color: transparent;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+/* Off-canvas active state */
+.off-canvas.open {
+    left: 0;
+}
+
+/* Adjust main content when sidebar is open */
+.main-content {
+    transition: margin-left 0.3s ease;
+}
+
+.main-content.shift {
+    margin-left: 250px;
+}
+/* from bca subjects notes */
+.sub{                          
+    h4{
+        font-size: larger;
+        color: aqua;
+        font-style: italic;
+        font-weight: 700;
+    }
+}

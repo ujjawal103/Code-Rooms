@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit IV: Partial Differential Equations</title>
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <link rel="stylesheet" href="../../../../../offCanvas.css">
+    <style>
+        .sub h3 {
+            color: rgb(45, 237, 183);
+        }
+        .sub li {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit IV: Partial Differential Equations</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+    <header class="fakeWala">
+        <h1>Unit IV: Partial Differential Equations</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+
+    <!-- Off-canvas sidebar for topics -->
+    <div id="offCanvas" class="off-canvas">
+        <button id="closeButton" class="close-button">×</button>
+        <h2>Topics</h2>
+        <ul>
+            <li><a href="#topic1"><p>Origin of First Order Partial Differential Equations</p></a></li>
+            <li><a href="#topic2"><p>Partial Differential Equations of the First Order and Degree One</p></a></li>
+            <li><a href="#topic3"><p>Lagrange’s Solution</p></a></li>
+            <li><a href="#topic4"><p>Partial Differential Equations of First Order and Degree Greater than One</p></a></li>
+            <li><a href="#topic5"><p>Solution of Second Order Linear Partial Differential Equations with Constant Coefficients</p></a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <a href="topics/topic1.html">
+        <section id="topic1" class="sub">
+            <h3>Origin of First Order Partial Differential Equations</h3>
+            <p>Introduction to the origin of first-order partial differential equations:
+                <ul>
+                    <li><strong>Definition:</strong> A partial differential equation (PDE) involves multiple independent variables and their partial derivatives.</li>
+                    <li><strong>Origin:</strong> Derived from the application of physical laws in multi-dimensional systems, such as heat flow or fluid dynamics.</li>
+                    <li><strong>Example:</strong> Heat conduction in a rod can be modeled by a first-order PDE.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic2.html">
+        <section id="topic2" class="sub">
+            <h3>Partial Differential Equations of the First Order and Degree One</h3>
+            <p>Understanding first-order PDEs of degree one:
+                <ul>
+                    <li><strong>Form:</strong> A general first-order PDE is written as <em>F(x, y, p) = 0</em>, where <em>p = ∂u/∂x</em> and <em>u</em> is the dependent variable.</li>
+                    <li><strong>Solution:</strong> Techniques like the method of characteristics are used to solve such equations.</li>
+                    <li><strong>Example:</strong> <em>∂u/∂x + ∂u/∂y = 0</em>, representing a wave-like equation.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic3.html">
+        <section id="topic3" class="sub">
+            <h3>Lagrange’s Solution</h3>
+            <p>Understanding Lagrange’s solution to first-order PDEs:
+                <ul>
+                    <li><strong>Definition:</strong> Lagrange's method is used for solving first-order linear partial differential equations.</li>
+                    <li><strong>Solution Approach:</strong> The solution involves finding a general solution of the form <em>φ(x, y, u) = C</em>, where <em>C</em> is a constant.</li>
+                    <li><strong>Example:</strong> <em>∂u/∂x + ∂u/∂y = 0</em>, solved using the method of characteristics and Lagrange's approach.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic4.html">
+        <section id="topic4" class="sub">
+            <h3>Partial Differential Equations of First Order and Degree Greater than One</h3>
+            <p>Solving first-order PDEs of degree greater than one:
+                <ul>
+                    <li><strong>Form:</strong> PDEs of the form <em>F(x, y, u, p, q) = 0</em>, where <em>p = ∂u/∂x</em> and <em>q = ∂u/∂y</em>.</li>
+                    <li><strong>Solution Approach:</strong> Involves solving using the method of Charpit's equations or the Lagrange method, depending on the degree.</li>
+                    <li><strong>Example:</strong> <em>F(x, y, u, ∂u/∂x, ∂u/∂y) = 0</em>, a typical form of first-order PDEs of higher degree.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic5.html">
+        <section id="topic5" class="sub">
+            <h3>Solution of Second Order Linear Partial Differential Equations with Constant Coefficients</h3>
+            <p>Solving second-order linear PDEs with constant coefficients:
+                <ul>
+                    <li><strong>Form:</strong> A typical second-order linear PDE is <em>∂²u/∂x² + ∂²u/∂y² = 0</em>, known as Laplace’s equation.</li>
+                    <li><strong>Solution Method:</strong> The solution involves using separation of variables or transforming the equation into simpler forms.</li>
+                    <li><strong>Example:</strong> The heat conduction equation <em>∂u/∂t = α∇²u</em>, a second-order linear PDE.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+    <script src="../../../../../script.js"></script>
+</body>
+</html>

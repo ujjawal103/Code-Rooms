@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit V: Statistics</title>
+    <link rel="stylesheet" href="../../../../../../style.css">
+    <link rel="stylesheet" href="../../../../../offCanvas.css">
+    <style>
+        .sub h3 {
+            color: rgb(45, 237, 183);
+        }
+        .sub li {
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Unit V: Statistics</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+    <header class="fakeWala">
+        <h1>Unit V: Statistics</h1>
+        <button id="menuButton" class="menu-button">☰ Topics</button>
+    </header>
+
+    <!-- Off-canvas sidebar for topics -->
+    <div id="offCanvas" class="off-canvas">
+        <button id="closeButton" class="close-button">×</button>
+        <h2>Topics</h2>
+        <ul>
+            <li><a href="#topic1"><p>Introduction To Statistics & Moments</p></a></li>
+            <li><a href="#topic2"><p>Moment Generating Functions</p></a></li>
+            <li><a href="#topic3"><p>Skewness</p></a></li>
+            <li><a href="#topic4"><p>Kurtosis</p></a></li>
+            <li><a href="#topic5"><p>Correlation and Regression Analysis</p></a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <a href="topics/topic1.html">
+        <section id="topic1" class="sub">
+            <h3>Statistics & Moments</h3>
+            <p>Introduction to Moments in Statistics:
+                <ul>
+                    <li><strong>Definition:</strong> Moments are quantitative measures of the shape of a probability distribution.</li>
+                    <li><strong>Types of Moments:</strong> First moment (mean), second moment (variance), third moment (skewness), fourth moment (kurtosis).</li>
+                    <li><strong>Moment Calculation:</strong> The nth moment about the mean is calculated as <em>μₙ = Σ(xᵢ - μ)ⁿ / N</em>.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic2.html">
+        <section id="topic2" class="sub">
+            <h3>Moment Generating Functions</h3>
+            <p>Understanding Moment Generating Functions:
+                <ul>
+                    <li><strong>Definition:</strong> Moment generating function (MGF) of a random variable is a function used to derive moments.</li>
+                    <li><strong>Formula:</strong> The MGF is given by <em>M(t) = E[e^(tX)]</em>, where <em>E</em> is the expected value.</li>
+                    <li><strong>Purpose:</strong> Helps in deriving the mean, variance, skewness, kurtosis, and other properties of distributions.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic3.html">
+        <section id="topic3" class="sub">
+            <h3>Skewness</h3>
+            <p>Understanding Skewness:
+                <ul>
+                    <li><strong>Definition:</strong> Skewness measures the asymmetry of the probability distribution of a real-valued random variable.</li>
+                    <li><strong>Formula:</strong> Skewness is calculated as <em>γ₁ = (E[(X - μ)³]) / (σ³)</em>, where <em>μ</em> is the mean and <em>σ</em> is the standard deviation.</li>
+                    <li><strong>Interpretation:</strong> Positive skew indicates a longer right tail, while negative skew indicates a longer left tail.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic4.html">
+        <section id="topic4" class="sub">
+            <h3>Kurtosis</h3>
+            <p>Understanding Kurtosis:
+                <ul>
+                    <li><strong>Definition:</strong> Kurtosis measures the "tailedness" or the sharpness of the peak of a distribution compared to the normal distribution.</li>
+                    <li><strong>Formula:</strong> Kurtosis is calculated as <em>γ₂ = (E[(X - μ)⁴]) / (σ⁴)</em>.</li>
+                    <li><strong>Interpretation:</strong> High kurtosis indicates heavy tails and a sharp peak, while low kurtosis suggests light tails and a flat peak.</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+
+        <a href="topics/topic5.html">
+        <section id="topic5" class="sub">
+            <h3>Correlation and Regression Analysis</h3>
+            <p>Understanding Correlation and Regression Analysis:
+                <ul>
+                    <li><strong>Correlation:</strong> Measures the relationship between two variables. The Pearson correlation coefficient is calculated as <em>r = Σ[(xᵢ - x̄)(yᵢ - ȳ)] / √Σ(xᵢ - x̄)² Σ(yᵢ - ȳ)²</em>.</li>
+                    <li><strong>Regression:</strong> Models the relationship between a dependent variable and one or more independent variables. Linear regression is typically expressed as <em>y = mx + c</em>.</li>
+                    <li><strong>Purpose:</strong> Correlation shows strength and direction of the relationship, while regression predicts the value of the dependent variable based on the independent variable(s).</li>
+                </ul>
+            </p>
+        </section>
+        </a>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+    </footer>
+    <script src="../../../../../script.js"></script>
+</body>
+</html>
