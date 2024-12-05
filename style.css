@@ -26,14 +26,14 @@ header {
     border-bottom-left-radius: 40px;
     border-bottom-right-radius: 40px;
 
-    line-height: 1;
+    line-height: 1.3;
    
     position: fixed;
     overflow: hidden;
     z-index: 1000;
     margin-bottom: 10px;
     text-wrap: wrap;
-    max-height: 24vh;
+    max-height: 22vh;
 }
 .fakeWala{
     width: calc(100% - 30px);
