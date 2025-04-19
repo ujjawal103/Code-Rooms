@@ -1,108 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit II: Data Modeling using ER Model</title>
-    <link rel="stylesheet" href="../../../../../../style.css">
-    <link rel="stylesheet" href="../../../../../offCanvas.css">
-    <style>
-        .sub h3 {
-            color: rgb(45, 237, 183);
-        }
-        .sub li {
-            color: black;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Unit II: ER and EER Diagrams</title>
+  <link rel="stylesheet" href="../../../../../../style.css" />
+  <link rel="stylesheet" href="../../../../../offCanvas.css" />
+  <style>
+    .sub h3 {
+      color: rgb(45, 237, 183);
+    }
+    .sub li {
+      color: black;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Data Modeling using the Entity Relationship Model</h1>
-        <button id="menuButton" class="menu-button">☰ Topics</button>
-    </header>
-    <header class="fakeWala">
-        <h1>Data Modeling using the Entity Relationship Model</h1>
-        <button id="menuButton" class="menu-button">☰ Topics</button>
-    </header>
+  <header>
+    <h1>ER and EER Diagrams</h1>
+    <button id="menuButton" class="menu-button">☰ Topics</button>
+  </header>
+  <header class="fakeWala">
+    <h1>ER and EER Diagrams</h1>
+    <button id="menuButton" class="menu-button">☰ Topics</button>
+  </header>
 
-    <!-- Off-canvas sidebar for topics -->
-    <div id="offCanvas" class="off-canvas">
-        <button id="closeButton" class="close-button">×</button>
-        <h2>Topics</h2>
-        <ul>
-            <li><a href="#topic1"><p>ER Model Concepts</p></a></li>
-            <li><a href="#topic2"><p>ER Diagram Notation</p></a></li>
-            <li><a href="#topic3"><p>Mapping Constraints</p></a></li>
-            <li><a href="#topic4"><p>Keys: Super, Candidate, and Primary Key</p></a></li>
-            <li><a href="#topic5"><p>Generalization and Aggregation</p></a></li>
-            <li><a href="#topic6"><p>Reduction of ER Diagrams to Tables</p></a></li>
-            <li><a href="#topic7"><p>Extended ER Model</p></a></li>
-            <li><a href="#topic8"><p>Relationship of Higher Degree</p></a></li>
-        </ul>
-    </div>
+  <!-- Off-canvas sidebar for topics -->
+  <div id="offCanvas" class="off-canvas">
+    <button id="closeButton" class="close-button">×</button>
+    <h2>Topics</h2>
+    <ul>
+      <li><a href="#topic1"><p>ER Diagram</p></a></li>
+      <li><a href="#topic2"><p>Keys</p></a></li>
+      <li><a href="#topic3"><p>EER Diagram</p></a></li>
+    </ul>
+  </div>
 
-    <main class="main-content">
-        <a href="topics/topic1.html">
-        <section id="topic1" class="sub">
-            <h3>ER Model Concepts</h3>
-            <p>Introduction to the basic concepts of the Entity Relationship (ER) model, used for designing databases.</p>
-        </section>
-        </a>
+  <main class="main-content">
+    <a href="topics/er-diagram.html">
+      <section id="topic1" class="sub">
+        <h3>ER Diagram</h3>
+        <p>Understand how to design Entity Relationship Diagrams (ERDs) to visually represent data models including entities, attributes, and relationships.</p>
+      </section>
+    </a>
 
-        <a href="topics/topic2.html">
-        <section id="topic2" class="sub">
-            <h3>ER Diagram Notation</h3>
-            <p>Learn about the notation used to represent entities, relationships, and attributes in an ER diagram.</p>
-        </section>
-        </a>
+    <a href="topics/keys.html">
+      <section id="topic2" class="sub">
+        <h3>Keys</h3>
+        <p>Explore different types of keys in DBMS—Super Key, Candidate Key, and Primary Key—and their roles in uniquely identifying data.</p>
+      </section>
+    </a>
 
-        <a href="topics/topic3.html">
-        <section id="topic3" class="sub">
-            <h3>Mapping Constraints</h3>
-            <p>Understand mapping constraints, including cardinality constraints, and how they define the relationships between entities.</p>
-        </section>
-        </a>
+    <a href="topics/eer-diagram.html">
+      <section id="topic3" class="sub">
+        <h3>EER Diagram</h3>
+        <p>Learn about Enhanced Entity Relationship (EER) Diagrams, an extension of ER models that includes concepts like generalization, specialization, and categorization.</p>
+      </section>
+    </a>
+  </main>
 
-        <a href="topics/topic4.html">
-        <section id="topic4" class="sub">
-            <h3>Keys: Super, Candidate, and Primary Key</h3>
-            <p>Explore the concepts of super keys, candidate keys, and primary keys, and their importance in database design.</p>
-        </section>
-        </a>
+  <footer>
+    <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
+  </footer>
 
-        <a href="topics/topic5.html">
-        <section id="topic5" class="sub">
-            <h3>Generalization and Aggregation</h3>
-            <p>Learn about the generalization and aggregation concepts in the ER model to deal with hierarchy and complex relationships.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic6.html">
-        <section id="topic6" class="sub">
-            <h3>Reduction of ER Diagrams to Tables</h3>
-            <p>Understand how to reduce an ER diagram into tables to implement the design in a relational database.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic7.html">
-        <section id="topic7" class="sub">
-            <h3>Extended ER Model</h3>
-            <p>Explore the extended ER model, which includes additional concepts like specialization, generalization, and categorization.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic8.html">
-        <section id="topic8" class="sub">
-            <h3>Relationship of Higher Degree</h3>
-            <p>Learn about relationships of higher degree and how they are represented in the ER model to handle more complex scenarios.</p>
-        </section>
-        </a>
-    </main>
-
-    <footer>
-        <p>&copy; 2024 My Notes !! Ujjawal Jaiswal</p>
-    </footer>
-
-    <script src="../../../../../script.js"></script>
+  <script src="../../../../../script.js"></script>
 </body>
 </html>

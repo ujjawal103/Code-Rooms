@@ -17,100 +17,57 @@
 </head>
 <body>
     <header>
-        <h1>Unit III: Relational Data Model and Language</h1>
+        <h1>Relational Data Model and Language</h1>
         <button id="menuButton" class="menu-button">☰ Topics</button>
     </header>
     <header class="fakeWala">
-        <h1>Unit III: Relational Data Model and Language</h1>
+        <h1>Relational Data Model and Language</h1>
         <button id="menuButton" class="menu-button">☰ Topics</button>
     </header>
 
-    <!-- Off-canvas sidebar for topics -->
+    <!-- Off-canvas sidebar -->
     <div id="offCanvas" class="off-canvas">
         <button id="closeButton" class="close-button">×</button>
         <h2>Topics</h2>
         <ul>
-            <li><a href="#topic1"><p>Relational Data Model Concepts</p></a></li>
-            <li><a href="#topic2"><p>Integrity Constraints</p></a></li>
-            <li><a href="#topic3"><p>Entity Integrity</p></a></li>
-            <li><a href="#topic4"><p>Referential Integrity</p></a></li>
-            <li><a href="#topic5"><p>Keys Constraints</p></a></li>
-            <li><a href="#topic6"><p>Domain Constraints</p></a></li>
-            <li><a href="#topic7"><p>Relational Algebra</p></a></li>
-            <li><a href="#topic8"><p>Relational Calculus</p></a></li>
-            <li><a href="#topic9"><p>Tuple Calculus</p></a></li>
-            <li><a href="#topic10"><p>Domain Calculus</p></a></li>
+            <li><a href="#topic1"><p>Intro to RDBMS</p></a></li>
+            <li><a href="#topic2"><p>Integrity Constraints & Codd's Rules</p></a></li>
+            <li><a href="#topic3"><p>Relational Algebra & Calculus</p></a></li>
         </ul>
     </div>
 
     <main class="main-content">
         <a href="topics/topic1.html">
         <section id="topic1" class="sub">
-            <h3>Relational Data Model Concepts</h3>
-            <p>Introduction to the relational data model, its components, and how it represents data in the form of tables (relations).</p>
+            <h3>Intro to RDBMS</h3>
+            <p>Learn about the Relational Database Management System (RDBMS), its structure, and how it manages data using relations (tables).</p>
         </section>
         </a>
 
         <a href="topics/topic2.html">
         <section id="topic2" class="sub">
-            <h3>Integrity Constraints</h3>
-            <p>Learn about integrity constraints that ensure the accuracy and consistency of data in a relational database.</p>
+            <h3>Integrity Constraints & Codd's Rules</h3>
+            <p>This topic covers the rules that govern the validity and consistency of data in RDBMS, including:</p>
+            <ul>
+                <li><strong>Integrity Constraints</strong> – Entity Integrity, Referential Integrity, Domain Constraints, and Key Constraints</li>
+                <li><strong>Codd’s Rules</strong> – The 12 rules proposed by E.F. Codd that define what qualifies a system as a true RDBMS</li>
+            </ul>
         </section>
         </a>
 
         <a href="topics/topic3.html">
         <section id="topic3" class="sub">
-            <h3>Entity Integrity</h3>
-            <p>Explore entity integrity constraints that ensure each row (tuple) in a relation is uniquely identifiable.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic4.html">
-        <section id="topic4" class="sub">
-            <h3>Referential Integrity</h3>
-            <p>Understand referential integrity constraints that ensure relationships between tables are maintained accurately.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic5.html">
-        <section id="topic5" class="sub">
-            <h3>Keys Constraints</h3>
-            <p>Learn about keys in relational databases, including primary keys, foreign keys, and unique keys, and their role in enforcing constraints.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic6.html">
-        <section id="topic6" class="sub">
-            <h3>Domain Constraints</h3>
-            <p>Explore domain constraints that specify valid values for attributes in a relation.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic7.html">
-        <section id="topic7" class="sub">
-            <h3>Relational Algebra</h3>
-            <p>Introduction to relational algebra, a procedural query language for relational databases that uses operators to manipulate relations.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic8.html">
-        <section id="topic8" class="sub">
-            <h3>Relational Calculus</h3>
-            <p>Explore relational calculus, a declarative query language used to express queries without describing the procedure to be followed.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic9.html">
-        <section id="topic9" class="sub">
-            <h3>Tuple Calculus</h3>
-            <p>Learn about tuple calculus, a type of relational calculus that focuses on specifying the tuples to be selected based on certain conditions.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic10.html">
-        <section id="topic10" class="sub">
-            <h3>Domain Calculus</h3>
-            <p>Understand domain calculus, which focuses on specifying the domain (set of values) that the attributes should satisfy for the tuples to be selected.</p>
+            <h3>Relational Algebra & Calculus</h3>
+            <p>Study the formal foundations of querying relational databases:</p>
+            <ul>
+                <li><strong>Relational Algebra</strong> – A procedural query language using operations like select, project, union, set difference, and join.</li>
+                <li><strong>Relational Calculus</strong> – A non-procedural query language with two forms:
+                    <ul>
+                        <li>Tuple Relational Calculus (TRC)</li>
+                        <li>Domain Relational Calculus (DRC)</li>
+                    </ul>
+                </li>
+            </ul>
         </section>
         </a>
     </main>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit V: Concurrency Control Techniques</title>
+    <title>Concurrency Control Technique</title>
     <link rel="stylesheet" href="../../../../../../style.css">
     <link rel="stylesheet" href="../../../../../offCanvas.css">
     <style>
@@ -17,11 +17,11 @@
 </head>
 <body>
     <header>
-        <h1>Concurrency Control Techniques</h1>
+        <h1>Concurrency Control Technique</h1>
         <button id="menuButton" class="menu-button">☰ Topics</button>
     </header>
     <header class="fakeWala">
-        <h1>Concurrency Control Techniques</h1>
+        <h1>Concurrency Control Technique</h1>
         <button id="menuButton" class="menu-button">☰ Topics</button>
     </header>
 
@@ -30,39 +30,16 @@
         <button id="closeButton" class="close-button">×</button>
         <h2>Topics</h2>
         <ul>
-            <li><a href="#topic1"><p>Concurrency Control</p></a></li>
-            <li><a href="#topic2"><p>Locking Techniques for Concurrency Control</p></a></li>
-            <li><a href="#topic3"><p>Timestamping Protocols for Concurrency Control</p></a></li>
-            <li><a href="#topic4"><p>Validation Based Protocol</p></a></li>
+            <li><a href="#topic1"><p>Concurrency Control Overview</p></a></li>
         </ul>
     </div>
 
     <main class="main-content">
         <a href="topics/topic1.html">
         <section id="topic1" class="sub">
-            <h3>Concurrency Control</h3>
-            <p>Introduction to concurrency control and the importance of ensuring transaction correctness in a multi-user environment.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic2.html">
-        <section id="topic2" class="sub">
-            <h3>Locking Techniques for Concurrency Control</h3>
-            <p>Learn about various locking techniques, such as two-phase locking, and how they ensure data integrity during concurrent transactions.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic3.html">
-        <section id="topic3" class="sub">
-            <h3>Timestamping Protocols for Concurrency Control</h3>
-            <p>Explore timestamp-based protocols and how they help in ordering transactions to maintain consistency and avoid conflicts.</p>
-        </section>
-        </a>
-
-        <a href="topics/topic4.html">
-        <section id="topic4" class="sub">
-            <h3>Validation Based Protocol</h3>
-            <p>Learn about validation-based protocols, which ensure that a transaction is validated before being committed, preventing conflicts in concurrent environments.</p>
+            <h3>Concurrency Control Overview</h3>
+            <p>Concurrency control ensures that database transactions are executed in a safe and consistent manner in a multi-user environment. This technique prevents conflicts, anomalies, and data inconsistency that may arise when multiple transactions are performed simultaneously.</p>
+            <p>The main goal of concurrency control is to allow transactions to be executed concurrently without affecting the correctness of the database. Different protocols are used to achieve this goal, such as lock-based protocols, timestamp-based protocols, and validation-based protocols.</p>
         </section>
         </a>
     </main>
